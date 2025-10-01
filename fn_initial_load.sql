@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION boom.fn_initial_load(p_scrivi_log bigint, p_item_inp 
  LANGUAGE plpgsql
 AS $function$
 DECLARE
-    -- v. 25092025 lp
+    -- v. 01102025 lp
     -- ERRORE_ELABORAZIONE EXCEPTION; -- Puoi decommentare se hai una definizione globale per questa eccezione
 
     -- Variabili per i parametri di input della funzione
@@ -442,7 +442,7 @@ DECLARE
          --- AND td.transaction_code = p_transaction_code
           ---AND td.processing_item = p_processing_item
           AND td.item = p_item
-        ORDER BY processing_item, td.transaction_code, CASE WHEN td.processing_sale_code = 0 AND processing_item != 0 THEN td.id ELSE 1 END DESC, td.id ASC;
+        ORDER BY processing_item, td.transaction_code, CASE WHEN td.processing_sale_code = 0 AND processing_item != 0 THEN td.id ELSE 1 END ASC, td.id ASC;
 
 BEGIN
     -- Imposta i parametri di input della funzione (questi dovranno essere passati quando chiami la funzione)
@@ -1440,7 +1440,9 @@ BEGIN
 
 							v_sale_code_exists := FALSE;
 
-                            SELECT EXISTS (SELECT 1 FROM tmd_sale_codes_var WHERE item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) FOR UPDATE) INTO v_sale_code_exists;
+                            SELECT EXISTS (SELECT 1 FROM tmd_sale_codes_var WHERE   item_sale_id = W_ITEM_SALE_ID 
+                            AND code_type_pc = r_item_data.sale_code_type_pc 
+                            AND (network_id IS NULL OR network_id = r_item_data.network_id) FOR UPDATE) INTO v_sale_code_exists;
 
                             IF v_sale_code_exists THEN
 
@@ -1453,27 +1455,27 @@ BEGIN
 
                                 UPDATE tmd_sale_codes_var
                                 SET is_label = 0 ,
-                                    last_user = 'AGGIORNO',
+                                    last_user = p_user,
                                     transaction_code = r_item_data.transaction_code
-                                    WHERE item_sale_id = W_ITEM_SALE_ID ;
+                                WHERE item_sale_id = W_ITEM_SALE_ID and code_type_pc = r_item_data.sale_code_type_pc;
+                      
 
  							    w_log_text := '1- AGGIORNO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
                                 IF w_f_scrivi_log = 1 THEN
                                     w_log_return := fn_log('INFO', 'PG_ITEM_PROCESSING', w_log_text, 0);
                                 END IF;
 
-                				 UPDATE tmd_sale_codes_var
-                                SET end_date = CURRENT_DATE - INTERVAL '1 day',
-                                    is_updated = 1,
-                                    is_label = 0 ,
-                                    last_user = 'AGGIORNO',
-                                    transaction_code = r_item_data.transaction_code
-                                    WHERE item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) AND CURRENT_DATE BETWEEN start_date AND end_date;
+        --        				 UPDATE tmd_sale_codes_var set
+        ---                            is_updated = 1,
+         --                           is_label = 0 ,
+         --                           last_user = p_user,
+         ---                           transaction_code = r_item_data.transaction_code
+         ----                       WHERE sale_code = r_item_data.sale_code and  item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) AND r_item_data.start_date_sale_code BETWEEN start_date AND end_date;
 
-                                    w_log_text := '1- INSERISCO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
-                                    IF w_f_scrivi_log = 1 THEN
-                                            w_log_return := fn_log('INFO', 'PG_ITEM_PROCESSING', w_log_text, 0);
-                                        END IF;
+                                w_log_text := '1- INSERISCO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
+                                IF w_f_scrivi_log = 1 THEN
+                                    w_log_return := fn_log('INFO', 'PG_ITEM_PROCESSING', w_log_text, 0);
+                                END IF;
 
                                 w_network_id := NULL;
                                 w_plu_code := NULL;
@@ -1504,7 +1506,7 @@ BEGIN
                                     transaction_code
                                 ) VALUES (
                                     (select id from tmd_item_sales where item_id = w_item_id),
-                                w_network_id,
+                                    w_network_id,
                                     r_item_data.sale_code_type_pc,
                                     r_item_data.sale_code,
                                     r_item_data.start_date_sale_code,
@@ -1520,12 +1522,20 @@ BEGIN
                                 );
 
                             ELSE
+                              	w_log_text := '1- FORZO IL FLAG ETICHETTA A 0 SU  TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
+
+                                UPDATE tmd_sale_codes_var
+                                SET is_label = 0 ,
+                                    last_user = p_user,
+                                    transaction_code = r_item_data.transaction_code
+                                WHERE item_sale_id = W_ITEM_SALE_ID and code_type_pc = r_item_data.sale_code_type_pc;
+                                -----
                                 w_log_text := '1.1 - INSERISCO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
                                 IF w_f_scrivi_log = 1 THEN
                                     w_log_return := fn_log('INFO', 'PG_ITEM_PROCESSING', w_log_text, 0);
                                 END IF;
                                 ---
-                               w_network_id := NULL;
+                                w_network_id := NULL;
                                 w_plu_code := NULL;
                                 w_bilance_department_pc := NULL;
                                 w_bilance_code := NULL;
@@ -1666,7 +1676,7 @@ BEGIN
                             AND regexp_match(ti.item collate "C"/*case_like*/,'[A-Za-z]') IS NULL
                             AND NOT EXISTS (
                                 SELECT 1 FROM tmd_sale_codes_var tscv
-                                WHERE tscv.code_type_pc = 12 AND CURRENT_DATE BETWEEN tscv.start_date AND tscv.end_date AND tscv.item_sale_id = tis.id
+                                WHERE tscv.code_type_pc = 12 AND CURRENT_DATE BETWEEN tscv.start_date AND tscv.end_date AND tscv.item_sale_id = tis.id 
                             )
                             AND EXISTS (
                                 SELECT 1 FROM tmd_feature_item_links tfil
@@ -1739,7 +1749,7 @@ BEGIN
                                 SELECT EXISTS (SELECT 1 FROM tmd_orderable_assortments_var WHERE item_id = W_ITEM_ID
                                 AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_LOGISTIC_UNIT_ID
                                 AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID AND network_id = r_item_data.network_id
-                                AND CURRENT_DATE = start_date  FOR UPDATE) INTO v_orderable_assortment_exists;
+                                AND r_item_data.start_date_assortment = start_date  FOR UPDATE) INTO v_orderable_assortment_exists;
 
                                 IF v_orderable_assortment_exists then
                                     w_log_text := '1 - RECORD PRESENTE NON FACCIO NULLA per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
@@ -1756,7 +1766,7 @@ BEGIN
                                     SELECT EXISTS (SELECT 1 FROM tmd_orderable_assortments_var WHERE item_id = W_ITEM_ID
                                     AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_LOGISTIC_UNIT_ID
                                     AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID AND network_id = r_item_data.network_id
-                                    AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_orderable_assortment_exists;
+                                    AND r_item_data.start_date_assortment BETWEEN start_date AND end_date FOR UPDATE) INTO v_orderable_assortment_exists;
 
                                     IF v_orderable_assortment_exists THEN
                                         w_log_text := '1 - AGGIORNO ASSORTIMENTO FORNITORE CENTRALE VAR 1 per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
@@ -1765,8 +1775,15 @@ BEGIN
                                         END IF;
 
                                         UPDATE tmd_orderable_assortments_var
-                                        SET
                                             ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
+                                            SET end_date = CASE
+                                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                                    ELSE start_date
+                                            END,
                                             is_updated = 1,
 											main_supplier = 0,
                                             last_user = P_USER,
@@ -1776,7 +1793,7 @@ BEGIN
                                           AND logistic_unit_id = W_LOGISTIC_UNIT_ID
                                           AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
                                           AND network_id = r_item_data.network_id
-                                          AND CURRENT_DATE BETWEEN start_date AND end_date;
+                                          AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
 
 --                                        w_log_text := '1 - AGGIORNO TMD_ORDERABLE_ASSORTMENTS per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
 --                                        IF w_f_scrivi_log = 1 THEN
@@ -1806,7 +1823,7 @@ BEGIN
                                             assortment_status_pc, delivery_status_pc, is_updated, last_user, transaction_code
                                         ) VALUES (
                                             W_ORDERABLE_ASSORTMENTS_ID, W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID, r_item_data.OPERATIONAL_AGREEMENT_ID,
-                                            r_item_data.network_id, CURRENT_DATE, TO_DATE('31/12/2099', 'DD/MM/YYYY'), 1,
+                                            r_item_data.network_id, r_item_data.start_date_assortment, r_item_data.end_date_assortment , 1,
                                             r_item_data.min_order, r_item_data.max_order, r_item_data.multiple_reorder,64,66,
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
@@ -1831,7 +1848,15 @@ BEGIN
                                         END IF;
 
     									 UPDATE tmd_orderable_assortments_var
-                                        SET  ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
+                                     ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
+                                                SET end_date = CASE
+                                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                                    ELSE start_date
+                                                END,
                                              is_updated = 1,
 											main_supplier = 0,
                                             last_user = P_USER,
@@ -1841,7 +1866,7 @@ BEGIN
                                           AND logistic_unit_id = W_LOGISTIC_UNIT_ID
                                    ----       AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
                                           AND network_id = r_item_data.network_id
-                                          AND CURRENT_DATE BETWEEN start_date AND end_date;
+                                          AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
 
                                         SELECT nextval('tmd_orderable_assortments_id_seq'::regclass) INTO W_ORDERABLE_ASSORTMENTS_ID;
 
@@ -1852,7 +1877,7 @@ BEGIN
                                         ) VALUES (
                                             W_ORDERABLE_ASSORTMENTS_ID,  W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID,
                                             r_item_data.OPERATIONAL_AGREEMENT_ID,
-                                            r_item_data.network_id, CURRENT_DATE, TO_DATE('31/12/2099', 'DD/MM/YYYY'), 1,
+                                            r_item_data.network_id, r_item_data.start_date_assortment, r_item_data.end_date_assortment, 1,
                                             r_item_data.min_order, r_item_data.max_order, r_item_data.multiple_reorder,64,66,
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
@@ -2165,7 +2190,7 @@ BEGIN
                             SELECT EXISTS (SELECT 1 FROM tmd_purchase_prices_var WHERE item_id = W_ITEM_ID
                                 AND operational_agreement_id =  r_item_data.OPERATIONAL_AGREEMENT_ID
                                 AND network_id = r_item_data.network_id AND cost_type_pc = 1
-                                AND CURRENT_DATE = start_date  FOR UPDATE) INTO v_purchase_price_exists;
+                                AND r_item_data.start_date_purchase = start_date  FOR UPDATE) INTO v_purchase_price_exists;
 
                             IF v_purchase_price_exists then
                                 w_log_text := '1 - RECORD PRESENTE NON FACCIO NULLA per item_id ' || W_ITEM_ID
@@ -2184,7 +2209,7 @@ BEGIN
                                 SELECT EXISTS (SELECT 1 FROM tmd_purchase_prices_var WHERE item_id = W_ITEM_ID
                                 AND operational_agreement_id =  r_item_data.OPERATIONAL_AGREEMENT_ID
                                 AND network_id = r_item_data.network_id AND cost_type_pc = 1
-                                AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_purchase_price_exists;
+                                AND  r_item_data.start_date_purchase BETWEEN start_date AND end_date FOR UPDATE) INTO v_purchase_price_exists;
 
                                 IF v_purchase_price_exists THEN
                                     w_log_text := 'AGGIORNO PREZZO DI ACQUISTO tmd_purchase_prices_var per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
@@ -2193,16 +2218,22 @@ BEGIN
                                     END IF;
 
                                     UPDATE tmd_purchase_prices_var
-                                    SET
-                                        end_date = CURRENT_DATE - INTERVAL '1 day',
-                                        is_updated = 1,
+                                        SET end_date = CASE
+                                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                                    ELSE start_date
+                                        END,
+                                          is_updated = 1,
                                         last_user = P_USER,
                                         transaction_code = r_item_data.transaction_code
                                     WHERE item_id = W_ITEM_ID
                                       AND operational_agreement_id =  r_item_data.OPERATIONAL_AGREEMENT_ID
                                       AND network_id = r_item_data.network_id
                                       AND cost_type_pc = 1
-                                      AND CURRENT_DATE BETWEEN start_date AND end_date;
+                                      AND  r_item_data.start_date_purchase BETWEEN start_date AND end_date;
 
 --                                    w_log_text := 'AGGIORNO PREZZO DI ACQUISTO tmd_purchase_prices per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
 --                                    IF w_f_scrivi_log = 1 THEN
@@ -2236,8 +2267,8 @@ BEGIN
                                            r_item_data.purchase_price,
                                            r_item_data.unit_purchase_price_pc,
                                            COALESCE(NULLIF(r_item_data.purchase_vat_id, -1), w_iva_acq_item ),
-                                           CURRENT_DATE,
-                                           TO_DATE('31/12/2099', 'DD/MM/YYYY'),
+                                            r_item_data.start_date_purchase,
+                                           r_item_data.end_date_purchase,
                                            1,
                                            1,
                                            P_USER,
@@ -2260,8 +2291,8 @@ BEGIN
                                            r_item_data.purchase_price,
                                            r_item_data.unit_purchase_price_pc,
                                            COALESCE(NULLIF(r_item_data.purchase_vat_id, -1), w_iva_acq_item),
-                                           CURRENT_DATE,
-                                           TO_DATE('31/12/2099', 'DD/MM/YYYY'),
+                                            r_item_data.start_date_purchase,
+                                           r_item_data.end_date_purchase,
                                            1,
                                            1,
                                            P_USER,
@@ -2279,7 +2310,7 @@ BEGIN
                                 FROM tmd_purchase_prices_var
                                 WHERE item_id = W_ITEM_ID
                                   AND ID = W_PURCHASE_PRICES_ID
-                                  AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
+                                  AND r_item_data.start_date_purchase BETWEEN START_DATE AND END_DATE;
                             END IF;
                         END IF;
                     END IF; -- Chiusura IF r_item_data.update_purchase_price = 1
@@ -2296,7 +2327,7 @@ BEGIN
                             w_log_return := fn_log('INFO', 'PG_ITEM_PROCESSING', w_log_text, 0);
                         END IF;
 
-                        SELECT EXISTS (SELECT 1 FROM tmd_sale_prices_var WHERE item_sale_id = W_ITEM_SALE_ID AND network_id = r_item_data.network_id AND sale_price_type_pc = 1 AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_sale_price_exists;
+                        SELECT EXISTS (SELECT 1 FROM tmd_sale_prices_var WHERE item_sale_id = W_ITEM_SALE_ID AND network_id = r_item_data.network_id AND sale_price_type_pc = 1 AND r_item_data.start_date_sale BETWEEN start_date AND end_date FOR UPDATE) INTO v_sale_price_exists;
 
                         IF v_sale_price_exists THEN
                             w_log_text := 'AGGIORNO PREZZO DI VENDITA VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || r_item_data.network_id;
@@ -2305,15 +2336,21 @@ BEGIN
                             END IF;
 
                             UPDATE tmd_sale_prices_var
-                            SET
-                                end_date = CURRENT_DATE - INTERVAL '1 day',
-                                is_sent = 0,
+                                    SET end_date = CASE
+                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                    ELSE start_date
+                                END,
+                                 is_sent = 0,
                                 last_user = P_USER,
                                 transaction_code = r_item_data.transaction_code
                             WHERE item_sale_id = W_ITEM_SALE_ID
                               AND network_id = r_item_data.network_id
                               AND sale_price_type_pc = 1
-                              AND CURRENT_DATE BETWEEN start_date AND end_date;
+                              AND r_item_data.start_date BETWEEN start_date AND end_date;
 
                             w_log_text := 'INSERISCO PREZZO DI VENDITA VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || r_item_data.network_id;
                             IF w_f_scrivi_log = 1 THEN
@@ -2332,8 +2369,8 @@ BEGIN
                                    r_item_data.unit_sale_price_pc,
                                    1,
                                    COALESCE(r_item_data.sale_vat_id, W_VAT_ID),
-                                   CURRENT_DATE,
-                                   TO_DATE('31/12/2099', 'DD/MM/YYYY'),
+                                   r_item_data.start_date_sale,
+                                   r_item_data.end_date_sale,
                                    0,
                                    1,
                                    P_USER,
@@ -2356,8 +2393,8 @@ BEGIN
                                    r_item_data.unit_sale_price_pc,
                                    1,
                                    COALESCE(r_item_data.sale_vat_id, W_VAT_ID),
-                                   CURRENT_DATE,
-                                   TO_DATE('31/12/2099', 'DD/MM/YYYY'),
+                                   r_item_data.start_date_sale,
+                                   r_item_data.end_date_sale,
                                    0,
                                    1,
                                    P_USER,
