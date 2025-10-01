@@ -1,0 +1,924 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_POSTGRESQL_BO",
+      "label": "PostgreSQL BO",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-postgresql-datasource",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "12.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-postgresql-datasource",
+      "name": "PostgreSQL",
+      "version": "12.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHGEN"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT     count(*) AS TOT_righe, \r\n   SUM( CASE WHEN processing_step1 <>0 THEN 1 END) AS FASE1_ELAB ,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN 1 END) AS FASE2_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN 1 END) AS FASE3_ELAB\r\n   --------SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN 1 END) AS FASE4_ELAB\r\n  --- count(distinct ITEM) AS TOT_ART, \r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN item END) AS FLUSSOPH_ART,\r\n   -- COUNT(DISTINCT CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE THEN item END) AS FLUSSOEH_EAN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN item END) AS FLUSSOIH_INGR_ALLERG,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%FH%' collate CASE_LIKE THEN item END) AS FLUSSOFH_FORN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%SH%' collate CASE_LIKE THEN item END) AS FLUSSOSH_ASSFORN\r\nFROM tin_data_third_party_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n AND (network_code IS NULL OR network_code IN ($vg_store));\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "TOTALI ",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 2,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT    \r\n   COUNT(DISTINCT third_party||operational_agreement) AS FORNITORI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN third_party||operational_agreement END) AS FASE1_FILE_FORN ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN third_party||operational_agreement END) AS FASE2_ARRICHFILE_FORN,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN third_party||operational_agreement END) AS FASE3_CAR_BOOM_FORN\r\n  ----- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_third_party_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n AND (network_code IS NULL OR network_code IN ($vg_store));",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Flusso FH - Fornitori Nr.",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_data_creaz"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_data_agg"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "data_agg"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 168
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_nome_file"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 272
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_num_riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 134
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_negozio"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 74
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_1"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_2"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_3"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 125
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_articolo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-blues"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "fase_3"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "mess_err"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 182
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "desc_vendita"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 203
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prz_acq"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 99
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prz_vend"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tab_forn"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 128
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "desc_fornit"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 394
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "forn"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 79
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "desc_forn"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 363
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "acc_oper"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "desc_acc_oper"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 196
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "dati_interfaccia"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 173
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_data_creaz"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 195
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_data_agg"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 194
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_nome_file"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 265
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_num_riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 109
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_negozio"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 111
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_1"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 93
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_2"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 102
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_fase_3"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_buffer_dati"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_mess_err"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 506
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "nr_riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_desclunga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 328
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_forn"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 106
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT row_number() OVER(ORDER BY tdio.id)  nr_riga, \r\n   tdio.creation_date AS IL_data_creaz,\r\n    tdio.update_date AS IL_data_agg,\r\n    tdio.file_name AS IL_nome_file,\r\n    tdio.number_line AS IL_num_riga,\r\n    tdio.network_code AS IL_negozio,\r\n    tdio.processing_step1 AS IL_fase_1,\r\n    tdio.processing_step2 AS IL_fase_2,\r\n    tdio.processing_step3 AS IL_fase_3,\r\n   --- tdio.processing_step4 AS IL_fase_4,\r\n\ttdio.third_party as IL_forn,\r\n\ttdio.description as IL_descforn,\r\n\ttdio.business_name as IL_desclunga,\r\n    tdio.vat_number as IL_IVANUMB,\r\n    tdio.operational_agreement as IL_Accordo,\r\n    tdio.description_agreement as IL_DescAccordo, \r\n\t'* TAB_FORN *' as TAB_FORN,\r\n    ---tas.operational_agreement_id AS id_acc_oper_ges,\r\n    ttp.third_party as forn,\r\n    ttp.business_name as desc_forn,\r\n    tma.operational_agreement AS acc_oper,\r\n    tma.description AS desc_acc_oper,\r\n    '* DATI_INTERFACCIA *' as DATI_INTERFACCIA,\r\n    tdio.error_message AS IL_mess_err,\r\n    tdio.buffer_str as IL_buffer_dati\r\nFROM\r\n    tin_data_third_party_in tdio\r\nLEFT JOIN\r\n    tmd_networks tn ON tn.network_code = tdio.network_code\r\nLEFT JOIN\r\n    tmd_operational_agreements tma ON tma.operational_agreement = tdio.operational_agreement\r\nLEFT JOIN\r\n    tmd_third_parties ttp ON ttp.third_party = tdio.third_party\r\nWHERE\r\n    tdio.creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n----    AND (tdio.network_code IS NULL OR tdio.network_code IN ($vg_store))\r\n    AND tdio.processing_step1::text IN ($vg_fase1)\r\n    AND tdio.processing_step2::text IN ($vg_fase2)\r\n    AND tdio.processing_step3::text IN ($vg_fase3)\r\n   ----- AND tdio.processing_step4::text IN ($vg_fase4)\r\n AND (tdio.network_code IS NULL OR tdio.network_code IN ($vg_store))\r\n    order by   tdio.file_name ,\r\n    tdio.number_line ;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Dettaglio Tabella di interfaccia FH",
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 41,
+  "tags": [
+    "DASHFORNITORI"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": false,
+        "current": {},
+        "definition": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere tn.network_code in (select network_code from tin_data_third_party_in tdtpi  )\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
+        "description": "",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "vg_store",
+        "options": [],
+        "query": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere tn.network_code in (select network_code from tin_data_third_party_in tdtpi  )\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "0"
+          ],
+          "value": [
+            "0"
+          ]
+        },
+        "description": "Fase 1",
+        "includeAll": true,
+        "label": "Fase 1",
+        "multi": true,
+        "name": "vg_fase1",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "0,1,2",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "0"
+          ],
+          "value": [
+            "0"
+          ]
+        },
+        "description": "Fase 2",
+        "includeAll": true,
+        "label": "Fase 2",
+        "multi": true,
+        "name": "vg_fase2",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "0,1,2",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "0"
+          ],
+          "value": [
+            "0"
+          ]
+        },
+        "description": "Fase 3",
+        "includeAll": true,
+        "label": "Fase 3",
+        "multi": true,
+        "name": "vg_fase3",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "0,1,2",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "DashBoard Caricamento DATI FORNITORI",
+  "uid": "024721e3-1ed0-4b2f-91c1-481ac3ae3596",
+  "version": 3,
+  "weekStart": ""
+}

@@ -1,0 +1,638 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_POSTGRESQL_BO",
+      "label": "PostgreSQL BO",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-postgresql-datasource",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "12.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-postgresql-datasource",
+      "name": "PostgreSQL",
+      "version": "12.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHGEN"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ID Tracciamento File"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Data Creazione File"
+            },
+            "properties": [
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.width",
+                "value": 238
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nome del File"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 526
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": false,
+                    "title": "Dettaglio errori",
+                    "url": "${URL}/d/jdSMVoXVk/quadrature-riepilogo-dettaglio-file?orgId=1\n&var-selection=${__data.fields[\"Nome del File\"]}\n&var-TipoFile=${TipoFile}\n&from=${__from:date}\n&to=${__to:date}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Rielabora errori file"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Esito elaborazione",
+                    "url": "${URL}/d/jdSMVoXVk/esito-rielaborazione?orgId=1\n&var-Attivo=${__data.fields[\"Rielabora errori file\"]}\n&var-codiceTransmissione=${__data.fields[\"ID Tracciamento File\"]}\n&var-riga=-1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Data Creazione File"
+          }
+        ]
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT  transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND source_type_pc = 20\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '2')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 \r\n                  when processing_step2 > 1 then 1 \r\n                  when processing_step1 > 1 then 1 \r\n                  when processing_item = 2 then 1 \r\n                  when processing_sale_code = 2 then 1 \r\n                  when processing_assortment = 2 then 1  \r\n                  when processing_puchase_price = 2 then 1\r\n                  when processing_sale_price = 2 then 1\r\n                  when processing_feature = 2 then 1\r\n                  else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_item = 2 or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2 then 1\r\n                            when processing_step3<=1 then 0 \r\n                            else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '1')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step2<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_promotion_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '3')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_kit_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '4')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_reception_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '5')\r\nGROUP BY transaction_code,file_name\r\norder by 1",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "File caricati",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 77
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Data Creazione File"
+            },
+            "properties": [
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.width",
+                "value": 163
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nome del File"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 244
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Errori"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 993
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ID Tracciamento File"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              },
+              {
+                "id": "links",
+                "value": []
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Rielabora record"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 142
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Rielabora record",
+                    "url": "${URL}d/WqV3UWv4z/esito-rielaborazione?orgId=1\n&var-Attivo=${__data.fields[\"Rielabora record\"]}\n&var-codiceTransmissione=${__data.fields[\"ID Tracciamento File\"]}\n&var-riga=${__data.fields[\"Riga File\"]}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Riga File"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Data Ultima Elaborazione"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 199
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 19,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT format('Fornitore \"%s\" : \"%s\"',third_party, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nUNION \r\n--\r\nSELECT format('Articolo \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 or processing_item = 2  or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\nUNION \r\n--\r\nSELECT format('KIT \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_kit_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nUNION \r\n--\r\nSELECT format('Promo-Articolo \"%s\" : \"%s\"',trim(promo_code||'-'||item), error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_promotion_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 )\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\nUNION\r\n--\r\nSELECT error_message as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_reception_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 )\r\nAND processing_step3 != 9\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\norder by 2",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Record in errore",
+      "type": "table"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 41,
+  "tags": [
+    "DASHFILE"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "hide": 2,
+        "label": "URL",
+        "name": "URL",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "CH002130_20230804_0200.000",
+          "value": "CH002130_20230804_0200.000"
+        },
+        "hide": 2,
+        "label": "selection",
+        "name": "selection",
+        "options": [
+          {
+            "selected": true,
+            "text": "CH002130_20230804_0200.000",
+            "value": "CH002130_20230804_0200.000"
+          }
+        ],
+        "query": "CH002130_20230804_0200.000",
+        "type": "textbox"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT NETWORK_CODE||' ;'||NETWORK_CODE||' - '||DESCRIPTION FROM TMD_NETWORKS WHERE network_node_type_pc = 4",
+        "description": "Sito/Rete",
+        "includeAll": false,
+        "label": "sito/rete",
+        "name": "network",
+        "options": [],
+        "query": "SELECT NETWORK_CODE||' ;'||NETWORK_CODE||' - '||DESCRIPTION FROM TMD_NETWORKS WHERE network_node_type_pc = 4",
+        "refresh": 1,
+        "regex": "/(\\d+)/",
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "select id from tmd_networks where network_code='${network}'",
+        "hide": 2,
+        "includeAll": false,
+        "name": "network_id",
+        "options": [],
+        "query": "select id from tmd_networks where network_code='${network}'",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT str_val_3 from vpa_parameters where parameter_header=93 and str_val_1='QUADRATURE'",
+        "hide": 2,
+        "includeAll": false,
+        "name": "UPDATE",
+        "options": [],
+        "query": "SELECT str_val_3 from vpa_parameters where parameter_header=93 and str_val_1='QUADRATURE'",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "0",
+          "value": "0"
+        },
+        "hide": 2,
+        "label": "Tipo File",
+        "name": "TipoFile",
+        "options": [
+          {
+            "selected": true,
+            "text": "0",
+            "value": "0"
+          }
+        ],
+        "query": "0",
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "30m"
+    ]
+  },
+  "timezone": "utc",
+  "title": "DashBoard DettaglioFILE",
+  "uid": "dcc76bf6-95c7-4e71-9a0c-b129b92c1a85",
+  "version": 3,
+  "weekStart": ""
+}
