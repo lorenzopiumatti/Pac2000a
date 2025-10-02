@@ -1,0 +1,265 @@
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2198 G.A.N. SRL (P.S.GIOVANNI)                                                    CANALE 010 SUPERSTORE                                      Data decorrenza 14/04/25   Data stampa 12/04/25
+   1               VIA      ADRIATICA                 33-43
+   1               06135 PONTE SAN GIOVANNI
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2*** ARTICOLI NUOVI ***
+   1500 CARNE      I IN ASSORT   733669  1 MAIALINO META'COMPENSATO ESTERO     $$            KG    1 10,0   1        5,99     9,50 30,63 29  3  1 19   199 98436042770017  MAIALINO META'COMPEN
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2*** ARTICOLI VARIATI ***
+   1500 CARNE      I IN ASSORT    85062  1 POSTERIORE BOVINO ADU S/PANCIA CPQ  $$            KG    1 10,0   1        9,22    17,90 43,34 29  1  1  1   210 U9999991000000  POSTERIORE BOVINO AD
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    97797  1 POSTERIORE BOV.ADULTO S/PANCIA      $$            KG    1 10,0   1        9,22    17,90 43,34 29  1  1  1   210 U7777777700000  POSTERIORE VIT.NE NA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85084  1 PERO BOVINO ADULTO CPQ              $$            KG    1 10,0   1        8,48    16,90 44,80 29  1  1  1   215 U9999992000000  PERO BOVINO ADULTO C
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.   99408  1 PERO BOVINO ADULTO C/O              $$            KG    1 10,0   1        8,48    16,90 44,80 29  1  1  1   215 U7272727000000  PERO VITELLONE C/O
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85087  1 LOMBATA C/O BOVINO ADULTO C/FIL.CPQ $$            KG    1 10,0   1       11,65    22,90 44,03 29  1  1  1   240 P1717171000000  LOMBATA C/O BOVINO A
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.   97798  1 LOMBATA C/O BOVINO ADULTO C/FIL     $$            KG    1 10,0   1       11,65    22,90 44,03 29  1  1  1   240 00000000001130  LOMBATA C/O BOVINO A
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85121  1 PANCIA BOVINO ADULTO CPQ            $$            KG    1 10,0   1        6,58    13,90 47,92 29  1  1  1   255 U9999995000000  PANCIA BOVINO ADULTO
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.   97801  1 PANCIA DI BOVINO ADULTO             $$            KG    1 10,0   1        6,58    13,90 47,92 29  1  1  1   256 U0077777000000  PANCIA DI VITELLONE
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    93974  1 POSTERIORE BOVINO ADULTO IT/IT/IT   $$            KG    1 10,0   1        9,41    17,90 42,17 29  1  1  1   261 00000000001113  POSTERIORE BOVINO AD
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.   89065  1 POSTERIORE BOV.AD.(VACCA) S/P IT/IT $$            KG    1 10,0   1        8,48    16,90 44,80 29  1  1  1   273 00000000003204  POSTERIORE BOV.AD.(V
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  718091  1 MEZZENA BOVINO ADULTO ALL.UMBRI ABN $$            KG    1 10,0   1        8,25    15,90 42,92 29  1  1  4   500 01510000000000  MEZZENA BOVINO ADULT
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.  720791  1 POSTERIORE S/P BOV.AD.ALL.UMBRI ABN $$            KG    1 10,0   1        9,50    18,90 44,70 29  1  1  4   510 00140000000000  POSTERIORE S/P BOV.A
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   85065  1 POSTER. BOVINO ADULTO TEDESCO       $$            KG    1 10,0   1        8,45    15,90 41,54 29  1  1  8   115 019403161600288 POSTER. BOVINO ADULT
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   85085  1 PERO BOV.AD. TEDESCO                $$            KG    1 10,0   1        7,92    15,90 45,20 29  1  1  8   120 00000000000304  PERO BOV.AD. TEDESCO
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   85089  1 ROAST-BEEF BOVINO AD.TEDESCO C/FIL. $$            KG    1 10,0   1       11,85    22,90 43,07 29  1  1  8   135 00000000000002  ROAST-BEEF BOVINO AD
+   0                                                                                                          ____________________
+   2500 CARNE      F FUORI ASS.  682316  1 POSTERIORE S/PANCIA VACCA DK        $$            KG    1 10,0   1        8,38    15,90 42,02 29  1  1  8   300 004806006692    POSTERIORE S/PANCIA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   686916  1 POSTERIORE BOVINO ADULTO S/V        $$            KG    1 10,0   1       11,60    23,90 46,61 29  1  1 15   106 00000000022200  POSTERIORE BOVINO AD
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.   85170  1 PERO BOVINO ADULTO S/V CPQ          $$            KG    1 10,0   1       10,44    19,90 42,29 29  1  1 15   110 00000002012001  PERO BOVINO ADULTO S
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    97804  1 PERA BOVINO ADULTO S/V              $$            KG    1 10,0   1       10,44    19,90 42,29 29  1  1 15   110 00000000000640  PERA BOVINO ADULTO S
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   689850  1 PERA BOVINO ADULTO S/O S/V IT/IT    $$            KG    1 10,0   1       10,59    19,90 41,46 29  1  1 15   110 22154000000000  PERA BOVINO ADULTO S
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   96165  1 PERO BOV.AD.B/N S/V                 $$            KG    1 10,0   1       10,18    18,90 40,75 29  1  1 15   111 98059020963210  PERO BOV.AD.B/N S/V
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.   96793  1 LOMBATA BOV.AD.C/O C/FIL S/V CPQ    $$            KG    1 10,0   1       13,70    26,90 43,97 29  1  1 15   112 98050920910892  LOMBATA BOV.AD.C/O C
+   0                                                                                                          ____________________
+   2500 CARNE      F FUORI ASS.  673330  1 LOMBATA BOV.AD. B/N C/O C/FIL S/V   $$            KG    1 10,0   1       13,25    25,90 43,72 29  1  1 15   112 00000002031001  LOMBATA BOV.AD. B/N
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT   686063  1 LOMBATA BOV.AD.C/O C/FIL S/V        $$            KG    1 10,0   1       13,70    26,90 43,97 29  1  1 15   112 00000000000754  LOMBATA BOV.AD.C/O C
+   0                                                                                                          ____________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2198 G.A.N. SRL (P.S.GIOVANNI)                                                    CANALE 010 SUPERSTORE                                      Data decorrenza 14/04/25   Data stampa 12/04/25
+   1               VIA      ADRIATICA                 33-43
+   1               06135 PONTE SAN GIOVANNI
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2500 CARNE      I IN ASSORT   689854  1 LOMBATA BOVINO AD.C/O C/FIL S/V IT  $$            KG    1 10,0   1       14,20    27,90 44,01 29  1  1 15   112 90000000072213  LOMBATA BOVINO AD.C/
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  701758  1 LOMBATA B.A.VACCA C/O C/FIL S/V     $$            KG    1 10,0   1       13,20    24,90 41,68 29  1  1 15   113 98059020967471  LOMBATA B.A.VACCA C/
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT   688319  1 ROAST BEEF BOV.ADU.C/O S/FIL S/V    $$            KG    1 10,0   1       12,30    23,90 43,38 29  1  1 15   114 00000000002434  ROAST BEEF BOV.ADU.C
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85192  1 PANCIA BOVINO ADULTO C/O S/V        $$            KG    1 10,0   1        6,55    14,90 51,64 29  1  1 15   126 98059020968642  PANCIA BOVINO ADULTO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   689853  1 PANCIA BOVINO ADULTO S/O S/V        $$            KG    1 10,0   1        7,30    15,90 49,49 29  1  1 15   126 00000000000001  PANCIA BOVINO ADULTO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85196  1 FILETTI BOVINO ADULTO S/V           $$            KG    1 10,0   1       25,50    39,90 29,69 29  1  1 15   135 00000000000662  FILETTI BOVINO ADULT
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85197  1 SCAMONE(PEZZA) BOVINO ADULTO S/V    $$            KG    1 10,0   1       11,20    21,90 43,74 29  1  1 15   140 00000000000761  SCAMONE(PEZZA) BOVIN
+   2500 CARNE      I IN ASSORT   702078  1 SPINACINO(SFIANCO)BOV.AD.S/V X 6 PZ $$            KG    1 10,0   1        8,98    16,90 41,55 29  1  1 15   144 98059020967638  SPINACINO(SFIANCO)BO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85198  1 NOCE (ROSA) BOVINO ADULTO S/V       $$            KG    1 10,0   1       10,70    19,90 40,85 29  1  1 15   145 00000000024210  NOCE (ROSA) BOVINO A
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   691674  1 FESA BOVINO ADULTO S/V              $$            KG    1 10,0   1       10,60    19,90 41,40 29  1  1 15   146 08008203239304  FESA BOVINO ADULTO S
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.  677338  1 FESA BOVINO ADULTO S/V CPQ          $$            KG    1 10,0   1       10,60    18,90 38,30 29  1  1 15   147 00000000011549  FESA BOVINO ADULTO S
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   691673  1 SPALLA BOVINO ADULTO S/V            $$            KG    1 10,0   1        9,20    16,90 40,11 29  1  1 15   147 00000000000772  SPALLA BOVINO ADULTO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85199  1 GIRELLO BOVINO ADULTO S/V           $$            KG    1 10,0   1       12,80    23,90 41,08 29  1  1 15   150 00000000000686  GIRELLO BOVINO ADULT
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    99760  1 SOTTOFESA BOVINO ADULTO S/V         $$            KG    1 10,0   1        9,60    18,90 44,12 29  1  1 15   151 00000000025884  SOTTOFESA BOVINO ADU
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  686282  1 SOTTOFESA BOVINO ADULTO S/V CPQ     $$            KG    1 10,0   1        9,60    18,90 44,12 29  1  1 15   151 95391504151199  SOTTOFESA BOVINO ADU
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85201  1 CAMPANELLO (PESCE) BOV.AD. S/V      $$            KG    1 10,0   1        9,60    18,90 44,12 29  1  1 15   155 00000000000140  CAMPANELLO (PESCE) B
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85209  1 LOMBATA BOV.AD.S/O S/FIL S/V        $$            KG    1 10,0   1       13,80    26,90 43,56 29  1  1 15   530 00000000000755  LOMBATA BOV.AD.S/O S
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.   95904  1 SOTTOSP/REALE SQ BOVINO ADULTO S/V  $$            KG    1 10,0   1       10,94    21,90 45,04 29  1  1 15   605 00000002015201  SOTTOSP/REALE SQ BOV
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  700052  1 MEZZENA BOV.AD.S/V ALL.UMBRI        $$            KG    1 10,0   1       10,10    18,90 41,21 29  1  1 15   700 98059020966976  MEZZENA BOV.AD.S/V A
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   687870  1 PERO BOV.AD.(VACCA DANESE) S/O S/V  $$            KG    1 10,0   1        8,45    15,90 41,54 29  1  1 18   164 00000000002001  PERO BOV.AD.(VACCA)
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85093  1 LOMBATA BOV.AD.(VACCA)DANESE C/O SV $$            KG    1 10,0   1       15,55    31,90 46,37 29  1  1 18   165 00000000006018  LOMBATA BOV.AD.(VACC
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   734888  1 LOMBATA B.A.SCOTTONA DK INCARTO     $$            KG    1 10,0   1       15,55    28,90 40,81 29  1  1 18   165 98050920911585  LOMBATA B.A.SCOTTONA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   734889  1 LOMBATA B.A.SCOTTONA EST INCARTO    $$            KG    1 10,0   1       13,95    25,90 40,75 29  1  1 18   166 98050920911592  LOMBATA B.A.SCOTTONA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    90152  1 NOCE(ROSA) BOV.AD.IRLANDESE S/V CPQ $$            KG    1 10,0   1       11,79    21,90 40,78 29  1  1 18   710 00000000001140  NOCE(ROSA) BOV.AD.IR
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    90156  1 COSTATA BA.IRL.DA C/O SV CPQ(TRONC) $$            KG    1 10,0   1       13,84    26,90 43,40 29  1  1 18   730 00000000011470  COSTATA BA.IRL.DA C/
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  688347  1 COSTATA BOVINO ADULTO C/O S/V X2 PZ $$            KG    1 10,0   1       11,45    21,90 42,48 29  1  1 18   731 08008203225055  COSTATA BOVINO ADULT
+   0                                                                                                          ___________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2198 G.A.N. SRL (P.S.GIOVANNI)                                                    CANALE 010 SUPERSTORE                                      Data decorrenza 14/04/25   Data stampa 12/04/25
+   1               VIA      ADRIATICA                 33-43
+   1               06135 PONTE SAN GIOVANNI
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2500 CARNE      I IN ASSORT   691678  1 PERO BOV.AD. S/O INCARTO            $$            KG    1 10,0   1       10,44    19,90 42,29 29  1  1 22   110 98059020961735  PERO BOV.AD. S/O INC
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  691813  1 ROAST BEEF BOV.AD.C/O C/F INCARTO   $$            KG    1 10,0   1       13,70    26,90 43,97 29  1  1 22   113 98059020961742  ROAST BEEF BOV.AD.C/
+   0                                                                                                          ____________________
+   2500 CARNE      F FUORI ASS.  691719  1 LOMBATA BOV.AD. ESTERA C/O INCARTO  $$            KG    1 10,0   1       13,80    25,90 41,38 29  1  1 22   415 98059020961803  LOMBATA BOV.AD. ESTE
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85071  1 POSTERIORE SCOTTONA CPQ             $$            KG    1 10,0   1        9,80    18,90 42,96 29  1 13  1   205 U1599511000000  POSTERIORE SCOTTONA
+   0                                                                                                          ____________________                         _______________
+   2500 CARNE      I IN ASSORT    85090  1 ROAST-BEEF SCOTTONA C/F CPQ CRENBA  $$            KG    1 10,0   1       15,30    29,90 43,71 29  1 13  1   210 00000000000211  ROAST-BEEF SCOTTONA
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  707411  1 LOMBATA SCOTTONA C/O C/FIL.         $$            KG    1 10,0   1       15,30    29,90 43,71 29  1 13  1   210 08050030040103  LOMBATA SCOTTONA C/O
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85120  1 ANTERIORE SCOTTONA T/P CPQ          $$            KG    1 10,0   1        6,52    12,90 44,40 29  1 13  1   220 U7474748000000  ANTERIORE SCOTTONA T
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85120  2 ANTERIORE SCOTTONA T/P IT/IT        $$            KG    1 10,0   1        6,52    11,90 39,73 29  1 13  1   220 00000000005048  ANTERIORE SCOTTONA T
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.  692682  1 ANTERIORE SCOTTONA S/PANCIA         $$            KG    1 10,0   1        6,52    12,90 44,40 29  1 13  1   225 00000000003983  ANTERIORE SCOTTONA S
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85068  1 POSTERIORE SCOTTONA                 $$            KG    1 10,0   1        9,80    18,90 42,96 29  1 13  1   305 08050030040141  POSTERIORE SCOTTONA
+   0                                                                                                          ____________________
+   2500 CARNE      S SOSP.LIST.  718095  1 MEZZENA SCOTTONA ALL.UMBRI ABN      $$            KG    1 10,0   1        8,40    15,90 41,88 29  1 13 10   150 00210000000000  MEZZENA SCOTTONA ALL
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85168  1 POSTERIORE SCOTTONA S/V             $$            KG    1 10,0   1       12,50    24,90 44,77 29  1 13 49   105 10000000009111  POSTERIORE SCOTTONA
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85077  1 PERA SCOTTONA S/O S/V               $$            KG    1 10,0   1       10,55    19,90 41,68 29  1 13 49   125 00000000023356  PERA SCOTTONA S/O S/
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.  683691  1 PERO SCOTTONA S/O S/V CPQ           $$            KG    1 10,0   1       10,55    19,90 41,68 29  1 13 49   125 98059020910900  PERO SCOTTONA S/O S/
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    97072  1 LOMBATA SCOTTONA C/O C/FIL S/V      $$            KG    1 10,0   1       15,30    28,90 41,76 29  1 13 49   812 00000000009130  LOMBATA SCOTTONA C/O
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   725035  1 LOMBATA SCOTTONA POLONIA C/O C/F SV $$            KG    1 10,0   1       13,95    25,90 40,75 29  1 13 49   813 98050920910274  LOMBATA SCOTTONA POL
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   85069  1 POSTERIORE SCOTTONA DANESE          $$            KG    1 10,0   1        8,45    15,90 41,54 29  1 16  1   112 05701050167624  POSTERIORE SCOTTONA
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.  699018  1 POSTERIORE SCOTTONA S/P ESTERO      $$            KG    1 10,0   1        8,50    15,90 41,19 29  1 16  1   112 U2222111100000  POSTERIORE SCOTTONA
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.  726759  1 POSTERIORI B.A.SCOTTONA MASURIA(PL) $$            KG    1 10,0   1        8,50    18,90 50,52 29  1 16  1   112 59054969513398X POSTERIORI B.A.SCOTT
+   0                                                                                                          ___________
+   2500 CARNE      F FUORI ASS.   85116  1 ANTERIORE T/P SCOTTONA ESTERO       $$            KG    1 10,0   1        6,40    12,90 45,42 29  1 16  1   113 U7474747000000  ANTERIORE T/P SCOTTO
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85136  1 SELLA VITELLO S/PANCIA (POSTER.)CPQ $$            KG    1 10,0   1       10,74    19,90 40,63 29  1 19  1   120 00000000000533  SELLA VITELLO S/PANC
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    91335  1 CARRE' DI VITELLO C/OSSO S/V CPQ    $$            KG    1 10,0   1       13,15    24,90 41,90 29  1 19 15   106 00000002631009  CARRE' DI VITELLO C/
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   689997  1 LOMBO DI VITELLO C/O S/V (CARRE')   $$            KG    1 10,0   1       13,15    24,90 41,90 29  1 19 15   107 00000000000624  LOMBO DI VITELLO C/O
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   703756  1 CARRE' DI VITELLO C/O INCARTO       $$            KG    1 10,0   1       13,15    24,90 41,90 29  1 19 15   107 98005092096323  CARRE' DI VITELLO C/
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   708448  1 CARRE' VITELLO C/FIL S/O S/V        KG     1,0000 KG    1 10,0   1       14,70    28,90 44,04 29  1 19 15   108 98059020964550  CARRE' VITELLO C/FIL
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85212  1 PERO VITELLO S/O S/V CPQ            $$            KG    1 10,0   1       12,35    22,90 40,67 29  1 19 15   110 00000002612002  PERO VITELLO S/O S/V
+   0                                                                                                          ___________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2198 G.A.N. SRL (P.S.GIOVANNI)                                                    CANALE 010 SUPERSTORE                                      Data decorrenza 14/04/25   Data stampa 12/04/25
+   1               VIA      ADRIATICA                 33-43
+   1               06135 PONTE SAN GIOVANNI
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2500 CARNE      I IN ASSORT    99421  1 PERA DI VITELLO S/O S/V             $$            KG    1 10,0   1       12,35    22,90 40,67 29  1 19 15   111 00000000000641  PERA DI VITELLO S/O
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   716683  1 POLPA COSCIA VITELLO S/V            $$            KG    1 10,0   1       13,25    25,90 43,72 29  1 19 15   111 98059020962497  POLPA COSCIA VITELLO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   681701  1 MAGATELLO VITELLO S/V X KG 6        $$            KG    1 10,0   1       16,20    29,90 40,40 29  1 19 15   112 00000000000687  MAGATELLO VITELLO S/
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   716682  1 FESA DI VITELLO S/V                 $$            KG    1 10,0   1       13,25    25,90 43,72 29  1 19 15   114 98059020962480  FESA DI VITELLO S/V
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    96352  1 NOCI VITELLO S/V                    $$            KG    1 10,0   1       14,75    28,90 43,85 29  1 19 15   118 00000000000706  NOCI VITELLO S/V
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    96796  1 PERO VITELLO IT/IT S/O S/V          $$            KG    1 10,0   1       12,45    22,90 40,19 29  1 19 15   148 00000002612001  PERO VITELLO IT/IT S
+   0                                                                                                          ___________
+   2500 CARNE      S SOSP.LIST.  731451  1 MEZZENA SUINO INTEGRALE RUSTICI     $$            KG    1 10,0   1        3,29     6,03 39,98 29  3  1  1    50                 MEZZENA SUINO INTEGR
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85020  1 SUINETTO KG. 15/25                  $$            KG    1 10,0   1        6,50    11,92 40,01 29  3  1  1   100                 SUINETTO KG. 15/25
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85034  1 SUINETTO KG. 8/15                   $$            KG    1 10,0   1        7,68    13,00 35,01 29  3  1  1   105                 SUINETTO KG. 8/15
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT    85161  1 FILONE (LONZA) SUINO ESTERO S/V X5  $$            KG    1 10,0   1        5,50     9,31 35,01 29  3  1 16     5 2140820         FILONE (LONZA) SUINO
+   0                                                                                                                                                       _______________
+   2500 CARNE      I IN ASSORT   675754  1 PANCETTA SUINO C/COSTA ESTERA SV X3 $$            KG    1 10,0   1        4,90     8,98 39,98 29  3  1 16    35 2270630         PANCETTA SUINO C/COS
+   0                                                                                                                                                       _______________
+   2500 CARNE      S SOSP.LIST.  734659  1 LOMBO SUINO T/BOLOGNA ESTERO        $$            KG    1 10,0   1        3,60     6,60 40,00 29  3  1 16    50 2345555         LOMBO SUINO T/BOLOGN
+   0                                                                                                                                                       _______________
+   2500 CARNE      I IN ASSORT   678186  1 PUNTINE SUINO S/V ESTERE            $$            KG    1 10,0   1        4,50     7,07 29,98 29  3  1 16    55 95998002018896  PUNTINE SUINO S/V ES
+   0                                                                                                                                                       _______________
+   2500 CARNE      I IN ASSORT   688540  1 SUINETTO CARTONATO KG. 8/15         $$            KG    1 10,0   1        7,89    13,35 34,98 29  3  1 19   199 98032636265589  SUINETTO CARTONATO K
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT   735875  1 BURRITO BOVINO-VITELLO CATERING     $$            KG    1 10,0   1       11,40    21,00 40,28 29  3  1 22    10 2616795         BURRITO BOVINO-VITEL
+   0                                       ___________________________________
+   2500 CARNE      I IN ASSORT    86610  1 CAPRETTO                            KG     1,0000 KG    1 10,0   1       10,90    17,90 33,01 29  4 10 10   520 08050030040240  CAPRETTO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   682645  1 CARRE'DI AGNELLO S/V                KG     1,0000 KG    1 10,0   1       15,20    25,90 35,44 29  4 10 25    40 2240702         CARRE'DI AGNELLO
+   0                                                                                                                                                       _______________
+   2500 CARNE      I IN ASSORT   688189  1 CORATA DI OVINO CONF.               KG     1,0000 KG    1 10,0   1        8,80    10,90 11,19 29  4 10 30   125 2626182         CORATA DI OVINO
+   0                                                                                                          ____________________
+   2500 CARNE      I IN ASSORT   714247  1 PRONTOCUOCI CONAD PQ                KG     1,0000 KG    1 10,0   1        3,90     7,90 45,69 29  5  1  1  1000 08003160064464  PRONTOCUOCI CONAD
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   728535  1 BUSTO POLLO BIANCO SOTTOPESO CPQ    $$            KG    1 10,0   1        3,63     7,90 49,45 29  5  1  1  1003 98006473102031  BUSTO SOTTOPESO B.
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   728582  1 BUSTO POLLO BIANCO 1,00/1,20 CPQ    $$            KG    1 10,0   1        3,68     7,90 48,76 29  5  1  1  1015 98006473102017  BUSTO POLLO BIANCO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   728540  1 BUSTO POLLO GIALLO SOTTOPESO CPQ    $$            KG    1 10,0   1        3,63     7,90 49,45 29  5  1  1  1033 980033286474079 BUSTO SOTTOPESO G.
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   728583  1 BUSTO POLLO GIALLO 1,00/1,20 CPQ    $$            KG    1 10,0   1        3,68     7,90 48,76 29  5  1  1  1045 2563140         BUSTO POLLO GIALLO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85258  1 PETTO POLLO BIANCO                  $$            KG    1 10,0   1        6,92    12,90 40,99 29  5  1  1  1160 123611700898800 PETTO POLLO BIANCO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT    85259  1 PETTO POLLO GIALLO                  $$            KG    1 10,0   1        6,92    12,90 40,99 29  5  1  1  1165 90000000963193  PETTO POLLO GIALLO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   683649  1 QUARTO POSTERIORE POLLO CPQ CONF.   KG     1,0000 KG    1 10,0   1        4,10     5,95 24,20 29  5  1 28   520 2195260         QUARTO POSTERIORE PQ
+   0                                       ___________________________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2198 G.A.N. SRL (P.S.GIOVANNI)                                                    CANALE 010 SUPERSTORE                                      Data decorrenza 14/04/25   Data stampa 12/04/25
+   1               VIA      ADRIATICA                 33-43
+   1               06135 PONTE SAN GIOVANNI
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2500 CARNE      I IN ASSORT   706693  1 BUSTO TACCHINO MASCHIO CPQ          $$            KG    1 10,0   1        3,63     6,99 42,87 29  5 19  1  1001 003270133400    BUSTO TACCH. MASCHIO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706700  1 COSCIA TACCHINO MASCHIO CPQ         $$            KG    1 10,0   1        3,74     6,99 41,14 29  5 19  1  1006 2113020         COSCIA TACCH.MASCHIO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706699  1 SOVRACOSCIA TACCHINO MASCHIO CPQ    $$            KG    1 10,0   1        4,95     8,99 39,43 29  5 19  1  1011 2703360         SOVRACOSCIA TACCHINO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706698  1 FUSI DI TACCHINO CPQ                $$            KG    1 10,0   1        3,63     6,99 42,87 29  5 19  1  1016 2713100         FUSI DI TACCHINO CPQ
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706696  1 ALI TACCHINO MASCHIO CPQ            $$            KG    1 10,0   1        2,64     4,90 40,74 29  5 19  1  1021 2301800         ALI TACCHINO MASCHIO
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   705138  1 FESA TACCHINO MASCHIO CPQ           $$            KG    1 10,0   1        8,13    14,90 39,97 29  5 19  1  1030 2204400         FESA TACCHINO MASCHI
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   705139  1 FESA TACCHINO MASCHIO CPQ           $$            KG    1 10,0   1        8,13    14,90 39,97 29  5 19  1  1031 98006473115222  FESA TACCHINO MASCHI
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706694  1 BUSTO TACCHINO FEMMINA CPQ          $$            KG    1 10,0   1        3,63     6,99 42,87 29  5 19  1  1046 18006473001895  BUSTO TACCH. FEMMINA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706701  1 COSCIA TACCHINO FEMMINA CPQ         $$            KG    1 10,0   1        3,79     6,99 40,36 29  5 19  1  1056 2502280         COSCIA TACCHINO FEMM
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706695  1 FESA TACCHINO FEMMINA CPQ           $$            KG    1 10,0   1        8,13    14,90 39,97 29  5 19  1  1061 2202270         FESA TACCHINO FEMMIN
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   706697  1 ALI TACCHINO FEMMINA CPQ            $$            KG    1 10,0   1        2,64     4,90 40,74 29  5 19  1  1066 18006473114120  ALI TACCHINO FEMMINA
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   701840  1 FESA TACCHINO FETTE CPQ RISPARMIO   KG     1,0000 KG    1 10,0   1        8,70    12,95 26,10 29  5 19 10    12 2191450         FESA TACCHINO FETTE
+   0                                                                                                          ___________
+   2500 CARNE      I IN ASSORT   689648  1 FESA TACCHINO FETTE SOTTILI CPQ     KG     1,0000 KG    1 10,0   1        9,20    14,95 32,30 29  5 19 34    40 2194090         FESA TACCHINO SOTTIL
+   2*** ARTICOLI F.ASSORT.**
+   1500 CARNE      F FUORI ASS.  703854  1 AGNELLO 7/9 KG IT/IT CARTONATO      KG     1,0000 KG    1 10,0   1        0,00     0,00       29  4 10 20   116 98050920963300  AGNELLO 7/9 KG IT/IT
+   0               ____________

@@ -1,0 +1,715 @@
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2*** ARTICOLI NUOVI ***
+   1100 SALA G.V.  I IN ASSORT   720007  1 CORNETTI INTEGRALI CONAD X6         KG     0,2400 PZ    8 10,0   1        1,30     1,75 18,29  1  5 13  1     2 08003160076245  CORNET.INTEGR.CONAD
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2100 SALA G.V.  I IN ASSORT   720008  3 CORNETTI CONAD INT.MIELE X6         KG     0,3000 PZ    8 10,0   1        1,50     2,24 26,32  1  5 13  4     3 08003160076900  CORNETTI CONAD INT.
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2100 SALA G.V.  O SPOT IN AS  733118  2 SALSA PR.DATTERINO AGROMONTE G330X2 KG     0,6600 PZ    6 10,0   1        1,98     2,99 27,15  1 17 13 10  1600 8032817248261   SALSA PRON.AGROMONTE
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2100 SALA G.V.  O SPOT IN AS  726726  1 TONNO MARE APERTO OL.OLIVA GR.70 X6 KG     0,4200 PZ   16 10,0   1        4,25     6,25 25,20  1 21  7  1   125 8055320190735   TONNO M.APERTO 70GX6
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   732282  4 STECCHI MAGNUM PISTACCHIO X4        KG     0,3080 PZ    6 10,0   1        3,74     5,49 25,06 21  3  1  1   100 8711327610262   STEC.MAGNUM PISTACC.
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   732344  5 MAGNUM MINI DOUB.CAR.ALM./BILL.X6   KG     0,2820 PZ    6 10,0   1        3,74     5,49 25,06 21  3  1  1   221 8711327585782   MAGN.MINI D.C.AL/BIL
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   736692  1 CORNETTO MAX NOCCIOLA X6            KG     0,3900 PZ    6 10,0   1        3,56     5,49 28,67 21  3  1  4    29 8711327680654   CORNETTO MAX NOCCIOL
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   732400  3 CONO LION CARAMELLO X4              KG     0,2880 PZ    6 10,0   1        3,10     4,99 31,65 21  3  1  4   300 5900130043227   CONO LION CARAMELLO
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   695914  1 CUCCIOLONE MINI ALGIDA X8           KG     0,2700 PZ    6 10,0   1        3,35     4,99 26,14 21  3  1  7    34 08711327586338  CUCCIOL.MINI ALGIDA
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   716160  8 MAXIBON SPECIAL RED CHEESECAKE X4   KG     0,2280 PZ    8 10,0   1        3,15     4,99 30,55 21  3  1  7    41 8051369005092   MAXIBON RED CHEESEC.
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   698728 10 MAGNUM PINTA DOUBLE.HAZELNUT        KG     0,3100 PZ    8 10,0   1        3,31     4,99 27,02 21  3  4  4    10 8711327671980   MAGNUM PINTA D.HAZEL
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   702191  3 VASCH.GELATO CROSCE' GIANDUIA SIGEL KG     1,3500 PZ    4 10,0   1        5,85     8,90 27,69 21  3  4 10   250 8007437019935   VASCH.CROSCE' SIGEL
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   702191  4 VASCH.I DESSERT CUORE NERO SIGEL    KG     1,3500 PZ    4 10,0   1        5,85     8,90 27,69 21  3  4 10   250 8007437112605   VASCH.CUORE NERO SIG
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2400 SURGELATI  I IN ASSORT   702191  5 VASCH.I DESSERT AGRUMETTO SIC.SIGEL KG     1,3500 PZ    4 10,0   1        5,85     8,90 27,69 21  3  4 10   250 8007437111653   VASCH.AGRUM.SIGEL
+   0___            ____________            ___________________________________ _____________ __ _____  ___________________________       _________________ _______________ ____________________
+   2*** ARTICOLI VARIATI ***
+   1100 SALA G.V.  I IN ASSORT   736567  1 PIADINA PROTEICA LORIANA            KG     0,2250 PZ   12  4,0   1        1,87     2,55 23,73  1  1 16  1    34 8003840001734   PIADINA PROTEICA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  O SPOT IN AS  735575  1 CRACKERS G.PAVESI SALATI BIPACCO    KG     1,1200 PZ    6  4,0   1        2,90     3,90 22,66  1  1 22  1   200 8013355500431   CRACKERS G PAVESI SA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  O SPOT IN AS  735576  1 CRACKERS GP NON SALATI BIPACCO      KG     1,1200 PZ    6  4,0   1        2,90     3,90 22,66  1  1 22  4    10 8013355500448   CRACK.GP NON SALATI
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   696129  1 P/SEM.VOIELLO SPAGHET.SCANALATI 107 KG     0,5000 PZ   24  4,0   1        1,13     1,58 25,60  1  3 10  1   570 08076810003236  VOIELLO SPAGH.SCANAL
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696129  2 PASTA SEMOLA VOIELLO SPAGHETTI 104  KG     0,5000 PZ   24  4,0   1        1,13     1,58 25,60  1  3 10  1   570 08076810003229  VOIELLO SPAGHETTI
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696129  4 PAST/SEM.VOIEL.LA LINGUINA 112      KG     0,5000 PZ   24  4,0   1        1,13     1,58 25,60  1  3 10  1   570 08076810003267  VOIELLO LA LINGUINA
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696129  5 P/SEM.VOIELLO GRAN SPAGHETTO        KG     0,5000 PZ   24  4,0   1        1,13     1,58 25,60  1  3 10  1   570 08076810003274  VOIELLO GR.SPAGHETTO
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696129  6 P/SEM.VOIELLO LINGUINE RIGATE 114   KG     0,5000 PZ   24  4,0   1        1,13     1,58 25,60  1  3 10  1   570 8076810791997   VOIELLO LINGUINE 225
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130  1 PASTA SEMOLA VOIELLO FARFALLE N.192 KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003182  VOIELLO FARFALLE
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130  3 PASTA SEMOLA VOIELLO FUSILLI N.141  KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003151  VOIELLO FUSILLI
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130  4 PASTA SEM.VOIELLO GRAN FUSILLI 180  KG     0,5000 PZ   16  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003281  VOIELLO FUSILLI
+   0                                                                                                                     _________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT   696130  6 P/SEM.VOIELLO MEZ.MANICHE RIG.N.122 KG     0,5000 PZ   16  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003069  VOIELLO M.MANICHE R.
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130  7 PAS/SEM.VOIELLO MEZZE PENNE RIG.154 KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003090  VOIELLO M.PENNE RIG.
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130 10 P/SEMOLA VOIELLO PENNE RIGATE N.152 KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003052  VOIELLO PENNE RIG
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130 11 P/SEM.VOIELLO PENNE ZITI RIGATE 155 KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003106  VOIELLO PENNE ZITI
+   0                                                                                                                     _________
+   2100 SALA G.V.  E AD ESAURI   696130 12 PASTA SEMOLA VOIELLO RIGATONI N.124 KG     0,5000 PZ   16  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003168  VOIELLO RIGATONI
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130 13 PAS/SEM.VOIELLO SEDANI RIGATI N.127 KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 8076810500469   VOIELLO SEDANI RIG
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130 15 PASTA SEM.VOIELLO TORTIGLIONI N.125 KG     0,5000 PZ   16  4,0   1        1,13     1,58 25,60  1  3 10  4   340 08076810003076  VOIELLO TORTIGLIONI
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT   696130 17 PASTA SEM.VOIELLO PENNA RUVIDA 200  KG     0,5000 PZ   18  4,0   1        1,13     1,58 25,60  1  3 10  4   340 8076810792192   VOIELLO PENNA RUVIDA
+   0                                                                                                                     _________
+   2100 SALA G.V.  O SPOT IN AS    5317  1 RISO FLORA BELL'INSALATE            KG     1,0000 PZ   10  4,0   1        1,98     2,59 20,48  1  3 22  1    16 8017759647938   RISO FLORA INSALATE
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  I IN ASSORT   737102  1 ALVEARI BURRO SALATO/MIELE M.BIANCO KG     0,3000 PZ   12 10,0   1        1,55     2,35 27,43  1  5  1  4   134 8076809586061   ALVEARI BURRO SALATO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT     2164  1 BALCONI TRONCO FAR.NOCCIOLA         KG     0,2500 PZ   12 10,0   1        0,69     0,98 22,55  1  5 10  4    11 8001585002115   BALCONI TRONCO FARC.
+   2100 SALA G.V.  I IN ASSORT    91369  1 BALCONI ROLL.NOCCIOLA X6 ***        KG     0,2220 PZ   20 10,0   1        0,92     1,29 21,56  1  5 13  4    35 8001585001309   ROLLINO NOCCIOLA
+   2100 SALA G.V.  I IN ASSORT   717277  1 BALCONI TRANCINO CHOCO MAGIA X10    KG     0,2800 PZ   15 10,0   1        1,25     1,90 27,62  1  5 13  4    35 8001585006090   BALCONI TRANC.CHOCO
+   2100 SALA G.V.  F FUORI ASS.  699774  1 WHEELLY BALCONI X8                  KG     0,2800 PZ   15 10,0   1        1,10     1,60 24,39  1  5 13  4   180 8001585008452   WHEELLY BALCONI X8
+   0                                                                                                          ____________________
+   2100 SALA G.V.  E AD ESAURI    22913  1 TAV.CIOC.LINDT LINDOR LATTE         KG     0,1000 PZ   18 10,0   1        2,50     3,69 25,48  1  5 16  1 10008 7610400010030   TAV.LINDT LINDOR
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI    29294  1 KINDER CEREALI TAV. T.72            KG     0,0235 PZ   40 10,0   1        0,57     0,85 26,26  1  5 19  1   125 08000500009864  KINDER CEREALI TAV.
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   703049  2 KINDER LOVE CUORE                   KG     0,0370 PZ   30 10,0   1        0,95     1,39 24,84  1  5 22  7    96 08000500293515  KINDER LOVE CUORE
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   721045  1 CARAM.ROSSANA PISTACCHIO BST        KG     0,1350 PZ   24 10,0   1        1,77     2,55 23,64  1  5 31  4    36 8006150001333   CARAM.ROSSANA PISTAC
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   736612  1 CARAM.ROSSANA PISTACCHIO BST        KG     0,1500 PZ   24 10,0   1        1,80     2,59 23,56  1  5 31  4    36 8006150001630   CARAM.ROSSANA PISTAC
+   0                                                                                                          ____________________
+   2100 SALA G.V.  E AD ESAURI      230  1 CARAMELLE ASS.RIPIENE SPERLARI BS   KG     0,5000 PZ   20 10,0   1        2,35     3,15 17,94  1  5 31  4   160 8008380103863   CARAM.ASS.RIPIENE SP
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT    46582  1 CAR.SPERLARI SACCH.CAFFE'LAVAZZA    KG     0,1750 PZ   18 10,0   1        1,25     1,89 27,24  1  5 31  4   540 8004190052827   CAR.SPERLARI SACCH.C
+   2100 SALA G.V.  O SPOT IN AS  734126  1 M&M'S MINIS                         KG     0,1760 PZ   27 10,0   1        2,05     2,95 23,56  1  5 31 22    41 5900951314407   M&M'S MINIS
+   2100 SALA G.V.  I IN ASSORT     2778  1 CAFFE CONAD GUSTO CLASSICO          KG     0,2500 PZ   20 22,0   1        2,06     2,89 13,04  1 11  1 19     5 08003170980013  CAFFE CONAD GU/CLASS
+   2100 SALA G.V.  I IN ASSORT    40476  1 CAFFE' CONAD GUSTO CLASS. GR.250X2  KG     0,5000 PZ   10 22,0   1        3,90     5,19  8,32  1 11  1 19     6 08003170980006  CAFFE' CONAD GUSTO C
+   2100 SALA G.V.  I IN ASSORT    40478  1 CAFFE'CONAD GUSTO AROMA GR.250X2    KG     0,5000 PZ   10 22,0   1        4,11     5,39  6,97  1 11  1 19   240 08003160982317  CAFFE'CONAD GUST/ARO
+   2100 SALA G.V.  I IN ASSORT    24358  1 CAFFE'CONAD GUSTO AROMA             KG     0,2500 PZ   20 22,0   1        2,10     2,89 11,35  1 11  1 19   260 08003170980020  CAFFE'CONAD GUST/ARO
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT    43186  1 CAFFE'CONAD GUSTO E AROMA DOLCE     KG     0,2500 PZ   20 22,0   1        2,10     2,89 11,35  1 11  1 19   263 08003160982324  CAFFE'CONAD AR.DOLCE
+   2100 SALA G.V.  I IN ASSORT   677304  1 CAFFE'CONAD ORO ARAB.100% GR.250 X2 KG     0,5000 PZ   10 22,0   1        5,02     6,59  7,07  1 11  1 22    10 08003160011628  CAFFE'CONAD ORO ARAB
+   2100 SALA G.V.  I IN ASSORT     2780  1 CAFFE CONAD ESPRESSO BAR GR.250     KG     0,2500 PZ   20 22,0   1        2,20     2,99 10,24  1 11  1 25     1 08003170999992  CAFFE CONAD ESPRESSO
+   2100 SALA G.V.  I IN ASSORT    43879  1 CAFFE' CONAD ESPRESSO BAR  GR.250X2 KG     0,5000 PZ   10 22,0   1        4,26     5,59  7,02  1 11  1 25     1 08003160888022  CAFFE' CONAD ESP.BAR
+   2100 SALA G.V.  I IN ASSORT    40477  1 CAFFE' CONAD DECAFFEINATO           KG     0,2500 PZ   20 22,0   1        2,05     2,99 16,36  1 11  4  1     1 08003170980037  CAFFE'CONAD DECAFFEI
+   2100 SALA G.V.  I IN ASSORT   719849  1 CAPS.BORBONE A M.MIO DECISA X50     KG     0,3600 PZ   16 22,0   1        7,80    11,95 20,36  1 11  5 34  1620 8034028334528   CAPS.BORB.A M.MIO DE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   719856  1 CAPS.BORBONE NESPRESSO DECISA X50   KG     0,2500 PZ   16 22,0   1        7,80    11,95 20,36  1 11  5 37 16080 8034028334504   CAPS.BORBONE NESP.DE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   708789  1 CIALDE LAVAZ.CREMA E GUSTO X50      KG     0,3500 PZ    4 22,0   1        7,15    11,55 24,47  1 11  6  1   398 08000070045354  CIALDE LAVAZ.CREMA E
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  F FUORI ASS.  705228  1 TISANE FREDDE FITNESS X18           KG     0,0450 PZ   10 10,0   1        2,12     3,25 28,25  1 11 22  4   531 08002355598647  TISANE FREDDE FITNES
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   675051  1 CONAD CREMA CON ASPARAGI BUSTA      KG     0,1010 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  1     2 08003160009403  CONAD CREMA C/ASPAR.
+   2100 SALA G.V.  I IN ASSORT   683658  1 CONAD CREMA CON FUNGHI PORCINI      KG     0,1010 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  1     2 08003160023362  CONAD CREMA C/FUNGHI
+   2100 SALA G.V.  I IN ASSORT   697789  1 CONAD CREMA PATATE E PORRI          KG     0,1000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  1     2 08003160046569  CONAD CREMA GR.100
+   2100 SALA G.V.  I IN ASSORT   697789  2 CONAD CREMA ZUCCA/PATATE/PORCINI    KG     0,0700 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  1     2 08003160046576  CONAD CREMA GR.70
+   2100 SALA G.V.  I IN ASSORT   680986  1 CONAD MINESTRONE DI VERDURE         KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     3 08003160019075  MINESTRONE D/VERDURE
+   2100 SALA G.V.  I IN ASSORT   680987  1 CONAD PASSATO DI VERDURE ASTUCCIO   KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 08003160019082  CONAD PASSATO VERD.
+   2100 SALA G.V.  I IN ASSORT   680988  1 CONAD ZUPPA DI FAGIOLI ASTUCCIO     KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 08003160019068  CONAD ZUPPA FAGIOLI
+   2100 SALA G.V.  I IN ASSORT   685148  1 CONAD ZUPPA DI ZUCCA                KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 08003160025359  CONAD ZUPPA DI ZUCCA
+   2100 SALA G.V.  I IN ASSORT   697352  1 CONAD ZUPPA DI CECI BRIK            KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 08003160044466  CONAD ZUPPA DI CECI
+   2100 SALA G.V.  I IN ASSORT   697353  1 CONAD PASSATO PATATE/CAROTE BRIK    KG     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 08003160044459  CONAD PASSAT.PAT/CAR
+   2100 SALA G.V.  I IN ASSORT   720002  1 CONAD MINESTRONE LEGUMI BRIK        LT     0,5000 PZ   12 10,0   1        0,82     1,29 30,09  1 13  1  4     5 8003170088429   CONAD MINESTR.LEGUMI
+   2100 SALA G.V.  F FUORI ASS.  690426  1 PAT.P/GUSTO LIME E.1,00 S.CARLO     KG     0,0700 PZ   15 10,0   1        0,59     0,99 34,44  1 13 16  1   576                 PATATINE PIU' GUSTO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   716267  3 TORTILLAS DORITOS BBQ               KG     0,1400 PZ   10 10,0   1        1,62     2,48 28,15  1 13 19  1  1500 8410199021175   TORTILLAS DORITOS
+   0                                                                                            _____
+   2100 SALA G.V.  I IN ASSORT   687838  1 MISTO SALATO TOST.VENTURA           KG     0,2500 PZ   12 10,0   1        2,80     4,10 24,87  1 13 25 22   705 8028618003406   MISTO SALATO VENTURA
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   707555  1 LATTE MELLIN GUM CRESCITA 3 BTG     LT     1,0000 PZ    6 10,0   1        2,23     2,65  7,43  1 13 28  6    36 8017619401526   LATTE MELLIN GUM CRE
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  I IN ASSORT   707556  1 LATTE MELLIN GUM CRESC.4 BTG ML1000 LT     1,0000 PZ    6 10,0   1        2,23     2,65  7,43  1 13 28  6    36 8017619401564   LATTE MELLIN GUM CRE
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  F FUORI ASS.  702846  1 SUGO POMODORO C/LEGUMI BIO A.NERO   KG     0,1600 PZ    6 10,0   1        0,72     1,29 38,61  1 13 28 33   100 8009004812369   SUGO POM.C/LEGUM.BIO
+   0                                                                                                          ____________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  E AD ESAURI   691591  1 FRUTTA CANDITA MACEDONIA SETOLA VS  KG     0,1000 PZ   12 10,0   1        0,80     1,28 31,27  1 13 46  1   210 8058776402162   FRUT.CAND.MACEDONIA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688049  1 CEDRO CUBETTI SETOLA VASETTO        KG     0,1000 PZ   12 10,0   1        0,97     1,55 31,15  1 13 46  1   227 8058776402087   CEDRO CUBETTI GR.100
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688054  1 CEDRO INTERO SETOLA VASETTO         KG     0,2000 PZ   12 10,0   1        1,95     2,99 28,25  1 13 46  1   232 8058776402001   CEDRO INTERO GR.200
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688054  2 CEDRO MISTO SETOLA VASETTO          KG     0,2000 PZ   12 10,0   1        1,95     2,99 28,25  1 13 46  1   232 8058776402018   CEDRO MISTO SETOLA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688046  1 CILIEGE MISTE SETOLA VASETTO        KG     0,1000 PZ   12 10,0   1        0,97     1,55 31,15  1 13 46  1   244 8058776402025   CILIEGE MISTE SETOLA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688047  1 CILIEGE ROSSE SETOLA VASETTO        KG     0,1000 PZ   12 10,0   1        0,97     1,55 31,15  1 13 46  1   245 8058776402049   CILIEGE ROSSE SETOLA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688048  1 CILIEGE VERDI SETOLA VASETTO        KG     0,1000 PZ   12 10,0   1        0,97     1,55 31,15  1 13 46  1   252 8058776402063   CILIEGE VERDI SETOLA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688053  1 FRUTTA CAND.CUBE.LIMONE SETOLA VS.  KG     0,1000 PZ   12 10,0   1        0,72     1,20 34,00  1 13 46  1   260 8058776402124   FR.CAND.CUBET.SETOLA
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688051  1 FRUTTA CAN.TOND.ARANCIO SETOLA VS.  KG     0,1000 PZ   12 10,0   1        0,70     1,10 30,00  1 13 46  1   262 8058776402193   FR.CAND.TOND.ARANCIO
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   688050  1 FRUTTA CUBETTI MISTI SETOLA         KG     0,1000 PZ   12 10,0   1        0,70     1,10 30,00  1 13 46  1   265 8058776402131   FRUTTA MISTA CUBETTI
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   708405  1 GHIACCIOLI POLARETTI DOLFIN X10     LT     0,4200 PZ   40 10,0   1        1,50     2,19 24,66  1 13 58 10    22 08002267325461  GHIACC.POLARETTI
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   708405  2 POLARETTI GIRL DOLFIN X10           LT     0,4200 PZ   40 10,0   1        1,50     2,19 24,66  1 13 58 10    22 8002267025507   POLARETTI GIRL
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   708405  3 POLARETTI SUMMER DOLFIN X10         LT     0,4200 PZ   40 10,0   1        1,50     2,19 24,66  1 13 58 10    22 8002267025743   POLARETTI SUMMER X10
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   708409  1 GHIACCIOLI SENSO FREDDO DOLFIN X10  LT     0,4200 PZ   18 10,0   1        1,50     2,19 24,66  1 13 58 10    25 8002267025644   GHIACC.SENSO FREDDO
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   686844  1 CREMA SPALMABILE NOVI               KG     0,2000 PZ   12 10,0   1        3,35     4,59 19,72  1 13 61  1 80000 8006380226001   CREMA SPALMABILE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  698664  1 FITNESS CUP CIOCCOLATO              KG     0,0450 PZ    8 10,0   1        0,62     1,10 38,00  1 13 70  1    37 7613035940901   FITNESS CUP CIOCC.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   681045  1 PETALI CEREALI CACAO CONAD          KG     0,3750 PZ    6 10,0   1        1,45     2,15 25,83  1 13 70  7     6 08003160018535  PETALI CEREALI CACAO
+   2100 SALA G.V.  I IN ASSORT   679775  1 PALLINE CEREALI CACAO CONAD         KG     0,3750 PZ    6 10,0   1        1,45     2,15 25,83  1 13 70  7     7 08003160014896  PALLINE CER.CACAO
+   2100 SALA G.V.  I IN ASSORT   679774  1 CIAMBELLINE MIELE CONAD             KG     0,3750 PZ    6 10,0   1        1,45     2,15 25,83  1 13 70  7    10 08003160014889  CIAMBELLINE AL MIELE
+   2100 SALA G.V.  I IN ASSORT   679774  2 PALLINE AL MIELE CONAD              KG     0,3750 PZ    6 10,0   1        1,45     2,15 25,83  1 13 70  7    10 8003170104310   PALLINE AL MIELE CON
+   2100 SALA G.V.  E AD ESAURI   730777  1 KELLOGG COCO POPS LOOPS E.2,49      KG     0,2850 PZ    5 10,0   1        1,80     2,49 20,49  1 13 70  7   111 5059319030364   KELLOGG COCO POPS
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   728279  3 BEVANDA SOIA BARISTA CONAD LT 1     LT     1,0000 PZ    8 22,0   1        1,05     1,79 28,42  1 13 85 19   201 8003170105171   BEVANDA SOIA BARISTA
+   2100 SALA G.V.  I IN ASSORT   733233  1 BEVANDA DI RISO ORASI'              LT     1,0000 PZ   12 22,0   1        1,36     2,39 30,57  1 13 85 19   700 8003180000145   BEVANDA RISO ORASI'
+   2100 SALA G.V.  I IN ASSORT   733238  1 BEV.AVENA C/CALCIO S/ZUC.AGG.ORASI' LT     1,0000 PZ   12 22,0   1        1,52     2,69 31,06  1 13 85 19   704 8003180020747   BEV.AVEN.S.Z.A.ORASI
+   2100 SALA G.V.  I IN ASSORT   723898  2 SCIROPPO D' ACERO ZERO PROZIS       KG     0,3550 PZ   12 10,0   1        1,90     2,79 25,07  1 13 85 31     2 5600961114294   SCIROPPO D' ACERO ZE
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   722441  1 ACETO DUE VITTORIE MELE INVECCHIATO LT     0,2500 PZ    6 10,0   1        1,83     2,95 31,76  1 17  1 10   300 08022734113247  ACETO DUE VITTORIE M
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT   676429  1 CONDIMENTO DOLCEAGRO PONTI          LT     0,5000 PZ    6 10,0   1        1,77     2,45 20,52  1 17  1 10  1000 80682059        CONDIMENTO DOLCEAGRO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  E AD ESAURI   733837  1 SALSA CILIEGINO GIALLO BOTT.SICILIA KG     0,3300 PZ   12 10,0   1        1,40     1,99 22,60  1 17 13  4  1205 8003140807050   SALSA CILIEG.GIALLO
+   0               ____________
+   2100 SALA G.V.  O SPOT IN AS  733118  1 SALSA PR.CILIEGINO AGROMONTE G330X2 KG     0,6600 PZ    6 10,0   1        1,98     2,99 27,15  1 17 13 10  1600 8032817248254   SALSA PRON.AGROMONTE
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   691841  1 POMOD.DATTERINI COLLINA LA TORRENTE KG     0,2600 PZ   24  4,0   1        0,70     0,90 19,07  1 19  4  1   496 8000282001605   POMODORINI DATTERINI
+   0                                                                                                                     _________
+   2100 SALA G.V.  I IN ASSORT    97183  1 POMODORINI COLLINA TORRENTE         KG     0,2400 PZ   24  4,0   1        0,70     0,90 19,07  1 19  4  1   500 8000282000912   POMODORINI TORRENTE
+   0                                                                                                          ___________
+   2100 SALA G.V.  E AD ESAURI   702980  1 PISELLI CONAD BIO V.NATURA V.V.     KG     0,2400 PZ   12 10,0   1        0,98     1,60 32,64  1 19 34  4     4 08003160055486  PISELLI CONAD BIO VN
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   701457  1 CARNE IN GELATINA CONAD GR.90 X3    KG     0,2700 PZ   16 10,0   1        2,15     3,15 24,93  1 21  1  1     3 08003160053093  CARNE GELATINA CONAD
+   2100 SALA G.V.  I IN ASSORT   716951  1 CARNE IN GELATINA CONAD GR.90 X6    KG     0,5400 PZ    8 10,0   1        4,25     5,65 17,25  1 21  1  1     3 08003160070854  CARNE GELATINA CONAD
+   2100 SALA G.V.  I IN ASSORT   707698  1 CARNE IN GELATINA CONAD GR.140 X3   KG     0,4200 PZ   16 10,0   1        3,25     4,15 13,86  1 21  1  1     4 08003160062941  CARNE IN GELAT.CONAD
+   2100 SALA G.V.  E AD ESAURI    18807  1 TONNO RIOMARE O.OLIVA GR.80X4       KG     0,3200 PZ   24 10,0   1        4,78     5,59  5,94  1 21  7  1    50 8004030383555   TONNO RIOMARE 80G.X4
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   704406  1 BEVANDA SKIP.ALBIC.BRIK S.Z.ML200X3 LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571057   BEVANDA SKIP.ALBIC.B
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   704406  2 BEVANDA SKIP.PERA BRIK S.Z.ML200X3  LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571033   BEVANDA SKIP.PERA BR
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   704406  3 BEVANDA SKIP.PESCA BRIK S.Z.ML200X3 LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571040   BEVANDA SKIP.PESCA B
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   704406  4 BEVANDA SKIPP.MELA BRIK S.Z.ML200X3 LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571026   BEVANDA SKIPP.MELA B
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   704406  5 BEV.SKIPPER ACE BRIK S.Z.ML200X3    LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571002   BEV.SKIPPER ACE BRIK
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   704406  6 BEVANDA SK.F.BOSCO BRIK S.Z.ML200X3 LT     0,6000 PZ    8 22,0   1        1,07     1,59 17,88  3  3  1  4   210 8000340571019   BEVANDA SK.F.BOSCO B
+   0                                                                                                          ___________
+   2100 SALA G.V.  I IN ASSORT   699058  1 FRULL.100% MIX VEGGIE VERDE VALFRUT LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4  4   600 8001440130052   FRULLATO 100% MIX
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   699058  2 FRULL.100% MIX VEGGIE VIOLA VALFRUT LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4  4   600 8001440130076   FRULLATO 100% MIX
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   699058  3 FRULL.100% MIX VEGGIE ARANC.VALFRUT LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4  4   600 8001440130069   FRULLATO 100% MIX
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   726525  1 BEVANDA ACE/P.FRUIT DIFESA+ VF      LT     1,0000 PZ    6 22,0   1        1,33     2,09 22,35  3  3  4  4   600 08001440327377  BEVANDA ACE/P.FRUIT
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   726525  2 BEVANDA MELOGRANO DIFESA+ VF        LT     1,0000 PZ    6 22,0   1        1,33     2,09 22,35  3  3  4  4   600 08001440329562  BEVANDA MELOGRANO DI
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   726525  3 BEVANDA ANANAS DIFESA+ VALFRUTTA    LT     1,0000 PZ    6 22,0   1        1,33     2,09 22,35  3  3  4  4   600 08001440329548  BEVANDA ANANAS DIFES
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   721489  1 FRUL.PROT.MELA/BOSCO AVENA VALFRUTT LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4 10    84 08001440328008  FRUL.PROT.MELA/BOSCO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   721489  2 FRUL.PRO.PER/UVA/NOCCIOLA AVENA VAL LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4 10    84 08001440328015  FRUL.PRO.PER/UVA/NOC
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   721489  3 FRUL.PROT.MAN/PES/MANDOR.AVENA VALF LT     1,0000 PZ    6 22,0   1        1,30     2,09 24,10  3  3  4 10    84 08001440328022  FRUL.PROT.MAN/PES/MA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  E AD ESAURI   687190  7 MONSTER WATERMELON LATTINA          LT     0,5000 PZ   24 22,0   1        1,10     1,75 23,29  3  3 16  4   600 05060896620305  MONSTER WATERMELON L
+   0               ____________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  E AD ESAURI   687190  9 MONSTER ULTRA GOLD PINE APPLE       LT     0,5000 PZ   24 22,0   1        1,10     1,75 23,29  3  3 16  4   600 05060947541443  MONSTER ULTRA GOLD P
+   0               ____________
+   2100 SALA G.V.  F FUORI ASS.  683953  1 BEVANDA VITAMINIZ.CONAD ACE PET     LT     1,0000 PZ    6 22,0   1        0,69     1,00 15,85  3  3 19  1     1 08003160024895  BEV.VITAMINIZ.CONAD
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  683953  2 BEV.VITAMINIZ.CONAD ACE ROS.PET     LT     1,0000 PZ    6 22,0   1        0,69     1,00 15,85  3  3 19  1     1 08003160024901  BEV.VITAMINIZ.CONAD
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT     8956  1 ARANCIATA CONAD PET                 LT     1,5000 PZ    6 22,0   1        0,53     0,79 18,20  3  3 22  4     2 08003160004781  ARANCIATA CONAD
+   2100 SALA G.V.  I IN ASSORT   679965  1 ARANCIATA ZERO CONAD PET            LT     1,5000 PZ    6 22,0   1        0,53     0,79 18,20  3  3 22  4     2 08003160018771  ARANCIATA ZERO CONAD
+   2100 SALA G.V.  I IN ASSORT   675702  1 ARANCIATA CONAD CL.50X4             LT     2,0000 PZ    6 22,0   1        1,20     2,00 26,78  3  3 22  4     3 08003160010881  ARANCIATA CL.50X4
+   2100 SALA G.V.  I IN ASSORT   701612  1 FANTA ARANCIATA MINI LATT.ML150X6   LT     0,9000 PZ    4 22,0   1        2,20     3,29 18,42  3  3 22  7    36 5449000337641   FANTA ARAN.MINI LATT
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  E AD ESAURI   722011  1 BIBITE CHINOTTO LURISIA ML.275 COX4 LT     1,1000 PZ    6 22,0   1        3,45     5,29 20,43  3  3 31  1   300 08032919460721  BIBITE CHINOTTO LURI
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   722011  3 BIBITE ARANCIATA LURISIA ML275 COX4 LT     1,1000 PZ    6 22,0   1        3,45     5,29 20,43  3  3 31  1   300 08032919460745  BIBITE ARANCIATA LUR
+   0               ____________
+   2100 SALA G.V.  F FUORI ASS.  699218  1 BIRRA ICHNUSA CL.33 X3              LT     0,9900 PZ    1 22,0   1       15,50     2,89 18,21  3  5  1  1    34                 BIR.ICHNUSA CL.33 X3
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  684687  1 BIRRA ICHNUSA BOTTIGLIA             LT     0,6600 PZ    1 22,0   1       16,80     1,69 19,13  3  5  1  1    35                 BIRRA ICHNUSA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708447  1 BIRRA ICHNUSA NON FILT.CL20X4 CO.X6 LT     0,8000 PZ    1 22,0   1       15,80     4,20 23,51  3  5  1  1    36 08006890087451  ICHNUSA N/FILT.CL.20
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  726483  1 BIRRA ICHNUSA NON FILTRATA          LT     0,9900 PZ    1 22,0   1       23,55     4,55 21,07  3  5  1  1    36                 BIRRA ICHNUSA NON FI
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  689926  1 BIRRA PERONI PURO MALTO CL50 CO.X12 LT     0,5000 PZ    1 22,0   1       13,70     1,79 22,17  3  5  1  1    59                 B/PERONI PURO MALTO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  701887  1 BIRRA PERONI GRAN RISERVA BIANCA    LT     0,5000 PZ    1 22,0   1       13,70     1,79 22,17  3  5  1  1    63                 BIR.PERONI G.RISERVA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  704796  1 BIRRA PERONI CRUDA                  LT     0,5000 PZ    1 22,0   1       17,95     1,45 24,51  3  5  1  1    88                 BIRRA PERONI CRUDA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  716188  1 BIRRA MORETTI FILTR.FREDDO CL55X15  LT     0,5500 PZ    1 22,0   1       16,50     1,75 23,29  3  5  1  1    90                 BIRRA MORETTI FILTR.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  681671  1 PERONCINO CL.25 X6                  LT     1,5000 PZ    1 22,0   1       12,00     4,35 15,87  3  5  1  1   120                 PERONCINO CL.25 X6
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  689919  1 BIRRA PERONI GRAN RISERVA ROSSA     LT     0,5000 PZ    1 22,0   1       13,70     1,79 22,17  3  5  1  1   125                 BIR.PERONI GR.RISER.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.   15386  1 BIRRA MORETTI BOTT CL33 X3          LT     0,9900 PZ    1 22,0   1       13,30     2,45 17,20  3  5  1  1   130                 BIRRA MORETTI CL33X3
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.   15430  1 BIRRA NASTRO AZZURRO BOTT.CL33 X3   LT     0,9900 PZ    1 22,0   1       16,70     3,10 17,84  3  5  1  1   130                 BIRRA N.AZZURRO 33X3
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   730067  1 BIRRA AGRUMI 1664 BLANC             LT     0,3300 PZ   24 22,0   1        0,50     1,49 59,04  3  5  1  1   602 851621000043    BIRRA AGRUMI 1664 BL
+   0                                                                                                          ___________
+   2100 SALA G.V.  F FUORI ASS.  693332  1 BIRRA DANA CONAD LATTINA            LT     0,3300 PZ   24 22,0   1        0,34     0,59 29,75  3  5  1  4    10 8003170049727   BIR.DANA CONAD LATT.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.   97114  1 BIRRA MORETTI LATTINA CL33 X2       LT     0,6600 PZ    1 22,0   1       15,60     1,85 14,24  3  5  1  4    50                 BIR.MORETTI LATTINA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  690672  1 BIRRA HEINEKEN CL.15 X8             LT     1,2000 PZ    1 22,0   1       10,28     4,99 16,21  3  5  1  7    18                 BIR.HEINEKEN CL15 X8
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  726485  1 BIRRA HEINEKEN SILVER               LT     0,3300 PZ    1 22,0   1       20,30     1,35 23,59  3  5  1  7    18                 BIRRA HEINEKEN SILVE
+   0                                                                                                          ____________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  E AD ESAURI   725960  1 BIRRA DOPPIO MALTO BLOND DUVEL      LT     0,3300 PZ   12 22,0   1        1,58     2,35 17,96  3  5  1  7    43 05411681014265  BIRRA DOPPIO MALTO B
+   0               ____________
+   2100 SALA G.V.  P SPOT AD ES  728406  1 BIRRA AUGUSTINER OKTOBERFEST BIER   LT     0,5000 PZ   20 22,0   1        1,80     2,69 18,36  3  5  1 13   100 4105250025004   BI.AUGUSTINER OKTOBE
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   672002  1 BIRRA FRANZISKANER HEFE WEISS CL.50 LT     0,5000 PZ   20 22,0   1        1,00     1,39 12,20  3  5  1 13   133 04072700006145  BIRRA FRANZISKANER
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   688095  1 BIRRA FRANZISKANER HEFE DUNKEL      LT     0,5000 PZ   20 22,0   1        1,00     1,39 12,20  3  5  1 13   135 4072700001188   BIRRA FRANZISKANER
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   729776  1 BIRRA DESPERADOS BOTTIGLIA          LT     0,3300 PZ   24 22,0   1        1,15     1,75 19,80  3  5  1 13   190 8712000038618   BIRRA DESPERADOS BOT
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  716424  1 BIRRA N.AZZURRO ZERO CL33X3 CON.X8  LT     0,9900 PZ    1 22,0   1       16,00     3,10 21,29  3  5  1 19    21                 BIRRA N.AZZURRO ZERO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   728477  1 VERMENTINO BOLGHERI DOC POD.ROSETO  LT     0,7500 PZ    6 22,0   1        8,10    12,70 22,19  3  7  7  1  1317 8033210028542   VERMENT.BOLGHERI DOC
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  E AD ESAURI   682656  1 TEROLDEGO ROTALIANO "COSTALTA" DOC  LT     0,7500 PZ    6 22,0   1        3,35     5,30 22,88  3  7  7  4   410 08003160023805  TEROLDEGO ROTAL.DOC
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   705555  1 MONTEFALCO ROSSO DOC BENEDET.&GRIGI LT     0,7500 PZ    6 22,0   1        3,50     6,70 36,27  3  7  7  4  1563 8054729200960   MONTEFALCO ROSSO DOC
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   691739  1 PASSITO PANTELLER.LI RACI DOC       LT     0,5000 PZ    6 22,0   1        4,70     7,40 22,51  3  7 13  1  3148 8003170046733   PASS.PANTEL.LI RACI
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  I IN ASSORT   737095  1 ROSSO ZERO ALCOHOL MASSO ANTICO     LT     0,7500 PZ    6 22,0   1        3,60     5,95 26,18  3  7 15  1   100 8009620877490   ROSSO ZERO ALCOHOL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   737095  2 BIANCO ZERO ALCOHOL MASSO ANTICO    LT     0,7500 PZ    6 22,0   1        3,60     5,95 26,18  3  7 15  1   100 8009620877506   BIANCO ZERO ALCOHOL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   736688  1 PROSECCO SUP.DOCG DIAMOMD S.ORSOLA  LT     0,7500 PZ    6 22,0   1        6,00     9,95 26,43  3  7 16  7    26 8005415063994   PROSECC.SUP.DOCG DIA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   705549  1 SPUMANTE ALCOHOLFREE BIO ASTORIA    LT     0,7500 PZ    6 22,0   1        4,45     6,69 18,85  3  7 16 19   102 8003905041651   SPUM.ALCOHOLFREE BIO
+   0                                       ___________________________________
+   2100 SALA G.V.  F FUORI ASS.  700184  1 GRAPPA DI MOSCATO INVECCH.LANTERNA  LT     0,5000 PZ    3 22,0   1       20,80    29,90 15,12  3 11  1  1 30160 8006050138528   GRAP.MOSCATO INVECC.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  703053  1 CONF.GRAPPA RISERVA SEGNI DEL TEMPO LT     0,7000 PZ    6 22,0   1       22,10    35,90 24,89  3 11  1  1 30160 8006050140149   CON.GRAPPA RIS.MAZZ.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  706505  1 CONF.IDROPLANO GRAPPA MAZZETTI      LT     0,1000 PZ    1 22,0   1       37,00    59,90 24,64  3 11  1  1 30161 8006050141153   CONF.IDROPLANO GRAPP
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  697135  1 CONF.FUCILE GRAPPA INVECCH.MAZZETTI LT     0,2000 PZ    4 22,0   1       29,90    49,00 25,55  3 11  1  1 30162 8006050136890   CONF.FUCILE GRAPPA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   690537  1 CONAD GEL LAVASTOVIGLIE LIMONE      LT     0,6500 PZ    6 22,0   1        2,35     3,49 17,86  5  1  7 10     5 08003160036294  CONAD GEL LIMONE
+   2100 SALA G.V.  E AD ESAURI   671221  1 PRIL CURA LAVASTOVIGLIE             LT     0,2500 PZ    8 22,0   1        2,00     2,90 15,86  5  1 10  7    72 8015100804009   PRIL CURA LAVASTOVIG
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   735644  1 PRIL CURA LAVASTOVIGLIE INTENS.     LT     0,2500 PZ    8 22,0   1        2,00     2,90 15,86  5  1 10  7    72 8015100579594   PRIL CURA LAVASTOVIG
+   2100 SALA G.V.  E AD ESAURI   700808  1 PRIL CURALAVAST.3 TABS CICLO PIENO  LT     0,0600 PZ    6 22,0   1        1,92     2,69 12,92  5  1 10  7    75 8015100569700   PRIL CURALAVASTOVIG.
+   0               ____________
+   2100 SALA G.V.  P SPOT AD ES  724871  1 DASH DET.POLVERE 64 MIS.            KG     3,2000 PZ    1 22,0   1       13,50    19,90 17,23  5  3 10 10   800 08006540920848  DASH DET.POLVERE 64
+   2100 SALA G.V.  I IN ASSORT   719790  1 CONAD LAV.COLOR 3IN1 X44 CAPS       $$     1,0780 PZ    4 22,0   1        5,90     7,99  9,90  5  3 13 10    11 08003160071882  CONAD LAV.COLOR 3IN1
+   2100 SALA G.V.  I IN ASSORT   719790  2 CONAD LAV.C/AMMORBID.3IN1 X44 CAPS  $$     1,0780 PZ    4 22,0   1        5,90     7,99  9,90  5  3 13 10    11 08003160071875  CONAD LAV.C/AMM.3IN1
+   2100 SALA G.V.  E AD ESAURI   730023  1 CHANTECL.VERT AMM.CON.BEBE'TALC.X45 LT     0,9000 PZ    8 22,0   1        2,15     3,35 21,70  5  3 22  4   501 8015194524111   CHA.VERT AMM.CON.BEB
+   0               ____________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT    12524  1 CONAD ANTICALCARE POLVERE           KG     0,8500 PZ   14 22,0   1        1,95     3,19 25,43  5  3 28  1     2 08003160999933  CONAD ANTICALCARE PO
+   2100 SALA G.V.  I IN ASSORT   733968  1 AMBIPUR 3VOL.RICAR.RIS.PRIM.ML20 X2 LT     0,0400 PZ    6 22,0   1        5,30     8,09 20,07  5  5 31  4    99 8700216457866   AMBIPUR 3VOL.RICAR.R
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  F FUORI ASS.  696652  1 FUFI TOP GATTI STERILIZ.MANZO/RISO  KG     0,8000 PZ    8 22,0   1        1,75     3,10 31,12  7  1  1  4     8 08003160053864  FUFI T.GAT.STERILIZ.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT    97632  2 CONAD CAT CROC.SALMONE/TROTA/TONNO  KG     2,0000 PZ    8 22,0   1        2,55     3,79 17,92  7  1  1  4     9 08003160046507  CONAD CAT C.SA/TR/TO
+   2100 SALA G.V.  I IN ASSORT    97632  3 CONAD CAT POLLO/CONIGLIO/VERDURE    KG     2,0000 PZ    8 22,0   1        2,55     3,79 17,92  7  1  1  4     9 8003170077140   CONAD CAT PO/CO/VE
+   2100 SALA G.V.  I IN ASSORT   708764  1 PETFRIEND DOG PATE'AGNELLO/POLLO    KG     0,3000 PZ   18 22,0   1        0,55     0,85 21,09  7  1  1  7    12 08003160062835  PETFR.DOG PATE'AG/PO
+   2100 SALA G.V.  I IN ASSORT   708764  2 PETFRIEND DOG PATE'MANZO/POLLO 0    KG     0,3000 PZ   18 22,0   1        0,55     0,85 21,09  7  1  1  7    12 08003160062842  PETFR.DOG PATE'MA/PO
+   2100 SALA G.V.  I IN ASSORT   689348  1 ALMO NAT.CANE POLLO/PISELLI VASCH.  KG     0,3000 PZ    9 22,0   1        1,08     1,75 24,68  7  1  1  7   900 8001154124811   ALMO NAT.MENU CANE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   689348  2 ALMO NAT.CANE VITELLO/CAROTE VASCH. KG     0,3000 PZ    9 22,0   1        1,08     1,75 24,68  7  1  1  7   900 8001154124828   ALMO NAT.MENU CANE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   689348  4 ALMO NAT.CANE MERLUZZO/FAGIOL. VAS. KG     0,3000 PZ    9 22,0   1        1,08     1,75 24,68  7  1  1  7   900 8001154125818   ALMO NAT.CANE MERLU/
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   708658  1 PETFR.DOG STICK IGIENE DENTALE "M"  KG     0,1800 PZ   20 22,0   1        0,73     1,29 30,93  7  1  1 16    18 08003160045142  PETFR.DOG STICK IGI.
+   2100 SALA G.V.  I IN ASSORT   708659  1 PETFR.DOG STICK IGIENE DENTALE MINI KG     0,1100 PZ   23 22,0   1        0,72     1,29 31,88  7  1  1 16    18 08003160045135  PETFR.DOG STICK IGIE
+   2100 SALA G.V.  I IN ASSORT   735860  1 PETFR.DOG STICK IGIENE DENTALE "L"  KG     0,2700 PZ   18 22,0   1        1,15     2,19 35,93  7  1  1 16    18 8003170104327   PETFR.DOG STICK IGI.
+   2100 SALA G.V.  P SPOT AD ES  725373  2 PAMPERS BABY DRY MUT.SPEC. XXL X60  $$            PZ    1 10,0   1       21,00    25,90 10,80  7  5  1  4   300 08001480148147  PAMPERS SPECIAL XXL
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   723842  1 PANNOL.MUTANDINO CONAD XL TG.6 X18  $$            PZ    6 10,0   1        3,30     4,55 20,21  7  5  1  4   348 08003160078157  PANNOL.MUTANDINO CON
+   2100 SALA G.V.  I IN ASSORT   723843  1 PAN.MUTANDINO CONAD JUNIOR TG.5 X20 $$            PZ    6 10,0   1        3,30     4,55 20,21  7  5  1  4   348 08003160078140  PAN.MUTANDINO CONAD
+   2100 SALA G.V.  F FUORI ASS.  699975  1 PIAT.PL.DESSERT CONAD COLORATI X50  $$            PZ    1 22,0   1       20,34     1,99 30,71  7  9 13  1    50                 PIATTI DESSERT CONAD
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   717985  1 PIATTI PIANI BIO BIA.BIBO D21,5 X15 $$            PZ   24 22,0   1        1,55     2,55 25,83  7  9 13  7   181 08008570054432  PIATTI PIANI BIO BIA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   717986  1 PIATTI FONDI BIO BIA.BIBO D21,5 X15 $$            PZ   24 22,0   1        1,55     2,55 25,83  7  9 13  7   181 08008570054449  PIATTI FONDI BIO BIA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713616  1 PIATTI PIANI BIO ROS.BIBO D21,5 X20 $$            PZ   30 22,0   1        2,13     3,49 25,55  7  9 13  7   650 8008570585912   PIATTI PIANI BIO ROS
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713616  2 PIA.PIANI BIO GIALLO BIBO CM21,5X20 $$            PZ   30 22,0   1        2,13     3,49 25,55  7  9 13  7   650 8008570585936   PIA.PIANI BIO GIALLO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713616  3 PIATT.PIANI BIO ROSA BIBO D21,5 X20 $$            PZ   30 22,0   1        2,13     3,49 25,55  7  9 13  7   650 8008570585950   PIATT.PIANI BIO ROSA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713616  4 PIATTI PIANI BIO AZZ.BIBO D21,5 X20 $$            PZ   30 22,0   1        2,13     3,49 25,55  7  9 13  7   650 8008570585998   PIATTI PIANI BIO AZZ
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713616  5 PIAT.PIANI BIO VERDI BIBO D21,5 X20 $$            PZ   30 22,0   1        2,13     3,49 25,55  7  9 13  7   650 8008570585981   PIAT.PIANI BIO VERD
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713619  1 PIATTI DESSERT BIO ROS.BIBO D17 X20 $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 13  7   650 8008570587916   PIATTI DESSERT BIO R
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713619  2 PIATTI DESSERT BIO GIAL.BIBO D17X20 $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 13  7   650 8008570587930   PIATTI DESSERT BIO G
+   0                                                                                                          ____________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT   713619  3 PIATTI DESSERT BIO ROSA BIBO D17X20 $$            PZ   24 22,0   1        1,35     2,19 24,79  7  9 13  7   650 8008570587954   PIATTI DESSERT BIO R
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713619  4 PIATTI DESSERT BIO AZZ.BIBO D17 X20 $$            PZ   24 22,0   1        1,35     2,19 24,79  7  9 13  7   650 8008570587992   PIATTI DESSERT BIO A
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713619  5 PIATT.DESSERT BIO VERDI BIBO D17X20 $$            PZ   24 22,0   1        1,35     2,19 24,79  7  9 13  7   650 8008570587985   PIATT.DESSERT BIO VE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   720097  1 BICCH.CAFFE' VNAT CONAD ECO X60     $$            PZ   20 22,0   1        1,20     1,85 20,84  7  9 16 10     1 08003160075583  BICCH.CAFFE' VNAT CO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   720099  1 BICCHIERI ACQUA V.NATURA ECO X50    $$            PZ   20 22,0   1        1,35     2,19 24,79  7  9 16 10     1 08003160075576  BICCHIERI ACQUA V.NA
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   720102  1 BICCHIERI BIBITA V/NAT ECO X25      $$            PZ   16 22,0   1        1,20     2,19 33,14  7  9 16 10     1 08003160075538  BICCHIERI BIBITA V/N
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   717992  1  BICCHIERI BIO BIANCHI BIBO         $$            PZ   30 22,0   1        1,22     2,09 28,77  7  9 16 10    30 08008570054463   BICCHIERI BIO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713620  1 BICCHIERI BIO ROSSI BIBO ML200 X50  $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 16 10   650 8008570588913   BICCHIERI BIO ROSSI
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713620  2 BICCHIERI BIO GIALLO BIBO ML200 X50 $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 16 10   650 8008570588937   BICCHIERI BIO GIALLO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713620  3 BICCHIERI BIO ROSA BIBO ML200 X50   $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 16 10   650 8008570588951   BICCHIERI BIO ROSA B
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713620  4 BICCHIERI BIO AZZUR.BIBO ML200 X50  $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 16 10   650 8008570588999   BICCHIERI BIO AZZUR.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   713620  5 BICCHIERI BIO VERDI BIBO ML200 X50  $$            PZ   30 22,0   1        1,35     2,19 24,79  7  9 16 10   650 8008570588982   BICCHIERI BIO VERDI
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  716588  1 CUCCHIAI BIANCHI X20 PRESTO         $$            PZ   60 22,0   1        0,40     0,59 17,35  7  9 19  7   290 8032532739082   CUCCHIAI BIANCHI X20
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708209  1 GUANTI LATTICE S/POL.SAFE TG.L X100 $$            PZ   10  5,0   1        5,25     6,93 20,45  7 11  1  4   110 8057013190367   GUANTI LATTICE S/POL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708253  1 GUANTI NITRILE S/PO.EXTREME XL X100 $$            PZ   10  5,0   1        7,20     9,80 22,85  7 11  1  4   110 8014114001800   GUANTI NITRILE S/PO.
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708290  1 GUANTI NITRIL.S/POLV.STRONG L X100  $$            PZ   10  5,0   1        7,20     9,80 22,85  7 11  1  4   110                 GUANTI NITRIL.S/POLV
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708514  1 GUANTI NITRILE S/POLVERE BLU S X100 $$            PZ   10  5,0   1        7,20     9,80 22,85  7 11  1  4   110 8032804930650   GUANTI NITRILE S/POL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708515  1 GUANTI NITRILE S/POLVERE BLU M X100 $$            PZ   10  5,0   1        7,20     9,80 22,85  7 11  1  4   110 8032804930667   GUANTI NITRILE S/POL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  708516  1 GUANTI NITRILE S/POLVERE BLU L X100 $$            PZ   10  5,0   1        7,20     9,80 22,85  7 11  1  4   110 8032804930674   GUANTI NITRILE S/POL
+   0                                                                                                          ____________________
+   2100 SALA G.V.  O SPOT IN AS  675846  1 DIAVOLINA SUPERVETRO RICARICA       LT     1,0000 PZ    6 22,0   1        3,35     5,10 19,85  7 11 13  7   651 8002840150558   DIAVOLINA SUPERVETRO
+   0               ____________
+   2100 SALA G.V.  E AD ESAURI   677284  1 NEO EMOFORM DENTIFRICIO             LT     0,0750 PZ   24 22,0   1        2,33     3,79 25,00  9  1  1  7  1300 8056772950038   NEO EMOFORM DENTIFR.
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   671270  1 SPAZZOLINO MENTADENT TECNIC MEDIO   $$            PZ   12 22,0   1        1,25     1,99 23,35  9  1  7  1    79 9014200008170   SPAZZOLINO MENTADENT
+   2100 SALA G.V.  O SPOT IN AS  732107  3 BAGNO VIDAL MILKY/VANILLA           LT     0,5000 PZ   12 22,0   1        1,25     1,99 23,35  9  3 10  1   385 8008970059112   BAGNO VIDAL MILKY/VA
+   2100 SALA G.V.  I IN ASSORT   729956  9 DEOD.DOVE FRUITY BASE CARE          LT     0,1500 PZ    6 22,0   1        2,19     3,40 21,42  9  3 19  4   199 8720181566882   DEOD.DOVE FRUITY BAS
+   2100 SALA G.V.  E AD ESAURI   727898  2 SHAMPOO TE'VERDE IALURONICO EQUIL.  LT     0,2650 PZ    6 22,0   1        3,05     4,85 23,27  9  7  1  4  4001 8000137017966   SHAMPOO TE'VER.IALUR
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   731250  2 GARN.FLUIDO ANTI MACCH.VIT.C GLOW   LT     0,0400 PZ    6 22,0   1        8,20    11,95 16,28  9  9  7  1    32 3600542573054   GARN.FLUIDO ANTI MAC
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2100 SALA G.V.  I IN ASSORT   693423  1 NIVEA F.MEN CREMA IDRATANTE         LT     0,0750 PZ   10 22,0   1        2,39     3,95 26,18  9  9  7  3    80 4005900115010   NIVEA F.MEN CREMA
+   2100 SALA G.V.  E AD ESAURI   721697  1 ACQUA MICELLARE ROSA IALUR.EQUIL.   LT     0,4000 PZ    6 22,0   1        3,00     4,90 25,29  9  9 10  1  1800 8000137016822   ACQUA MICEL.ROSA IAL
+   0               ____________
+   2100 SALA G.V.  I IN ASSORT   725976  1 CERA ROLL CONAD ESS.                LT     0,1000 PZ   12 22,0   1        1,00     1,49 18,09  9  9 19  4     1 08003160080617  CERA ROLL CONAD ESS.
+   2100 SALA G.V.  I IN ASSORT   725974  1 STRISCE DEP.VISO CONAD ESS X24      $$            PZ   12 22,0   1        1,05     2,39 46,40  9  9 19  7     1 08003160080600  STRISCE DEP.VISO CON
+   2100 SALA G.V.  I IN ASSORT   725973  1 STRISCE DEP.BIKINI CONAD ESS.X20    $$            PZ   12 22,0   1        1,05     2,39 46,40  9  9 19  7     2 08003160080594  STRISCE DEP.BIKINI
+   2100 SALA G.V.  I IN ASSORT   725975  1 STRISCE TNT CONAD ESS.X100          $$            PZ   12 22,0   1        1,30     2,10 24,46  9  9 19  7     2 08003160080624  STRISCE TNT CONAD ES
+   2100 SALA G.V.  I IN ASSORT   724028  1 RAS.FEM.CONAD ESS.ESA/GET.3 LAME X6 $$            PZ   10 22,0   1        1,95     2,99 20,44  9  9 19  9     2 08003160078126  RAS.FEM.CONAD ESS.ES
+   2100 SALA G.V.  I IN ASSORT   724030  1 RAS.DON.US/GET.CONAD ESS.2 LAME X10 $$            PZ   20 22,0   1        1,20     1,85 20,84  9  9 19  9     3 08003160078119  RAS.DON.US/GET.CONAD
+   2100 SALA G.V.  I IN ASSORT   725971  1 STRISCE DEPIL.NORM.CONAD ESS.X32    $$            PZ   12 22,0   1        1,60     2,79 30,03  9  9 19 10     2 08003160080570  STRISCE DEPIL.NORM.C
+   2100 SALA G.V.  I IN ASSORT   725971  2 STRISCE DEPIL.SENS.CONAD ESS.X32    $$            PZ   12 22,0   1        1,60     2,79 30,03  9  9 19 10     2 08003170093010  STRISCE DEPIL.SENS.
+   2100 SALA G.V.  I IN ASSORT   725970  1 CREMA DEPIL.NORM.CONAD ESS          LT     0,2000 PZ   12 22,0   1        1,60     2,79 30,03  9  9 19 10     4 08003160080556  CREMA DEPIL.NORM.CON
+   2100 SALA G.V.  I IN ASSORT   725970  2 CREMA DEPIL.SENS.CONAD ESS.         LT     0,2000 PZ   12 22,0   1        1,60     2,79 30,03  9  9 19 10     4 08003160080563  CREMA DEPIL.SENS.CON
+   2100 SALA G.V.  F FUORI ASS.  678495  1 SOLARE CONAD CREMA DOPOSOLE         LT     0,3000 PZ    6 22,0   1        3,15     5,90 34,86  9 11  1 22     9 80458869        CREMA DOPOSOLE CONAD
+   0                                                                                                          ____________________
+   2100 SALA G.V.  F FUORI ASS.  695045  1 SOLARE CONAD LATTE FP.50            LT     0,2000 PZ    6 22,0   1        4,55     8,90 37,62  9 11  1 22    30 08003160043506  SOLARE CONAD LATTE
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   736763  1 SALV.DET.MULTIUSO CONAD ESS.X20     $$            PZ   14 22,0   1        0,55     0,96 30,11  9 13  1  4     7 8003170102590   SALV.DET.MULTIUSO CO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   736764  1 SALV.DET.MULTIUSO CONAD ESS.X72     $$            PZ   12 22,0   1        1,05     1,83 30,00  9 13  1  4     8 8003170102583   SALV.DET.MULTIUSO CO
+   0                                                                                                          ____________________
+   2100 SALA G.V.  I IN ASSORT   708522  1 SALV.INTIME LENITIV.CONAD ESSEN.X12 $$            PZ   12 22,0   1        0,50     0,99 38,34  9 13  1  7     5 8003170074118   SALV.INTIME LENITIV.
+   2100 SALA G.V.  I IN ASSORT   708522  2 SALV.INTIME RINFRES.CONAD ESSEN.X12 $$            PZ   12 22,0   1        0,50     0,99 38,34  9 13  1  7     5 08003160062491  SALV.INTIME RINFRES.
+   2100 SALA G.V.  I IN ASSORT     4870  1 COTTON FIOC JOHNSON'S X100          $$            PZ   24 22,0   1        1,35     2,10 21,55  9 13  4  1    40 8002110012197   COTTON FIOC JOHNSONS
+   2100 SALA G.V.  E AD ESAURI   727434  1 DISCH.LEVASMALTO COTONEVE X60       $$            PZ   24 22,0   1        0,95     1,65 29,73  9 13  7 10   205 8003350551903   DISCH.LEVASMALTO COT
+   0               ____________
+   2100 SALA G.V.  F FUORI ASS.  697234  1 CONF.NIVEA MEN SENSITIVE SET        $$            PZ    6 22,0   1        9,20    16,90 33,58  9 15  1  1  2513 4005900358028   CONF.REG.NIVEA MEN
+   0                                                                                                          ____________________
+   2400 SURGELATI  O SPOT IN AS  728835  1 CROCCOLE DI MERLUZZO FINDUS X5      KG     0,5400 PZ    6 10,0   1        5,64     8,99 30,99 21  1  4 12    47 8057018226689   CROCCOLE DI MERLUZZO
+   0               ____________
+   2400 SURGELATI  P SPOT AD ES  703005  1 BURGER DI SALMONE FINDUS X2         KG     0,1700 PZ    6 10,0   1        3,40     5,29 29,29 21  1  4 12    66 8057018220045   BURGER SALMONE FIND.
+   0               ____________
+   2400 SURGELATI  I IN ASSORT   719139  1 PISELLI FINI D.ITALIA OROGEL GR.600 KG     0,6000 PZ   12  4,0   1        2,12     2,99 26,26 21  1  7  1   140 08003495903230  PISELLI FINI D.ITALI
+   0               ____________
+   2400 SURGELATI  P SPOT AD ES  703008  2 ZUPPA FARRO E CECI FINDUS GRANO SAR KG     0,5000 PZ   12 10,0   1        2,24     3,29 25,10 21  1  7 26    12 8057018220243   ZUPPA FAR.CECI FIND.
+   0               ____________
+   2400 SURGELATI  P SPOT AD ES  706132  4 CREMOSA FINDUS +PROTEINE GR.600     KG     0,6000 PZ   12 10,0   1        2,60     3,89 26,47 21  1  7 26    25 8057018226412   CREMOSA FINDUS +PROT
+   0               ____________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2400 SURGELATI  I IN ASSORT    35005  1 PATATINE DA FRIGGERE CONAD          KG     1,0000 PZ   10  4,0   1        1,92     2,69 25,78 21  1  7 34     7 08003170770539  PATAT.D/FRIGG.CONAD
+   2400 SURGELATI  I IN ASSORT    97711  1 PATATINE DA FORNO CONAD             KG     1,0000 PZ   10  4,0   1        2,04     2,98 28,79 21  1  7 34    12 8003160771461   PATATINE FORNO CONAD
+   2400 SURGELATI  P SPOT AD ES  708126  1 BURGER VEGET.GR.CUISINE FINDUS X2   KG     0,2000 PZ   10 10,0   1        2,72     4,19 28,59 21  1 13 11   220 8057018222650   BURGER VEGET.FINDUS
+   0               ____________
+   2400 SURGELATI  F FUORI ASS.  718395  1 PIZZA MARGH.LA NUMERO UNO ITALPIZZA KG     0,4200 PZ    5 10,0   1        2,25     2,99 17,21 21  1 16  4    39 8015673028352   PIZZ.MARG.NUMERO UNO
+   0                                                                                                          ____________________
+   2400 SURGELATI  P SPOT AD ES  722103  7 PIZZA DOLOMITICA ITALP.26X38 GR470  KG     0,4700 PZ    8 10,0   1        3,29     4,99 27,46 21  1 16  4   505 8015673028499   PIZZA DOLOM.ITALPIZZ
+   0               ____________
+   2400 SURGELATI  I IN ASSORT   699294  1 BISCOGELATO CONAD VAN/ZAB/CACAO X6  KG     0,4800 PZ    6 10,0   1        2,32     3,75 31,94 21  3  1  7     3 08003160050931  BISCOGELATO CONAD X6
+   2400 SURGELATI  S SOSP.LIST.  736694  1 VASCH.GELATO GROM PISTACCHIO        KG     0,2350 PZ    8 10,0   1        3,39     4,99 25,26 21  3  4  4 12374 8721274800029   VAS.GELATO GROM PIST
+   0                                                                                                          ____________________
+   2400 SURGELATI  I IN ASSORT    88532  1 VASC.CREMA CACAO/SPAGNOLA CONAD     KG     1,0000 PZ    6 10,0   1        3,40     4,99 25,04 21  3  4 10     1 8003170011779   VASC.CR.CACAO/SPAGN.
+   2400 SURGELATI  I IN ASSORT    88532  2 VASC.CAFFE'/NOCCIOLA/STRACC.CONAD   KG     1,0000 PZ    6 10,0   1        3,40     4,99 25,04 21  3  4 10     1 08003160771744  VASC.CAFF/NOC/STRACC
+   2400 SURGELATI  I IN ASSORT    88532  3 VASC.ZABAGLIONE/CACAO/P.COTTA CONAD KG     1,0000 PZ    6 10,0   1        3,40     4,99 25,04 21  3  4 10     1 08003160771768  VASC.ZAB/CACAO/PANNA
+   2400 SURGELATI  I IN ASSORT   702191 11 VASCH.I DESSERT MARASCA SIGEL       KG     1,3500 PZ    4 10,0   1        5,85     8,90 27,69 21  3  4 10   250 8007437114838   VASCH.MARASCA SIGEL
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT    34242  1 PANNA DA CUCINA STELLE ALPINE       LT     0,5000 PZ   12 10,0   1        1,57     2,49 30,65 23  1 10  1   100 8000005202654   PANNA CUC.ST.ALPINE
+   0               ____________
+   2300 MURALE S/L I IN ASSORT   696608  1 CHEF LEGGERA CUCINA PARMAL.ML125 X3 LT     0,3750 PZ   12 10,0   1        2,59     3,69 22,80 23  1 10  1   202 8002580015933   CHEF LEGGERA CUCINA
+   0                                                                                                                                                       _______________
+   2300 MURALE S/L F FUORI ASS.  694696  1 SPECIALITA' BURRO E TARTUFO OCCELLI KG     0,0800 PZ    6  4,0   1        5,00     7,50 30,67 23  1 16 16   400 8000239301505   SPECIAL.BUR/TARTUFO
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   733242  1 MARGARINA CONAD VASCHETTA           KG     0,2500 PZ   16  4,0   1        0,65     0,89 24,06 23  1 19  4     1 8003170100374   MARGARINA CONAD VASC
+   2300 MURALE S/L O SPOT IN AS  675923  1 YOGURT 0,1% YOMO FRUTTA GR.125 X8   KG     1,0000 PZ    3 10,0   1        3,30     4,98 27,10 23  1 22  4   660 8005350310139   YOG.0,1% YOMO FRUTTA
+   2300 MURALE S/L I IN ASSORT    15693  1 SOTTILET.FILA E FONDI A/MOZZARELLA  KG     0,2000 PZ   12  4,0   1        1,65     2,19 21,65 23  3  1  1    51 7622202023835   SOTTILETTE F.E FONDI
+   2300 MURALE S/L I IN ASSORT   721398  1 SOTTILETTE SENZA LATTOSIO GR.200    KG     0,2000 PZ   12  4,0   1        1,73     2,29 21,43 23  3  1  1   100 7622202012730   SOTTILETTE SENZA LAT
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   692789  1 FORMAGGINI AL PARMIG.REGGIANO CONAD KG     0,1400 PZ   18  4,0   1        1,22     1,65 23,12 23  3  4  7     2 08003160037178  FORMAGGINI AL P.REGG
+   2300 MURALE S/L I IN ASSORT    28277  1 FORMAGGINI SUSANNA                  KG     0,1400 PZ   18  4,0   1        1,60     2,39 30,37 23  3  4  7    45 07622300565114  FORMAGGINI SUSANNA
+   0                                                                                                          ____________________
+   2300 MURALE S/L F FUORI ASS.  702584  1 FORMAGGINO MIO MORSOTTI GR.20X6     KG     0,0800 PZ   12  4,0   1        1,69     2,55 31,07 23  3  4  7   100 8000300374421   FORMAGGINO MIO MORSO
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   733491  1 MOZZARELLA CIUFFO DELIZIOSA         KG     0,2000 PZ    8  4,0   1        1,93     2,79 28,06 23  3  7  1     1 8018731002028   MOZZARELLA CIUFFO
+   0                                                                                            _____
+   2300 MURALE S/L F FUORI ASS.  703577  1 STRACCHINO DI CAPRA BUSTAFFA GR.140 KG     0,1400 PZ    6  4,0   1        1,91     2,80 29,04 23  3 13  4   300 8007892524142   STRACCHINO DI CAPRA
+   0                                                                                                          ____________________
+   2300 MURALE S/L O SPOT IN AS  700801  1 PHILADELPHIA MINI                   KG     0,1400 PZ   10  4,0   1        1,85     2,49 22,72 23  3 16  1    21 07622210831934  PHILADELPHIA MINI
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT    99628  1 PHILADELPHIA CLASSICO GR.80 X2      KG     0,1600 PZ   12  4,0   1        2,10     2,79 21,72 23  3 16  1    24 07622300733087  PHILADELPHIA CLASSIC
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   700800  1 PHILADELPHIA LIGHT                  KG     0,1750 PZ   10  4,0   1        1,98     2,79 26,20 23  3 16  1    34 07622210891402  PHILADELPHIA LIGHT
+   0                                                                                                          ____________________
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2300 MURALE S/L I IN ASSORT    49061  1 PHILADELPHIA CLASSICA MINI          KG     0,1500 PZ   10  4,0   1        2,28     2,99 20,69 23  3 16  1    44 07622210707994  PHILADELPHIA MINI
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   699405  1 PHILADELPHIA CON YOGURT ALLA GRECA  KG     0,1750 PZ   10  4,0   1        1,80     2,49 24,81 23  3 16  1    52 07622210773463  PHILADELPHIA C/YOG.
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   705839  1 PHILADELPHIA PROTEIN                KG     0,1750 PZ   10  4,0   1        1,80     2,49 24,81 23  3 16  1    52 07622210780973  PHILADELPHIA PROTEIN
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   688797  1 PHILADELPHIA SENZA LATTOSIO         KG     0,1750 PZ   10  4,0   1        1,80     2,49 24,81 23  3 16  1    54 07622210831910  PHILADELPHIA S/LATT.
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   727140  1 PHILADELPHIA VEGETALE MONDELEZ      KG     0,1450 PZ   10 10,0   1        2,05     2,99 24,57 23  3 16  4   110 7622201575236   PHILADELPHIA VEGETAL
+   0                                                                                                          ____________________
+   2300 MURALE S/L F FUORI ASS.  677317  1 FIOCCO HIGH PROTEIN BAYERNLAND      KG     0,1500 PZ   12  4,0   1        0,85     1,29 31,45 23  3 19 13    30 8020537155105   FIOCCO HIGH PROTEIN
+   0                                                                                                          ____________________
+   2300 MURALE S/L F FUORI ASS.   14813  3 APERIFRESCO GUSTO OLIVE             KG     0,1000 PZ    6  4,0   1        1,80     2,69 30,42 23  3 25 16    60 3480341002883   APERIFRESCO GUSTO OL
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT    91292  1 CUBETTI DI GRANA PADANO CONAD       KG     0,3000 PZ    8  4,0   1        4,70     5,99 18,40 23  3 34  4     5 08003160983390  CUBETTI DI GRANA PAD
+   2300 MURALE S/L I IN ASSORT   736429  1 BRESAOLA DI TACCHINO A&Q PROTEIN    KG     0,0800 PZ   16 10,0   1        2,22     3,59 31,98 23  5  1 25   248 08008110043742  BRES.DI TACCH. PRO
+   0                                                                                                                                                       _______________
+   2300 MURALE S/L O SPOT IN AS  723854  1 COTTO DI TACCHINO AEQUILIBR.GR.120  KG     0,1200 PZ   12 10,0   1        1,82     2,89 30,71 23  5  1 25   256 08008110034733  COTTO DI TACCHINO AE
+   0                                       ___________________________________
+   2300 MURALE S/L O SPOT IN AS  723854  2 PETTO TACCHINO ERBE PROV.AEQ.GR100  KG     0,1000 PZ   12 10,0   1        1,82     2,89 30,71 23  5  1 25   256 08008110034719  PETTO TACCHINO ERBE
+   0                                       ___________________________________ _____________
+   2934 T.A. CONAD E AD ESAURI   695475  1 PROSCIUTTO COTTO CONAD "TAKE AWAY"  KG     0,1200 PZ   10 10,0   1        1,68     2,59 28,66 23  5  1 28   115 08003160044114  PROSC.COT.CONAD T.A.
+   2300 MURALE S/L O SPOT IN AS   90749  2 CAPOCOLLO VALTIBERINO TRANCI        KG     1,0000 KG    8 10,0   1       13,00    18,90 24,33 23  5  4 10    10 98025330003649  CAPOCOL.VALTIBERINO
+   0                                                                                                          ____________________
+   2300 MURALE S/L E AD ESAURI    22266  1 MORTADELLA BOLOGNA IGP CONAD        KG     0,7500 PZ    6 10,0   1        4,54     6,59 24,21 23  5  4 37     5 08003170770324  MORTAD.BOLOGNA CONAD
+   2300 MURALE S/L I IN ASSORT   735624  1 TACCHINO CUBET.CONAD PIACERSI G50X2 KG     0,1000 PZ   12 10,0   1        1,45     2,29 30,35 23  5  4 43     1 8003170104792   TACCHINO CUBET.CONAD
+   0                                                                                                                                     _________________
+   2300 MURALE S/L O SPOT IN AS   10256  2 SAL.TOSCANO P.S.1/2 S.V.VALTIBERINO KG     1,0000 KG    6 10,0   1       10,00    14,90 26,17 23  5  6 16    96 98025330003366  SALAME TOSCANO
+   0                                                                                                          ____________________
+   2300 MURALE S/L I IN ASSORT   735148  1 PINSA ALLA ROMANA FRESCA CONAD      KG     0,2600 PZ    6  4,0   1        1,78     2,59 28,51 23  9  7  4     1 08003160086930  PINSA ALLA ROMANA FR
+   2300 MURALE S/L E AD ESAURI   720903  1 BASE PIZZA FINIS.MAXI BUITONI GR350 KG     0,3500 PZ    8 10,0   1        1,91     2,79 24,68 23  9  7  4    60 8445290097767   BASE PIZZA FINIS.MAX
+   0               ____________
+   2200 BANCO S/L  F FUORI ASS.   31588  3 RICOTTA INFORNAT.MANDARINO ZAPPALA' KG     1,0000 KG    1  4,0   1       10,50    16,90 31,98 25  1  1 19   160 01980067630079  RICOTTA INFORN.MANDA
+   0                                                                                                          ____________________
+   2200 BANCO S/L  P SPOT AD ES   13391  1 PECORINO STAG.MURAVERA SARDAFORMAG. KG     1,0000 KG    6  4,0   1       16,60    24,90 29,96 25  1  7  1   112                 PECORINO ST.MURAVERA
+   0               ____________
+   2200 BANCO S/L  I IN ASSORT      980  1 EMMENTALER SVIZZERO SELEZIONE       KG     1,0000 KG    1  4,0   1       13,45    20,90 32,39 25  1 10  1     1 97610563999855  EMMENTALER SVIZZERO
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  F FUORI ASS.  676939  1 SCAMORZONE BIANCO SABELLI           KG     1,0000 KG    4  4,0   1        8,20    12,80 31,31 25  1 13  1   200                 SCAMORZONE SABELLI
+   0                                                                                                          ____________________
+   2200 BANCO S/L  F FUORI ASS.  676940  1 SCAMORZONE AFFUMICATO SABELLI       KG     1,0000 KG    4  4,0   1        8,20    12,80 31,31 25  1 13  1   202                 SCAMORZONE AFF.SABEL
+   0                                                                                                          ____________________
+   2200 BANCO S/L  F FUORI ASS.   43391  1 PROVOLONE DOLCE SAPORI & DINTORNI   KG     1,0000 KG    1  4,0   1        7,60    11,50 29,14 25  1 13  7     1 98003160772416  PROVOLONE DOLCE S.&D
+   0                                                                                                          ____________________
+   2200 BANCO S/L  I IN ASSORT    13059  1 PARMIGIANO REGGIANO DOP 30MESI S&D  KG     1,0000 KG    1  4,0   1       17,50    23,90 23,08 25  1 16  1     4 221957367201    PARM.REGGIANO S&D
+   2200 BANCO S/L  I IN ASSORT    27129  1 PARMIGIANO REGGIANO DOP SEL.CONAD   KG     1,0000 KG    1  4,0   1       16,00    20,90 19,57 25  1 16  1    13 2291957         PARMIGIANO REGGIANO
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2200 BANCO S/L  O SPOT IN AS  695427  1 P.REGGIANO STAG.40 M+ SEL.CONAD     KG     1,0000 KG    1  4,0   1       17,90    26,90 30,09 25  1 16  1    14                 PARMIGIANO REGGIANO
+   2200 BANCO S/L  I IN ASSORT     2787  1 FORMAGGIO BRIE PAYSON BRETON        KG     1,0000 PZ    1  4,0   1        8,30    12,50 28,80 25  1 19  7     1 13412290255413  FORMAGGIO BRIE PAYSO
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  F FUORI ASS.   35470  1 PROSC.S.DANIELE OLD QUALITY 16 KING KG     1,0000 KG    2 10,0   1       13,50    33,80 21,54 25  3  1  1    50 2255766         P.S.DANIELE OLD QUAL
+   0                                                                                                          ____________________
+   2200 BANCO S/L  O SPOT IN AS    5424  1 PROSCIUTTO PARMA 16M CONAD          KG     1,0000 KG    2 10,0   1       12,80    32,90 26,21 25  3  1  4    10 98003160003756  PROSCIUTTO DI PARMA
+   2200 BANCO S/L  F FUORI ASS.    4726  2 PROSCIUTTO TOSCANO DOP SAP.&DINT.   KG     1,0000 KG    1 10,0   1       13,00    27,50 35,00 25  3  1 19    30 98010817120506  PROSCIUTTO TOSCANO
+   0                                                                                                          ____________________
+   2200 BANCO S/L  F FUORI ASS.  717884  1 PROSC.COTTO"C'ERA UNA VOLTA"A.Q.    KG     1,0000 KG    1 10,0   1       14,90    27,90 34,72 25  3 16  1     7 98012698884409  PROS.COTTO"UNAVOLTA"
+   0                                                                                                          ____________________
+   2200 BANCO S/L  O SPOT IN AS  680974  1 SALAME SANGUINACCIO SAL.BATTISTI    KG     1,0000 KG    6 10,0   1       12,70    21,90 32,85 25  3 25 25   600                 SALAME SANGUINACCIO
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  I IN ASSORT   728770  1 GUANCIALE DI NORCIA LANZI CON PEPE  KG     1,0000 KG    4 10,0   1        8,80    15,90 28,37 25  3 31  1    91                 GUANCIALE NORCIA LAN
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  I IN ASSORT    25064  1 TACCHINO ARR.AEQ.TARKY AIA KG2,5    KG     1,0000 KG    1 10,0   1        8,20    14,90 32,73 25  3 40  1    40 98005153511866  TACCHINO ARR.AEQ.TAR
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  O SPOT IN AS  675736  1 PETTO D/POLLO AL FORNO AEQUILIBRIUM KG     1,0000 KG    1 10,0   1        8,10    14,90 33,55 25  3 40  1    52 98008110538449  PETTO POLLO A/FORNO
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  I IN ASSORT    97594  1 SPEC.GASTR.A BASE SUINO"ORSETTO"    KG     1,0000 KG    2 10,0   1       12,00    20,90 29,82 25  3 40  1   100 94260052155533  SPEC.GASTR."ORSETTO"
+   0                                                                                                                                                       _______________
+   2300 MURALE S/L F FUORI ASS.   29771  1 YOGURT GRECO INTERO TOTAL FAGE      KG     1,0000 PZ    2 10,0   1        4,50     6,90 28,26 25  7  1 10    30 5201054016541   YOGURT GRECO INTERO
+   0                                                                                                          ____________________
+   2200 BANCO S/L  O SPOT IN AS  679746  1 INSALATA RUSSA VOGLIAZZI            KG     1,0000 PZ    1 10,0   1       14,00     9,90 29,29 25  7  4  1     5 08008645200245  I.RUSSA VOGLIAZZI
+   0                                                                                                                                                       _______________
+   2200 BANCO S/L  O SPOT IN AS       6  1 ANGUILLA "M" MEDUSA G5000/3000      KG     1,0000 PZ    2 10,0   1      121,00    67,90 34,65 25  7 16 10    10 8005350307252   ANGUILLA "M" MEDUSA
+   0                                                                                                                                                       _______________
+   2100 SALA G.V.  I IN ASSORT   680817  1 ENERGIZER PILE LITHIUM 3V X2 CR2032 $$            PZ   10 22,0   1        1,40     3,68 53,58 57  3  4 10    10 7638900248357   ENERGIZER PILE LITHI
+   2800 EXTRALIMEN O SPOT IN AS  735799  1 MINICALZA UOMO X5 POMPEA            $$            PZ   36 22,0   1        3,10     4,90 22,80 83  3  1  5     1 8056777998820   MINICALZA UOMO X5 PO
+   2800 EXTRALIMEN P SPOT AD ES  720860  1 T-SHIRT U. MM COT X2 BCO POM.M/XXL  $$            PZ   24 22,0   1        4,20     6,90 25,74 83  3  6  2     1 8056777762971   T-SHIRT U. MM COT X2
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  735113  1 CALZA LUNGA U.COSTA X3 ASS POM      $$            PZ   38 22,0   1        4,58     6,99 20,06 83  3  6  7   100 8300694601616   CALZA LUNGA U.COSTA
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  735114  1 CALZA LUNGA U.PIQUET X3 ASS POM     $$            PZ   24 22,0   1        4,58     6,99 20,06 83  3  6  7   100 8300694465447   CALZA LUNGA U.PIQUET
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  714802  1 CALZA TENNIS X2 KAPPA 39/46         $$            PZ    1 22,0   1        2,20     3,50 23,31 83  3  6  8     1 8030795104357   CALZA TENNIS X2 KAPP
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  735254  1 COLLANT 20D HELLO X2 POM            $$            PZ    1 22,0   1        1,55     2,50 24,35 83  3  7 12   100 8056663059307   COLLANT 20D HELLO X2
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  734598  1 PLAID SHERPA 125X150  T/UNITA ASS.  $$            PZ   24 22,0   1        7,00     9,90 13,73 83  6  3 10   100 8000877877479   PLAID SHERPA 125X150
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  734246  1 T5-GUANCIALE MEMO SOFT 42X72 ALE    $$            PZ   10 22,0   1       11,40    14,90  6,65 83  6  4  3   100 8020489205675   T5-GUANCIALE MEMO SO
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  734600  1 A2-GUANCIALE FIOCCO DI LATTICE X2   $$            PZ    6 22,0   1        6,00     9,90 26,06 83  6  4  3   100 8051887072750   A2-GUANCIALE FIOCCO
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  724815  1 TOVAGLIA ANTIMACCHIA 140X180 ASS    $$            PZ   24 22,0   1        3,90     5,99 20,57 83  6  6  2   100 8000877870180   TOVAGLIA ANTIMACCHIA
+   0               ____________
+   2800 EXTRALIMEN O SPOT IN AS  736951  1 TOVAGLIA ANTIMACCHIA 140X180 ASS    $$            PZ   36 22,0   1        3,25     4,99 20,53 83  6  6  2   100 8000877879701   TOVAGLIA ANTIMACCHIA
+001                                                              NEGOZI UMBRIA  CON P.O.S.
+   2--- I dati variati vengono evidenziati dalla sottolineatura ---
+   2SOCIO:    2220 FIORITI S.R.L.                                                               CANALE 025 CONAD CITY                                      Data decorrenza 17/04/25   Data stampa 16/04/25
+   1               VIA      DEL BARCO-PADULE          1
+   1               06024 GUBBIO
+   2Rep.MUV        Assortimento Cod.artic. Descrizione                        UMF  Contenuto UM  Imb. ----IVA--- Cessione Pubblico  %ML  Merceologico      Codice EAN      Descrizione POS
+   2800 EXTRALIMEN O SPOT IN AS  734247  1 S4-SET 4 PEZZI SPUGNA NAVIGARE      $$            PZ   32 22,0   1        5,20    14,99 57,67 83  6  7  4   100 8033281141935   S4-SET 4 PEZZI SPUGN
+   0                                                                                                          ____________________
+   2800 EXTRALIMEN P SPOT AD ES  734815  1 TAPPETO BAGNO ASSORTITO 50X80       $$            PZ   24 22,0   1        3,20     4,99 21,76 83  6  8  1     1 8000877877493   TAPPETO BAGNO ASSORT
+   0               ____________
+   2800 EXTRALIMEN P SPOT AD ES  735230  1 TAPPETO MULTIUSO ASSORTITO          $$            PZ   24 22,0   1        3,20     4,99 21,76 83  6  9  3   100 8000877876304   TAPPETO MULTIUSO ASS
+   0               ____________
+   2800 EXTRALIMEN I IN ASSORT   904241  1 T4-SCAF.4RIP 60X30X133 ARTPLAS      $$            PZ    1 22,0   1        9,30    14,90 23,85 84  1 12  1     1 8010693108039   SCAF.4RIP 60X30X133
+   0                                                                                                          ____________________
+   2800 EXTRALIMEN O SPOT IN AS  737076  1 STENDINO KAPPA SILVER MT.18 KAS     $$            PZ    6 22,0   1        5,89     7,90  9,03 84  1 28  2   790 8034116430187   STENDINO KAPPA SILVE
+   2*** ARTICOLI F.ASSORT.**
+   1800 EXTRALIMEN F FUORI ASS.  910036  1 A4-SONAGLINO UNICORN CLE            $$            PZ    6 22,0   1        0,00     0,00       84  3  4  4     1 8005125177783   SONAGLINO UNICORN CL
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910037  1 A4-SONAGLINO DINOSAURO CLE          $$            PZ    6 22,0   1        0,00     0,00       84  3  4  4     1 8005125177790   SONAGLINO DINOSAURO
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909959  1 S5-BAMBOLA PEL.RAINBOW 35CM DEC     $$            PZ   30 22,0   1        0,00     0,00       84  3  5  1     1 8009549275438   BAMBOLA PEL.RAINBOW
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909970  1 S5-MINIVERSE LIFESTYLE MGA          $$            PZ   33 22,0   1        0,00     0,00       84  3  7  1     1 035051505365    MINIVERSE LIFESTYLE
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909972  1 S5-MINIVERSE APPLIANCE MGA          $$            PZ   20 22,0   1        0,00     0,00       84  3  7  1  1990 035051523536    MINIVERSE APPLIANCE
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910042  1 A5-BARBIE POP REV.ANIMAL MTT        $$            PZ    4 22,0   1        0,00     0,00       84  3  7  2  2990 194735273997    BARBIE POP REV.ANIMA
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910068  1 S5-QMAN TRANS COLLECTOR 3IN1 LEN    $$            PZ  400 22,0   1        0,00     0,00       84  3  8  1   100 6955265611659   QMAN TRANS COLLECTOR
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910070  1 S5-QMAN TRANSFORMS 3IN1 LEN         $$            PZ  600 22,0   1        0,00     0,00       84  3  8  1   100 6955265611765   QMAN TRANSFORMS 3IN1
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910072  1 S5-ZHU ZHU MINI LEN                 $$            PZ  192 22,0   1        0,00     0,00       84  3  8  1   100 8001444412154   ZHU ZHU MINI LEN
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910059  1 S5-QMAN  HYPERFUNCTION LEN          $$            PZ  400 22,0   1        0,00     0,00       84  3  8  1   149 6955265608642   QMAN  HYPERFUNCTIO
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910066  1 S5-QMAN  MULTIVARIANT TEAM LEN      $$            PZ  400 22,0   1        0,00     0,00       84  3  8  1   149 6955265611543   QMAN  MULTIVARIANT
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910071  1 S5-MINISKATE TRICK EXTREME LEN      $$            PZ   96 22,0   1        0,00     0,00       84  3  8  1   149 8001444227604   MINISKATE TRICK EXTR
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  910063  1 S5-QMAN SHADOW PULSE VEHICLE LEN    $$            PZ  192 22,0   1        0,00     0,00       84  3  8  1   399 6955265610904   QMAN SHADOW PULSE VE
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909917  1 S5-FAST FOOD SET ASS.LEN            $$            PZ   72 22,0   1        0,00     0,00       84  3  8  6   499 806891571250    FAST FOOD SET ASS.LE
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909951  1 S5-JEEG PERSONAGGI 7CM LEN          $$            PZ  384 22,0   1        0,00     0,00       84  3  9  1     1 8056379015703   JEEG PERSONAGGI 7CM
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  651934  1 CARTE JUNIOR SAPIENTINO ASS. CLE    $$            PZ   24 22,0   1        0,00     0,00       84  3 10  2   499 8005125163007   CARTE GIOCO SAPIENTI
+   0               ____________
+   2800 EXTRALIMEN F FUORI ASS.  909892  1 S5-STITCH 43249 LEG                 $$            PZ    4 22,0   1        0,00     0,00       84  3 11  1     1 5702017583624   STITCH 43249 LEG
+   0               ____________
+   2950 MAT.PUBBL. F FUORI ASS.  731573  1 ALBUM FIGURINE SDC10 HARRY POTTER   $$            PZ   15 22,0   1        0,00     0,00       91  9  1  1 99990 4251906513774   ALBUM FIGURINE SDC10
+   0               ____________
+   2950 MAT.PUBBL. F FUORI ASS.  731574  1 BUSTINE 4FIG.+BOLLIBRO SDC10 X600   $$            PZ    1        2 M      0,00     0,00       91  9  1  1 99990 4251906513750   BUSTINE 4FIG.+BOLLIB
+   0               ____________
