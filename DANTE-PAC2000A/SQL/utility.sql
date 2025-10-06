@@ -10,6 +10,33 @@ select min(tsc.id) minid, tsc.item_sale_id ,tsc.network_id , count(*) from tmd_s
 group by tsc.item_sale_id ,tsc.network_id 
 having count(*) >1)a )
 
+
+SELECT
+    item,
+    -- 1. Conteggio totale delle righe con processing_step3 = 8
+    COUNT(*) AS total_rows_step3_eq_8,
+    -- 2. Conteggio delle righe dove processing_step3 = 8 E (file_name contiene 'ph' o 'ih' o 'eh')
+    COUNT(*) FILTER (
+        WHERE file_name ILIKE '%ph%'  collate case_like
+    ) AS count_with_ph,
+     COUNT(*) FILTER (
+        WHERE file_name ILIKE '%ih%' collate case_like 
+    ) AS count_with_ih,
+     COUNT(*) FILTER (
+        WHERE file_name ILIKE '%eh%' collate case_like 
+    ) AS count_with_eh
+FROM
+    tin_data_item_in
+WHERE
+    -- Filtro iniziale per includere solo i dati rilevanti per processing_step3 = 8
+    processing_step3 = 8
+GROUP BY
+    item
+-- La clausola HAVING è opzionale qui, ma la includo se vuoi filtrare SOLO gli item con più di un record totale.
+-- Rimuovila se vuoi vedere tutti gli item che hanno almeno un record con step3=8.
+HAVING
+    COUNT(*) > 1;
+
 ----------***********************************************************************************************************************************************
 ----------************************************************************************************************************************************************ 
    

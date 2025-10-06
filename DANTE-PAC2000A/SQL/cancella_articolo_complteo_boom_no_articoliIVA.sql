@@ -69,17 +69,12 @@ where item like 'ART%' collate case_like );
 
 DELETE from boom.tsm_delivery_notes_detail
 
-
-
 DELETE from boom.tsm_delivery_notes
-
 
 
 DELETE from tmd_logistic_units  where item_logistic_id not in (select  id from tmd_item_logistics  where item_id in (SELECT id
 FROM boom.tmd_items 
 where item like 'ART%' collate case_like));
-
-
 
 
 DELETE from tmd_item_logistics  where item_id not in (SELECT id

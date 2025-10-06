@@ -59,6 +59,7 @@ DECLARE
     w_item_sale_id INTEGER;
     w_item_logistic_id INTEGER;
     w_logistic_unit_id INTEGER;
+    w_41_LOGISTIC_UNIT_ID INTEGER;
     w_orderable_assortments_id INTEGER;
     w_purchase_prices_id INTEGER;
     w_sale_prices_var_id INTEGER;
@@ -420,12 +421,20 @@ DECLARE
         LEFT JOIN tmd_item_codes_var ticv ON ti.id = ticv.item_id AND td.item_code_type = ticv.code_type_pc AND CURRENT_DATE BETWEEN ticv.start_Date AND ticv.end_date
         LEFT JOIN tmd_third_parties ttp ON ttp.third_party = td.supplier_code
         LEFT JOIN tmd_operational_agreements toa ON toa.third_party_id = ttp.id AND toa.operational_agreement = td.operational_agreement
-        LEFT JOIN tmd_orderable_assortments_var toav ON toav.item_id = ti.id AND toav.item_logistic_id = til.id AND toav.logistic_unit_id = tlu_ass.id AND tn.id = toav.network_id AND toa.id = toav.operational_agreement_id AND CURRENT_DATE BETWEEN toav.start_Date AND toav.end_date
+        LEFT JOIN tmd_orderable_assortments_var toav ON toav.item_id = ti.id AND toav.item_logistic_id = til.id AND toav.logistic_unit_id = tlu_ass.id AND tn.id = toav.network_id AND toa.id = toav.operational_agreement_id 
+        ---------------AND CURRENT_DATE BETWEEN toav.start_Date AND toav.end_date
+                    AND td.start_date_assortment BETWEEN toav.start_Date AND toav.end_date
         LEFT JOIN tmd_supplier_item_codes tsic1 ON tsic1.item_id = ti.id AND tsic1.item_logistic_id = til.id AND tsic1.third_party_id = ttp.id AND td.supplier_code_type_1 = tsic1.code_type_pc AND td.supplier_item_1 = tsic1.supplier_item_code
         LEFT JOIN tmd_supplier_item_codes tsic2 ON tsic2.item_id = ti.id AND tsic2.item_logistic_id = til.id AND tsic2.third_party_id = ttp.id AND td.supplier_code_type_2 = tsic2.code_type_pc AND td.supplier_item_2 = tsic2.supplier_item_code
-        LEFT JOIN tmd_purchase_prices_var tppv ON tppv.item_id = ti.id AND tppv.operational_agreement_id = toa.id AND tppv.network_id = tn.id AND tppv.cost_type_pc = 1 AND CURRENT_DATE BETWEEN tppv.start_Date AND tppv.end_date
-        LEFT JOIN tmd_sale_codes_var tscv ON td.sale_code = tscv.sale_code AND tscv.item_sale_id = tis.id AND td.sale_code_type_pc = tscv.code_type_pc AND (tscv.network_id IS NULL OR tscv.network_id = tn.id) AND CURRENT_DATE BETWEEN tscv.start_date AND tscv.end_date
-        LEFT JOIN tmd_sale_prices_var tspw ON tis.id = tspw.item_sale_id AND tn.id = tspw.network_id AND CURRENT_DATE BETWEEN tspw.start_Date AND tspw.end_date AND tspw.sale_price_type_pc = 1
+        LEFT JOIN tmd_purchase_prices_var tppv ON tppv.item_id = ti.id AND tppv.operational_agreement_id = toa.id AND tppv.network_id = tn.id AND tppv.cost_type_pc = 1 
+-----        AND CURRENT_DATE BETWEEN tppv.start_Date AND tppv.end_date
+                   AND td.start_date_purchase BETWEEN tppv.start_Date AND tppv.end_date
+        LEFT JOIN tmd_sale_codes_var tscv ON td.sale_code = tscv.sale_code AND tscv.item_sale_id = tis.id AND td.sale_code_type_pc = tscv.code_type_pc AND (tscv.network_id IS NULL OR tscv.network_id = tn.id) 
+-----        AND CURRENT_DATE BETWEEN tscv.start_date AND tscv.end_date
+                   AND td.start_date_sale_code BETWEEN tscv.start_date AND tscv.end_date
+        LEFT JOIN tmd_sale_prices_var tspw ON tis.id = tspw.item_sale_id AND tn.id = tspw.network_id 
+        ---------- AND CURRENT_DATE BETWEEN tspw.start_Date AND tspw.end_date AND tspw.sale_price_type_pc = 1
+                    AND  td.start_date_sale_code BETWEEN tspw.start_Date AND tspw.end_date AND tspw.sale_price_type_pc = 1
         LEFT JOIN tmd_vat tv_acq ON tv_acq.vat = td.purchase_vat
         LEFT JOIN tmd_vat tv_sale ON tv_sale.vat = td.sale_vat
         LEFT JOIN LATERAL(SELECT COUNT(*) AS cnt_lock FROM tpa_specific_features tsf, tmd_feature_item_links tfil WHERE specific_feature = 'LK_STD_PR' AND tfil.specific_feature_id = tsf.id AND tfil.item_id = ti.id AND UPPER(tfil.features_value) = 'S' LIMIT 1) lock_prz_std ON 1 = 1
@@ -687,7 +696,6 @@ BEGIN
                     END IF;
 
 	        	    IF r_item_data.processing_item = 0 THEN
-
 
                         IF r_item_data.update_item = 1 THEN
 
@@ -1052,7 +1060,8 @@ BEGIN
                                     is_updated = 1,
                                     last_user = P_USER,
                                     transaction_code = r_item_data.transaction_code
-                                WHERE item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_pc = 41;
+                                WHERE item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_pc = 41
+                                 RETURNING ID INTO W_41_LOGISTIC_UNIT_ID;
                             ELSE
                                 w_log_text := 'INSERISCO UNITA LOGISTICA 41 per item_logistic_id ' || W_ITEM_LOGISTIC_ID;
                                 IF w_f_scrivi_log = 1 THEN
@@ -1089,16 +1098,18 @@ BEGIN
                                     1,                                              ----- is_updated,
                                     P_USER,                                         ----- last_user,
                                     r_item_data.transaction_code                    ----- transaction_code
-                                );
+                                )
+                                RETURNING ID INTO W_41_LOGISTIC_UNIT_ID;
                             END IF;
+                            ---
+
+                            ---
                         END IF;
 
                         w_log_text := 'GESTIONE LEGAME STRUTTURA ECR';
                         IF w_f_scrivi_log = 1 THEN
                             w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                         END IF;
-
-
 
                         SELECT EXISTS (SELECT 1 FROM tmd_structure_item_links_var WHERE structure_id = r_item_data.structure_id AND item_id = W_ITEM_ID AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_structure_item_link_exists;
 
@@ -1109,7 +1120,15 @@ BEGIN
                             END IF;
 
                             UPDATE tmd_structure_item_links_var
-                            SET   end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
+                            SET end_date = CASE
+                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                    ELSE start_date
+                                   END,  
+                            -------         end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
                                   is_updated = 1,
                                   last_user = P_USER,
                                   transaction_code = r_item_data.transaction_code
@@ -1170,7 +1189,7 @@ BEGIN
                         ELSE
 	        				w_log_text := '1-Verifico se esiste record per strutt merc principale  su  TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
 
-						   sELECT tl.id
+						    sELECT tl.id
 							into v_structure_item_id
 							FROM boom.tmd_merchandise_structures tm , tmd_structures ts ,tmd_structure_item_links_var tl
 							WHERE tm.is_default = 1
@@ -1182,7 +1201,15 @@ BEGIN
 	                        IF coalesce(v_structure_item_id,-1) <> -1 THEN
 		        				w_log_text := '1-Aggiorno la data fine a ieri su   TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
 								update tmd_structure_item_links_var
-								set   end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
+                                    SET end_date = CASE
+                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                    THEN CURRENT_DATE - INTERVAL '1 day'
+                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                    ELSE start_date
+                                   END,  
+                         ---------------   set   end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
 	                                  is_updated = 1,
 	                                  last_user = P_USER,
 	                                  transaction_code = r_item_data.transaction_code
@@ -1746,8 +1773,19 @@ BEGIN
 
                             ELSE
 
+                                ------- RECUPERO ID DEL COLLO SULLA tmd_logistic_units 
+                                -- Assumi che 'V_LOGISTIC_UNIT_ID' sia dichiarata come BIGINT
+                                IF W_41_LOGISTIC_UNIT_ID is null THEN 
+                                    SELECT id
+                                    INTO W_41_LOGISTIC_UNIT_ID
+                                    FROM tmd_logistic_units
+                                    WHERE item_logistic_id = W_ITEM_LOGISTIC_ID 
+                                    AND logistic_unit_pc = 41 
+                                    FOR UPDATE;                            
+                                END IF;
+
                                 SELECT EXISTS (SELECT 1 FROM tmd_orderable_assortments_var WHERE item_id = W_ITEM_ID
-                                AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_LOGISTIC_UNIT_ID
+                                AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_41_LOGISTIC_UNIT_ID
                                 AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID AND network_id = r_item_data.network_id
                                 AND r_item_data.start_date_assortment = start_date  FOR UPDATE) INTO v_orderable_assortment_exists;
 
@@ -1764,7 +1802,7 @@ BEGIN
                                     END IF;
 
                                     SELECT EXISTS (SELECT 1 FROM tmd_orderable_assortments_var WHERE item_id = W_ITEM_ID
-                                    AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_LOGISTIC_UNIT_ID
+                                    AND item_logistic_id = W_ITEM_LOGISTIC_ID AND logistic_unit_id = W_41_LOGISTIC_UNIT_ID
                                     AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID AND network_id = r_item_data.network_id
                                     AND r_item_data.start_date_assortment BETWEEN start_date AND end_date FOR UPDATE) INTO v_orderable_assortment_exists;
 
@@ -1790,7 +1828,7 @@ BEGIN
                                             transaction_code = r_item_data.transaction_code
                                         WHERE item_id = W_ITEM_ID
                                           AND item_logistic_id = W_ITEM_LOGISTIC_ID
-                                          AND logistic_unit_id = W_LOGISTIC_UNIT_ID
+                                          AND logistic_unit_id = W_41_LOGISTIC_UNIT_ID
                                           AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
                                           AND network_id = r_item_data.network_id
                                           AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
@@ -1822,7 +1860,7 @@ BEGIN
                                             start_date, end_date, main_supplier, min_order, max_order, multiple_reorder,assortment_status_ph,delivery_status_ph,
                                             assortment_status_pc, delivery_status_pc, is_updated, last_user, transaction_code
                                         ) VALUES (
-                                            W_ORDERABLE_ASSORTMENTS_ID, W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID, r_item_data.OPERATIONAL_AGREEMENT_ID,
+                                            W_ORDERABLE_ASSORTMENTS_ID, W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_41_LOGISTIC_UNIT_ID, r_item_data.OPERATIONAL_AGREEMENT_ID,
                                             r_item_data.network_id, 
                                             current_date, ------ r_item_data.start_date_assortment, 
                                             r_item_data.end_date_assortment , 1,
@@ -1849,26 +1887,26 @@ BEGIN
                                             w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                         END IF;
 
-    									 UPDATE tmd_orderable_assortments_var
-                                     ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
-                                                SET end_date = CASE
-                                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
-                                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
-                                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
-                                                    THEN CURRENT_DATE - INTERVAL '1 day'
-                                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
-                                                    ELSE start_date
-                                                END,
-                                             is_updated = 1,
-											main_supplier = 0,
-                                            last_user = P_USER,
-                                            transaction_code = r_item_data.transaction_code
-                                        WHERE item_id = W_ITEM_ID
-                                          AND item_logistic_id = W_ITEM_LOGISTIC_ID
-                                          AND logistic_unit_id = W_LOGISTIC_UNIT_ID
-                                   ----       AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
-                                          AND network_id = r_item_data.network_id
-                                          AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
+    							-- 		 UPDATE tmd_orderable_assortments_var
+                                --      ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
+                                --                 SET end_date = CASE
+                                --                     -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                --                     WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                --                     -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                --                     THEN CURRENT_DATE - INTERVAL '1 day'
+                                --                     -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                --                     ELSE start_date
+                                --                 END,
+                                --              is_updated = 1,
+								-- 			main_supplier = 0,
+                                --             last_user = P_USER,
+                                --             transaction_code = r_item_data.transaction_code
+                                --         WHERE item_id = W_ITEM_ID
+                                --           AND item_logistic_id = W_ITEM_LOGISTIC_ID
+                                --           AND logistic_unit_id = W_LOGISTIC_UNIT_ID
+                                --    ----       AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
+                                --           AND network_id = r_item_data.network_id
+                                --           AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
 
                                         SELECT nextval('tmd_orderable_assortments_id_seq'::regclass) INTO W_ORDERABLE_ASSORTMENTS_ID;
 
@@ -1877,10 +1915,10 @@ BEGIN
                                             start_date, end_date, main_supplier, min_order, max_order, multiple_reorder,assortment_status_ph,delivery_status_ph,
                                             assortment_status_pc, delivery_status_pc, is_updated, last_user, transaction_code
                                         ) VALUES (
-                                            W_ORDERABLE_ASSORTMENTS_ID,  W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID,
+                                            W_ORDERABLE_ASSORTMENTS_ID,  W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_41_LOGISTIC_UNIT_ID,
                                             r_item_data.OPERATIONAL_AGREEMENT_ID,
                                             r_item_data.network_id, 
-                                            current_Date, ---r_item_data.start_date_assortment, 
+                                            r_item_data.start_date_assortment, 
                                             r_item_data.end_date_assortment, 1,
                                             r_item_data.min_order, r_item_data.max_order, r_item_data.multiple_reorder,64,66,
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
