@@ -1,3 +1,18 @@
+update tmd_sale_codes s set is_label = '0' where s.id in (
+select a.minid from (
+select min(tsc.id) minid, tsc.item_sale_id ,tsc.network_id , count(*) from tmd_sale_codes tsc where is_label = 1 ----item_sale_id = 34050 and is_label = 1
+group by tsc.item_sale_id ,tsc.network_id 
+having count(*) >1)a )
+
+update tmd_sale_codes_var s set is_label = '0' where s.id in (
+select a.minid from (
+select min(tsc.id) minid, tsc.item_sale_id ,tsc.network_id , count(*) from tmd_sale_codes_var tsc where is_label = 1 ----item_sale_id = 34050 and is_label = 1
+group by tsc.item_sale_id ,tsc.network_id 
+having count(*) >1)a )
+
+----------***********************************************************************************************************************************************
+----------************************************************************************************************************************************************ 
+   
 UPDATE tin_data_item_in
 SET 
     processing_step3 = 5,

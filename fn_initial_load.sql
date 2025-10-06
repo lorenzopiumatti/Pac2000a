@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION boom.fn_initial_load(p_scrivi_log bigint, p_item_inp 
  LANGUAGE plpgsql
 AS $function$
 DECLARE
-    -- v. 01102025 lp
+    -- v. 03102025 lp
     -- ERRORE_ELABORAZIONE EXCEPTION; -- Puoi decommentare se hai una definizione globale per questa eccezione
 
     -- Variabili per i parametri di input della funzione
@@ -1823,7 +1823,9 @@ BEGIN
                                             assortment_status_pc, delivery_status_pc, is_updated, last_user, transaction_code
                                         ) VALUES (
                                             W_ORDERABLE_ASSORTMENTS_ID, W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID, r_item_data.OPERATIONAL_AGREEMENT_ID,
-                                            r_item_data.network_id, r_item_data.start_date_assortment, r_item_data.end_date_assortment , 1,
+                                            r_item_data.network_id, 
+                                            current_date, ------ r_item_data.start_date_assortment, 
+                                            r_item_data.end_date_assortment , 1,
                                             r_item_data.min_order, r_item_data.max_order, r_item_data.multiple_reorder,64,66,
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
@@ -1877,7 +1879,9 @@ BEGIN
                                         ) VALUES (
                                             W_ORDERABLE_ASSORTMENTS_ID,  W_ITEM_ID, W_ITEM_LOGISTIC_ID, W_LOGISTIC_UNIT_ID,
                                             r_item_data.OPERATIONAL_AGREEMENT_ID,
-                                            r_item_data.network_id, r_item_data.start_date_assortment, r_item_data.end_date_assortment, 1,
+                                            r_item_data.network_id, 
+                                            current_Date, ---r_item_data.start_date_assortment, 
+                                            r_item_data.end_date_assortment, 1,
                                             r_item_data.min_order, r_item_data.max_order, r_item_data.multiple_reorder,64,66,
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
@@ -2267,7 +2271,7 @@ BEGIN
                                            r_item_data.purchase_price,
                                            r_item_data.unit_purchase_price_pc,
                                            COALESCE(NULLIF(r_item_data.purchase_vat_id, -1), w_iva_acq_item ),
-                                            r_item_data.start_date_purchase,
+                                           current_Date,----- r_item_data.start_date_purchase,
                                            r_item_data.end_date_purchase,
                                            1,
                                            1,
@@ -2350,7 +2354,7 @@ BEGIN
                             WHERE item_sale_id = W_ITEM_SALE_ID
                               AND network_id = r_item_data.network_id
                               AND sale_price_type_pc = 1
-                              AND r_item_data.start_date BETWEEN start_date AND end_date;
+                              AND r_item_data.start_date_sale BETWEEN start_date AND end_date;
 
                             w_log_text := 'INSERISCO PREZZO DI VENDITA VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || r_item_data.network_id;
                             IF w_f_scrivi_log = 1 THEN
@@ -2369,7 +2373,7 @@ BEGIN
                                    r_item_data.unit_sale_price_pc,
                                    1,
                                    COALESCE(r_item_data.sale_vat_id, W_VAT_ID),
-                                   r_item_data.start_date_sale,
+                                   current_Date, ----r_item_data.start_date_sale,
                                    r_item_data.end_date_sale,
                                    0,
                                    1,
