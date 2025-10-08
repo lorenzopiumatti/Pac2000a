@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION boom.fn_initial_load(p_scrivi_log bigint, p_item_inp 
  LANGUAGE plpgsql
 AS $function$
 DECLARE
-    -- v. 03102025 lp
+    -- v. 08102025 lp
     -- ERRORE_ELABORAZIONE EXCEPTION; -- Puoi decommentare se hai una definizione globale per questa eccezione
 
     -- Variabili per i parametri di input della funzione
@@ -1484,7 +1484,8 @@ BEGIN
                                 SET is_label = 0 ,
                                     last_user = p_user,
                                     transaction_code = r_item_data.transaction_code
-                                WHERE item_sale_id = W_ITEM_SALE_ID and code_type_pc = r_item_data.sale_code_type_pc;
+                                WHERE item_sale_id = W_ITEM_SALE_ID ; 
+                                -----------------and code_type_pc = r_item_data.sale_code_type_pc;
                       
 
  							    w_log_text := '1- AGGIORNO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
@@ -1555,7 +1556,8 @@ BEGIN
                                 SET is_label = 0 ,
                                     last_user = p_user,
                                     transaction_code = r_item_data.transaction_code
-                                WHERE item_sale_id = W_ITEM_SALE_ID and code_type_pc = r_item_data.sale_code_type_pc;
+                                WHERE item_sale_id = W_ITEM_SALE_ID ; 
+                                --------------and code_type_pc = r_item_data.sale_code_type_pc;
                                 -----
                                 w_log_text := '1.1 - INSERISCO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
                                 IF w_f_scrivi_log = 1 THEN
