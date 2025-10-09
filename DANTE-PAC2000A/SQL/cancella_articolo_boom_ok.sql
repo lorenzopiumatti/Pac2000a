@@ -1,3 +1,5 @@
+
+
 DELETE from tmd_sale_codes ticv   where item_sale_id not in (select id from tmd_item_Sales where item_id in (SELECT id
 FROM boom.tmd_items 
 where item like 'ART%' collate case_like )) ;
@@ -58,6 +60,10 @@ DELETE from tmd_sale_prices  where item_sale_id not in (select id from tmd_item_
 FROM boom.tmd_items 
 where item like 'ART%' collate case_like )) ;
 
+delete from tmd_item_images  where item_sale_id not in (select id from tmd_item_Sales where item_id in (SELECT id
+FROM boom.tmd_items 
+where item like 'ART%' collate case_like )) ;
+
 DELETE from ttr_item_sales where item_sale_id not in (select id from tmd_item_Sales where item_id in (SELECT id
 FROM boom.tmd_items 
 where item like 'ART%' collate case_like )) ;
@@ -68,7 +74,6 @@ where item like 'ART%' collate case_like );
 
 
 DELETE from boom.tsm_delivery_notes_detail
-
 
 
 DELETE from boom.tsm_delivery_notes
@@ -137,6 +142,7 @@ BEGIN
     END IF;
 END$$;
 
+commit;
 
 ALTER TABLE boom.tmd_items ENABLE TRIGGER tmd_items_tr1;
 
