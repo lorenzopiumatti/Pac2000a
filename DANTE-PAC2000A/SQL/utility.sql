@@ -459,7 +459,8 @@ java -jar caricamento_boom/caricamento_boom.jar caricamento_boom/config *
 
 
 --- step 2 - carica le *in solo con il tracciato file  (pochi minuti) 
-nohup java -jar acquisizione_file/acquisizione_file.jar acquisizione_file/config > output.log 2>&1 &
+nohup java -jar acquisizione_file/acquisizione_file.jar acquisizione_file/config > output.log 2>&1 &;
+
 
 -- step 2.1 - spaccare a gruppi il blocco per i ph per evitare che vada in mem esaurita e lanciare lo step 3  quanto basta 
 UPDATE tin_data_item_in

@@ -106,6 +106,20 @@
       "tooltip": "",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -1114,13 +1128,13 @@
     ]
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "2025-10-16T00:00:00.000Z",
+    "to": "2025-10-16T23:59:59.999Z"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "DashBoard Caricamento DATI - GENERALE",
   "uid": "7686822c-255b-473a-9451-3aa20ded5cdb",
-  "version": 49,
+  "version": 51,
   "weekStart": ""
 }

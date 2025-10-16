@@ -50,7 +50,22 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "panels": [
     {
       "datasource": {
@@ -1588,6 +1603,30 @@
                   "fixedColor": "text",
                   "mode": "fixed"
                 }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "promo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 106
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "descr"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 415
               }
             ]
           }
@@ -3220,7 +3259,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT 'tmd_sale_codes_var' tab, tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes_var tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1\r\nunion\r\nSELECT 'tmd_sale_codes' tab,tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1",
+          "rawSql": "SELECT 'tmd_sale_codes_var' tab, tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes_var tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date and sale_Code not like '799%' collate case_like \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1\r\nunion\r\nSELECT 'tmd_sale_codes' tab,tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date  and sale_Code not like '799%'  collate case_like \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1",
           "refId": "A",
           "sql": {
             "columns": [
@@ -7417,7 +7456,9 @@
   ],
   "refresh": "15m",
   "schemaVersion": 41,
-  "tags": [],
+  "tags": [
+    "DASHCONTROLLIANAGRAFICI"
+  ],
   "templating": {
     "list": []
   },
@@ -7429,6 +7470,6 @@
   "timezone": "utc",
   "title": "DashBoard Controlli Anagrafici",
   "uid": "5bc2b956-3345-4be6-a96d-8ec06fc72234",
-  "version": 5,
+  "version": 4,
   "weekStart": ""
 }

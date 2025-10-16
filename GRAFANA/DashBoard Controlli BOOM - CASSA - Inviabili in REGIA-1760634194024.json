@@ -50,7 +50,22 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "panels": [
     {
       "datasource": {
@@ -1807,7 +1822,9 @@
   ],
   "refresh": "15m",
   "schemaVersion": 41,
-  "tags": [],
+  "tags": [
+    "DASHBOOMINVIABILICASSA"
+  ],
   "templating": {
     "list": []
   },
@@ -1817,8 +1834,8 @@
   },
   "timepicker": {},
   "timezone": "utc",
-  "title": "DashBoard Controlli BOOM - CASSA",
+  "title": "DashBoard Controlli BOOM - CASSA - Inviabili in REGIA",
   "uid": "40b01d92-dd91-4c17-9b8b-711c330080e6",
-  "version": 4,
+  "version": 7,
   "weekStart": ""
 }

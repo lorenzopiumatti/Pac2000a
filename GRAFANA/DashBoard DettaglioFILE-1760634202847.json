@@ -622,8 +622,8 @@
     ]
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "2025-09-15T00:00:00.000Z",
+    "to": "2025-09-15T23:59:59.999Z"
   },
   "timepicker": {
     "refresh_intervals": [

@@ -70,6 +70,20 @@
       "tooltip": "",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -111,7 +125,7 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true,
+        "showThresholdMarkers": false,
         "sizing": "auto"
       },
       "pluginVersion": "12.0.0",
@@ -124,7 +138,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT     count(*) AS TOT_righe, \r\n   SUM( CASE WHEN processing_step1 <>0 THEN 1 END) AS FASE1_ELAB ,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN 1 END) AS FASE2_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN 1 END) AS FASE3_ELAB\r\n   --------SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN 1 END) AS FASE4_ELAB\r\n  --- count(distinct ITEM) AS TOT_ART, \r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN item END) AS FLUSSOPH_ART,\r\n   -- COUNT(DISTINCT CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE THEN item END) AS FLUSSOEH_EAN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN item END) AS FLUSSOIH_INGR_ALLERG,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%FH%' collate CASE_LIKE THEN item END) AS FLUSSOFH_FORN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%SH%' collate CASE_LIKE THEN item END) AS FLUSSOSH_ASSFORN\r\nFROM tin_data_third_party_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n AND (network_code IS NULL OR network_code IN ($vg_store));\r\n",
+          "rawSql": "SELECT     count(*) AS TOT_righe, \r\n   SUM( CASE WHEN processing_step1 <>0 THEN 1 END) AS FASE1_ELAB ,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN 1 END) AS FASE2_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN 1 END) AS FASE3_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN 1 END) AS FASE4_ELAB,\r\n   count(distinct promo_code) AS TOT_PROMO, \r\n   count(distinct CASE WHEN processing_step1 <>0 THEN promo_code END) AS FASE1_ELAB_PROMO ,\r\n   count(distinct CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN promo_code END) AS FASE2_ELAB_PROMO,\r\n   count(distinct CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN promo_code END) AS FASE3_ELAB_PROMO,\r\n   count(distinct CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN promo_code END) AS FASE4_ELAB_PROMO\r\nFROM tin_Data_promotion_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  ----AND file_name LIKE '%IH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -146,81 +160,6 @@
         }
       ],
       "title": "TOTALI ",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green"
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 24,
-        "x": 0,
-        "y": 5
-      },
-      "id": 2,
-      "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
-      },
-      "pluginVersion": "12.0.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
-          },
-          "editorMode": "code",
-          "format": "table",
-          "rawQuery": true,
-          "rawSql": "SELECT    \r\n   COUNT(DISTINCT third_party||operational_agreement) AS FORNITORI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN third_party||operational_agreement END) AS FASE1_FILE_FORN ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN third_party||operational_agreement END) AS FASE2_ARRICHFILE_FORN,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN third_party||operational_agreement END) AS FASE3_CAR_BOOM_FORN\r\n  ----- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_third_party_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n AND (network_code IS NULL OR network_code IN ($vg_store));",
-          "refId": "A",
-          "sql": {
-            "columns": [
-              {
-                "parameters": [],
-                "type": "function"
-              }
-            ],
-            "groupBy": [
-              {
-                "property": {
-                  "type": "string"
-                },
-                "type": "groupBy"
-              }
-            ],
-            "limit": 50
-          }
-        }
-      ],
-      "title": "Flusso FH - Fornitori Nr.",
       "type": "gauge"
     },
     {
@@ -395,6 +334,97 @@
           {
             "matcher": {
               "id": "byName",
+              "options": "il_fase_4"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 121
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prc_ean_elab"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 139
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tab_art"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "desc_art_ges"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 277
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "assortimento_fornitore"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 232
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "acc_oper_ges"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tab_pv"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
               "options": "il_articolo"
             },
             "properties": [
@@ -407,6 +437,18 @@
                 "value": {
                   "mode": "continuous-blues"
                 }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "fase_1"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
               }
             ]
           },
@@ -473,6 +515,18 @@
           {
             "matcher": {
               "id": "byName",
+              "options": "art_boom"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 111
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
               "options": "tab_forn"
             },
             "properties": [
@@ -514,7 +568,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 363
+                "value": 180
               }
             ]
           },
@@ -538,7 +592,19 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 196
+                "value": 355
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prz_acq_ges"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 132
               }
             ]
           },
@@ -667,6 +733,109 @@
           {
             "matcher": {
               "id": "byName",
+              "options": "il_fase_4"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_articolo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_descrizione_articolo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 322
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_strutt_merc"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 133
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_desc_vendita"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 207
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_ean"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 136
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_prz_acq"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "il_prz_vend"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 112
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
               "options": "il_buffer_dati"
             },
             "properties": [
@@ -675,6 +844,13 @@
                 "value": 300
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": ""
+            },
+            "properties": []
           },
           {
             "matcher": {
@@ -703,34 +879,37 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "il_desclunga"
+              "options": "desc_articolo"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 328
+                "value": 309
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "il_forn"
+              "options": "tab_art"
             },
             "properties": [
               {
-                "id": "custom.width",
-                "value": 106
+                "id": "color",
+                "value": {
+                  "fixedColor": "text",
+                  "mode": "fixed"
+                }
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 15,
+        "h": 20,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 5
       },
       "id": 1,
       "options": {
@@ -757,7 +936,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT row_number() OVER(ORDER BY tdio.id)  nr_riga, \r\n   tdio.creation_date AS IL_data_creaz,\r\n    tdio.update_date AS IL_data_agg,\r\n    tdio.file_name AS IL_nome_file,\r\n    tdio.number_line AS IL_num_riga,\r\n    tdio.network_code AS IL_negozio,\r\n    tdio.processing_step1 AS IL_fase_1,\r\n    tdio.processing_step2 AS IL_fase_2,\r\n    tdio.processing_step3 AS IL_fase_3,\r\n   --- tdio.processing_step4 AS IL_fase_4,\r\n\ttdio.third_party as IL_forn,\r\n\ttdio.description as IL_descforn,\r\n\ttdio.business_name as IL_desclunga,\r\n    tdio.vat_number as IL_IVANUMB,\r\n    tdio.operational_agreement as IL_Accordo,\r\n    tdio.description_agreement as IL_DescAccordo, \r\n\t'* TAB_FORN *' as TAB_FORN,\r\n    ---tas.operational_agreement_id AS id_acc_oper_ges,\r\n    ttp.third_party as forn,\r\n    ttp.business_name as desc_forn,\r\n    tma.operational_agreement AS acc_oper,\r\n    tma.description AS desc_acc_oper,\r\n    '* DATI_INTERFACCIA *' as DATI_INTERFACCIA,\r\n    tdio.error_message AS IL_mess_err,\r\n    tdio.buffer_str as IL_buffer_dati\r\nFROM\r\n    tin_data_third_party_in tdio\r\nLEFT JOIN\r\n    tmd_networks tn ON tn.network_code = tdio.network_code\r\nLEFT JOIN\r\n    tmd_operational_agreements tma ON tma.operational_agreement = tdio.operational_agreement\r\nLEFT JOIN\r\n    tmd_third_parties ttp ON ttp.third_party = tdio.third_party\r\nWHERE\r\n    tdio.creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n----    AND (tdio.network_code IS NULL OR tdio.network_code IN ($vg_store))\r\n    AND tdio.processing_step1::text IN ($vg_fase1)\r\n    AND tdio.processing_step2::text IN ($vg_fase2)\r\n    AND tdio.processing_step3::text IN ($vg_fase3)\r\n   ----- AND tdio.processing_step4::text IN ($vg_fase4)\r\n AND (tdio.network_code IS NULL OR tdio.network_code IN ($vg_store))\r\n    order by   tdio.file_name ,\r\n    tdio.number_line ;",
+          "rawSql": "SELECT row_number() OVER(ORDER BY tdio.id)  nr_riga, \r\n   tdio.creation_date AS IL_data_creaz,\r\n    tdio.update_date AS IL_data_agg,\r\n    tdio.file_name AS IL_nome_file,\r\n    tdio.number_line AS IL_num_riga,\r\n    tdio.network AS IL_negozio,\r\n    tdio.processing_step1 AS IL_fase_1,\r\n    tdio.processing_step2 AS IL_fase_2,\r\n    tdio.processing_step3 AS IL_fase_3,\r\n    tdio.processing_step4 AS IL_fase_4,\r\n    tdio.promo_code as IL_Cod_promo,\r\n    tdio.promo_description as IL_desc_promo,\r\n    tdio.item AS IL_articolo,\r\n    tdio.sale_price as IL_prz_vend,\r\n    tdio.start_date_sale as IL_data_inizio,\r\n    tdio.end_date_sale as IL_data_fine,\r\n\ttdio.promo_type as IL_TIPO_PROMO ,\r\n    '* DATI_INTERFACCIA *' as DATI_INTERFACCIA,\r\n    tdio.error_message AS IL_mess_err,\r\n    tdio.buffer_str as IL_buffer_dati\r\n from tin_Data_promotion_in tdio\r\n/********LEFT JOIN\r\n    tmd_networks tn ON tn.network_code = tdio.network\r\nLEFT JOIN\r\n    tmd_items ti ON ti.item = tdio.item\r\nLEFT JOIN\r\n    ttr_items ttr ON ttr.item_id = ti.id AND ttr.language_id = 1\r\nLEFT JOIN\r\n    tmd_item_sales tis ON tis.item_id = ti.id AND tis.item_sale = 1\r\n--LEFT JOIN\r\n --   vmd_items_structures vmd ON vmd.item_id = ti.id\r\n --   AND vmd.merchandise_structure_id = 1\r\n  --  AND vmd.structure_level = 4\r\nLEFT JOIN\r\n    tmd_orderable_assortments tas ON tas.item_id = ti.id\r\n    AND tas.network_id = tn.id\r\n    AND tas.main_supplier = 1\r\n    AND CURRENT_DATE BETWEEN tas.start_date AND tas.end_date\r\nLEFT JOIN\r\n    tmd_operational_agreements tma ON tma.id = tas.operational_agreement_id\r\nLEFT JOIN\r\n    tmd_third_parties ttp ON ttp.id = tma.third_party_id\r\nLEFT JOIN\r\n    tmd_purchase_prices tpp ON tpp.item_id = ti.id\r\n    AND tpp.operational_agreement_id = tas.operational_agreement_id\r\n    AND tpp.network_id = tn.id\r\n    AND CURRENT_DATE BETWEEN tpp.start_date AND tpp.end_date\r\nLEFT JOIN\r\n    tmd_sale_prices tsp ON tsp.network_id = tn.id\r\n    AND tsp.item_sale_id = tis.id\r\n    AND CURRENT_DATE BETWEEN tsp.start_date AND tsp.end_date*/\r\nWHERE\r\n    tdio.creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n    AND (tdio.network IS NULL OR tdio.network IN ($vg_store))\r\n    AND tdio.processing_step1::text IN ($vg_fase1)\r\n    AND tdio.processing_step2::text IN ($vg_fase2)\r\n ----   AND tdio.processing_step3::text IN ($vg_fase3)\r\n    AND tdio.processing_step4::text IN ($vg_fase4)\r\nAND (\r\n  '$vg_codart' = '' \r\n  OR tdio.item like '$vg_codart' collate case_like\r\n)\r\nAND (\r\n  '$vg_nomefile' = '' \r\n  OR tdio.file_name like '$vg_nomefile' collate case_like\r\n)\r\n    order by   tdio.file_name ,\r\n    tdio.number_line ;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -778,40 +957,76 @@
           }
         }
       ],
-      "title": "Dettaglio Tabella di interfaccia FH",
+      "title": "Dettaglio Tabella di interfaccia PH",
       "transparent": true,
       "type": "table"
     }
   ],
   "schemaVersion": 41,
   "tags": [
-    "DASHFORNITORI"
+    "DASHPROMO"
   ],
   "templating": {
     "list": [
       {
         "allowCustomValue": false,
         "current": {},
-        "definition": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere tn.network_code in (select network_code from tin_data_third_party_in tdtpi  )\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
+        "definition": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
         "description": "",
         "includeAll": true,
         "label": "Negozio",
         "multi": true,
         "name": "vg_store",
         "options": [],
-        "query": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere tn.network_code in (select network_code from tin_data_third_party_in tdtpi  )\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
+        "query": "select tn.network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n        or\n        ((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n         or\n         (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n    )    \norder by tn.network_code",
         "refresh": 1,
         "regex": "",
         "type": "query"
       },
       {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "description": "nome file ( ricerca con %)",
+        "label": "Nome File ",
+        "name": "vg_nomefile",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "description": "Cod.Art. ( ricerca con %)",
+        "label": "Cod.Art.",
+        "name": "vg_codart",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "type": "textbox"
+      },
+      {
         "allowCustomValue": false,
         "current": {
           "text": [
-            "0"
+            "$__all"
           ],
           "value": [
-            "0"
+            "$__all"
           ]
         },
         "description": "Fase 1",
@@ -821,7 +1036,7 @@
         "name": "vg_fase1",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "0",
             "value": "0"
           },
@@ -843,10 +1058,10 @@
         "allowCustomValue": false,
         "current": {
           "text": [
-            "0"
+            "$__all"
           ],
           "value": [
-            "0"
+            "$__all"
           ]
         },
         "description": "Fase 2",
@@ -856,7 +1071,7 @@
         "name": "vg_fase2",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "0",
             "value": "0"
           },
@@ -878,10 +1093,10 @@
         "allowCustomValue": false,
         "current": {
           "text": [
-            "0"
+            "$__all"
           ],
           "value": [
-            "0"
+            "$__all"
           ]
         },
         "description": "Fase 3",
@@ -891,7 +1106,42 @@
         "name": "vg_fase3",
         "options": [
           {
-            "selected": true,
+            "selected": false,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "0,1,2",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "$__all"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "description": "Fase 4",
+        "includeAll": true,
+        "label": "Fase 4",
+        "multi": true,
+        "name": "vg_fase4",
+        "options": [
+          {
+            "selected": false,
             "text": "0",
             "value": "0"
           },
@@ -912,13 +1162,13 @@
     ]
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "now-6h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
-  "title": "DashBoard Caricamento DATI FORNITORI",
-  "uid": "024721e3-1ed0-4b2f-91c1-481ac3ae3596",
-  "version": 3,
+  "title": "DashBoard Caricamento DATI PROMO",
+  "uid": "45afa093-a909-4a89-9faf-04d974d7722c",
+  "version": 6,
   "weekStart": ""
 }

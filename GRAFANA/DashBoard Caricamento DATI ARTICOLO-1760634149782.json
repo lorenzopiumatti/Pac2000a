@@ -84,6 +84,20 @@
       "tooltip": "",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -146,7 +160,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT     count(*) AS TOT_righe, \r\n    SUM(CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS FLUSSOPH_ART_RIGHE,\r\n   SUM(CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE  THEN 1 ELSE 0 END) AS FLUSSOEH_EAN_RIGHE,\r\n   SUM(CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS FLUSSOIH_INGR_ALLERG_RIGHE,\r\n   SUM(CASE WHEN file_name LIKE '%FH%'collate CASE_LIKE THEN 1 ELSE 0 END) AS FLUSSOFH_FORN_RIGHE,\r\n   SUM(CASE WHEN file_name LIKE '%HH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS FLUSSOHH_ASSFORN_RIGHE,\r\n   SUM( CASE WHEN processing_step1 <>0 THEN 1 END) AS FASE1_ELAB ,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN 1 END) AS FASE2_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN 1 END) AS FASE3_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN 1 END) AS FASE4_ELAB\r\n  --- count(distinct ITEM) AS TOT_ART, \r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN item END) AS FLUSSOPH_ART,\r\n   -- COUNT(DISTINCT CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE THEN item END) AS FLUSSOEH_EAN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN item END) AS FLUSSOIH_INGR_ALLERG,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%FH%' collate CASE_LIKE THEN item END) AS FLUSSOFH_FORN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%SH%' collate CASE_LIKE THEN item END) AS FLUSSOSH_ASSFORN\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  ----AND file_name LIKE '%IH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT     count(*) AS TOT_righe, \r\n    SUM(CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS PH_ART,\r\n   SUM(CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE  THEN 1 ELSE 0 END) AS EH_EAN,\r\n   SUM(CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS IH_INGR_ALLERG,\r\n   SUM(CASE WHEN file_name LIKE '%FH%'collate CASE_LIKE THEN 1 ELSE 0 END) AS FH_FORN,\r\n   SUM(CASE WHEN file_name LIKE '%HH%' collate CASE_LIKE THEN 1 ELSE 0 END) AS HH_ASSFORN,\r\n   SUM( CASE WHEN processing_step1 <>0 THEN 1 END) AS FASE1_ELAB ,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  THEN 1 END) AS FASE2_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 THEN 1 END) AS FASE3_ELAB,\r\n   SUM( CASE WHEN processing_step1 <>0 and processing_step2 <>0  and processing_step3 <>0 and processing_step4 <>0THEN 1 END) AS FASE4_ELAB\r\n  --- count(distinct ITEM) AS TOT_ART, \r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%PH%' collate CASE_LIKE THEN item END) AS FLUSSOPH_ART,\r\n   -- COUNT(DISTINCT CASE WHEN file_name LIKE '%EH%' collate CASE_LIKE THEN item END) AS FLUSSOEH_EAN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%IH%' collate CASE_LIKE THEN item END) AS FLUSSOIH_INGR_ALLERG,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%FH%' collate CASE_LIKE THEN item END) AS FLUSSOFH_FORN,\r\n  --  COUNT(DISTINCT CASE WHEN file_name LIKE '%SH%' collate CASE_LIKE THEN item END) AS FLUSSOSH_ASSFORN\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  ----AND file_name LIKE '%IH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -167,7 +181,7 @@
           }
         }
       ],
-      "title": "TOTALI ",
+      "title": "TOTALI  RIGHE PER TIPO FLUSSO E FASE DI ELABORAZIONE",
       "type": "gauge"
     },
     {
@@ -304,7 +318,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT    COUNT(*) AS PH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA,\r\n   COUNT(DISTINCT item) AS PH_ARTICOLI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%PH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT    COUNT(*) AS PH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA\r\n   --COUNT(DISTINCT item) AS PH_ARTICOLI,\r\n   --COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   --COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   --COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   --COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%PH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -462,7 +476,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT    COUNT(*) AS EH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA,\r\n   COUNT(DISTINCT item) AS EH_ARTICOLI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE  '%EH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT    COUNT(*) AS EH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA\r\n  -- COUNT(DISTINCT item) AS EH_ARTICOLI,\r\n  -- COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n  -- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n  -- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   --COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE  '%EH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -620,7 +634,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT    COUNT(*) AS IH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA,\r\n   COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%IH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT    COUNT(*) AS IH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA\r\n  --- COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n  --- COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n  --- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n  --- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   ---COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%IH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -778,7 +792,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT    COUNT(*) AS FH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA,\r\n   COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%FH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT    COUNT(*) AS FH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA\r\n   ---COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n ---  COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n  -- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n  --- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n  --- COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%FH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -936,7 +950,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT    COUNT(*) AS HH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA,\r\n   COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n   COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%HH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
+          "rawSql": "SELECT    COUNT(*) AS HH_righe, \r\n   SUM(CASE WHEN processing_step1 = 1 THEN 1 ELSE 0 END) AS FASE1_FILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1 THEN 1 ELSE 0 END) AS FASE2_ARRICHFILE,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN 1 ELSE 0 END) AS FASE3_CAR_BOOM,\r\n   SUM(CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN 1 ELSE 0 END) AS FASE4_REGIA\r\n --  COUNT(DISTINCT item) AS IH_ARTICOLI,\r\n--   COUNT(DISTINCT CASE WHEN processing_step1 = 1 THEN item END) AS FASE1_FILE_ART ,\r\n --  COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  THEN item END) AS FASE2_ARRICHFILE_ART,\r\n --  COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 THEN item END) AS FASE3_CAR_BOOM_ART,\r\n ---  COUNT(DISTINCT CASE WHEN processing_step1 = 1 and processing_step2 = 1  and processing_step3 = 1 and processing_step4 = 1 THEN item END) AS FASE4_REGIA_ART\r\nFROM tin_data_item_in\r\nWHERE creation_date BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND file_name LIKE '%HH%' COLLATE CASE_LIKE\r\n  AND (network IS NULL OR network IN ($vg_store));\r\n\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1961,13 +1975,13 @@
     ]
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "2025-10-16T00:00:00.000Z",
+    "to": "2025-10-16T23:59:59.999Z"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "DashBoard Caricamento DATI ARTICOLO",
   "uid": "91438cf0-aa1e-4523-8686-953c397ff7cc",
-  "version": 5,
+  "version": 10,
   "weekStart": ""
 }
