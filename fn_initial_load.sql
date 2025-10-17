@@ -86,6 +86,7 @@ DECLARE
     v_logistic_unit_41_exists BOOLEAN;
     v_structure_item_link_exists BOOLEAN;
     v_structure_item_link_exists_1 BOOLEAN;
+    v_structure_item_link_exists_same_date BOOLEAN;
     v_sale_code_exists BOOLEAN;
     v_saleable_assortment_exists BOOLEAN;
     v_orderable_assortment_exists BOOLEAN;
@@ -1111,47 +1112,124 @@ BEGIN
                             w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                         END IF;
 
-                        SELECT EXISTS (SELECT 1 FROM tmd_structure_item_links_var WHERE structure_id = r_item_data.structure_id AND item_id = W_ITEM_ID AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_structure_item_link_exists;
+                        w_log_text := 'CONTROLLO SE ESISTE LEGAME STRUTTURA ECR CON STESSA DATA INIZIO';
 
-                        IF v_structure_item_link_exists THEN
-                            w_log_text := '1-AGGIORNO tmd_structure_item_links_var LEGAME STRUTTURA ECR per item_id ' || W_ITEM_ID;
-                            IF w_f_scrivi_log = 1 THEN
-                                w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
-                            END IF;
+                        SELECT EXISTS (SELECT 1 FROM tmd_structure_item_links_var WHERE structure_id = r_item_data.structure_id AND item_id = W_ITEM_ID AND CURRENT_DATE = start_date FOR UPDATE) INTO v_structure_item_link_exists_same_date;
+                        IF v_structure_item_link_exists_same_date then
+                           w_log_text := 'STRTUTTURA MERCEOLOGICA GIA PRESENTE NELLA STESSA DATA INIZIO E QUINDI NON FACCIO NULLA per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
+                           IF w_f_scrivi_log = 1 THEN
+                               w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+                           END IF;
 
-                            UPDATE tmd_structure_item_links_var
-                            SET end_date = CASE
-                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
-                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
-                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
-                                    THEN CURRENT_DATE - INTERVAL '1 day'
-                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
-                                    ELSE start_date
-                                   END,  
-                            -------         end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
-                                  is_updated = 1,
-                                  last_user = P_USER,
-                                  transaction_code = r_item_data.transaction_code
-                            WHERE structure_id = r_item_data.structure_id
-                              AND item_id = W_ITEM_ID
-                              AND CURRENT_DATE BETWEEN start_date AND end_date;
+                        else
 
-                            w_log_text := '1-Aggiorno TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
+                            w_log_text := 'CONTROLLO SE ESISTE LEGAME STRUTTURA ECR VALIDO IN DATA ';
+                            SELECT EXISTS (SELECT 1 FROM tmd_structure_item_links_var WHERE structure_id = r_item_data.structure_id AND item_id = W_ITEM_ID AND CURRENT_DATE BETWEEN start_date AND end_date FOR UPDATE) INTO v_structure_item_link_exists;
+
+                            IF v_structure_item_link_exists THEN
+                                w_log_text := '1-AGGIORNO tmd_structure_item_links_var LEGAME STRUTTURA ECR per item_id ' || W_ITEM_ID;
                                 IF w_f_scrivi_log = 1 THEN
                                     w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                 END IF;
 
---                                UPDATE TMD_STRUCTURE_ITEM_LINKS
---                                SET END_DATE = CURRENT_DATE - INTERVAL '1 day',
---                                    UPDATE_DATE = CURRENT_TIMESTAMP,
---                                    LAST_USER = P_USER,
---                                    TRANSACTION_CODE = r_item_data.transaction_code
---                                WHERE ITEM_ID = W_ITEM_ID
---                                AND STRUCTURE_ID = r_item_data.structure_id
---                                AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
+                                UPDATE tmd_structure_item_links_var
+                                SET end_date = CASE
+                                        -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                        WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                        -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                        THEN CURRENT_DATE - INTERVAL '1 day'
+                                        -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                        ELSE start_date
+                                    END,  
+                                -------         end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
+                                    is_updated = 1,
+                                    last_user = P_USER,
+                                    transaction_code = r_item_data.transaction_code
+                                WHERE structure_id = r_item_data.structure_id
+                                AND item_id = W_ITEM_ID
+                                AND CURRENT_DATE BETWEEN start_date AND end_date;
 
-                                w_log_text := '1-NON ESISTE E INSERIMENTO TMD_STRUCTURE_ITEM_LINKS_VAR PER CURRENT DATE E 311299 per item_id -  ' || W_ITEM_ID || '  ESISTENZA : '||v_structure_item_link_exists_1
-                                                || '  START_dATE : '||(CURRENT_DATE) || '  END_dATE : 31/12/2099' || '  STRUCTURE : '||r_item_data.structure_id;
+                                w_log_text := '1-Aggiorno TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
+                                    IF w_f_scrivi_log = 1 THEN
+                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+                                    END IF;
+
+    --                                UPDATE TMD_STRUCTURE_ITEM_LINKS
+    --                                SET END_DATE = CURRENT_DATE - INTERVAL '1 day',
+    --                                    UPDATE_DATE = CURRENT_TIMESTAMP,
+    --                                    LAST_USER = P_USER,
+    --                                    TRANSACTION_CODE = r_item_data.transaction_code
+    --                                WHERE ITEM_ID = W_ITEM_ID
+    --                                AND STRUCTURE_ID = r_item_data.structure_id
+    --                                AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
+
+                                    w_log_text := '1-NON ESISTE E INSERIMENTO TMD_STRUCTURE_ITEM_LINKS_VAR PER CURRENT DATE E 311299 per item_id -  ' || W_ITEM_ID || '  ESISTENZA : '||v_structure_item_link_exists_1
+                                                    || '  START_dATE : '||(CURRENT_DATE) || '  END_dATE : 31/12/2099' || '  STRUCTURE : '||r_item_data.structure_id;
+                                    IF w_f_scrivi_log = 1 THEN
+                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+                                    END IF;
+
+                                    INSERT INTO tmd_structure_item_links_var (
+                                        structure_id,
+                                        item_id,
+                                        start_date,
+                                        end_date,
+                                        is_updated,
+                                        last_user,
+                                        transaction_code
+                                    ) VALUES (
+                                        r_item_data.structure_id,
+                                        W_ITEM_ID,
+                                        CURRENT_DATE,
+                                        TO_DATE('31/12/2099', 'DD/MM/YYYY'),
+                                        1,
+                                        P_USER,
+                                        r_item_data.transaction_code
+                                    );
+
+    --                            w_log_text := '1-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
+    --                                IF w_f_scrivi_log = 1 THEN
+    --                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+    --                                END IF;
+    --
+    --                                INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
+    --                                SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
+    --                                       structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
+    --                                FROM TMD_STRUCTURE_ITEM_LINKS_VAR
+    --                                WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
+    --                                  AND ITEM_ID = W_ITEM_ID
+    --                                  AND STRUCTURE_ID = r_item_data.structure_id;
+                            ELSE
+                                w_log_text := '1-Verifico se esiste record per strutt merc principale  su  TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
+
+                                sELECT tl.id
+                                into v_structure_item_id
+                                FROM boom.tmd_merchandise_structures tm , tmd_structures ts ,tmd_structure_item_links_var tl
+                                WHERE tm.is_default = 1
+                                and ts.merchandise_structure_id = tm.id
+                                and tl. structure_id = ts.id
+                                and current_date between tl.start_date and tl.end_date
+                                and tl.item_id = W_ITEM_ID;
+
+                                IF coalesce(v_structure_item_id,-1) <> -1 THEN
+                                    w_log_text := '1-Aggiorno la data fine a ieri su   TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
+                                    update tmd_structure_item_links_var
+                                        SET end_date = CASE
+                                        -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
+                                        WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
+                                        -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
+                                        THEN CURRENT_DATE - INTERVAL '1 day'
+                                        -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
+                                        ELSE start_date
+                                    END,  
+                            ---------------   set   end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
+                                        is_updated = 1,
+                                        last_user = P_USER,
+                                        transaction_code = r_item_data.transaction_code
+                                    WHERE id = v_structure_item_id;
+                                END IF;
+
+                                w_log_text := '2-INSERISCO tmd_structure_item_links_var LEGAME STRUTTURA ECR per item_id ' || W_ITEM_ID;
                                 IF w_f_scrivi_log = 1 THEN
                                     w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                 END IF;
@@ -1174,84 +1252,20 @@ BEGIN
                                     r_item_data.transaction_code
                                 );
 
---                            w_log_text := '1-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
---                                IF w_f_scrivi_log = 1 THEN
---                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                END IF;
---
---                                INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
---                                SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
---                                       structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
---                                FROM TMD_STRUCTURE_ITEM_LINKS_VAR
---                                WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
---                                  AND ITEM_ID = W_ITEM_ID
---                                  AND STRUCTURE_ID = r_item_data.structure_id;
-                        ELSE
-	        				w_log_text := '1-Verifico se esiste record per strutt merc principale  su  TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
-
-						    sELECT tl.id
-							into v_structure_item_id
-							FROM boom.tmd_merchandise_structures tm , tmd_structures ts ,tmd_structure_item_links_var tl
-							WHERE tm.is_default = 1
-							and ts.merchandise_structure_id = tm.id
-							and tl. structure_id = ts.id
-							and current_date between tl.start_date and tl.end_date
-							and tl.item_id = W_ITEM_ID;
-
-	                        IF coalesce(v_structure_item_id,-1) <> -1 THEN
-		        				w_log_text := '1-Aggiorno la data fine a ieri su   TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
-								update tmd_structure_item_links_var
-                                    SET end_date = CASE
-                                    -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
-                                    WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
-                                    -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
-                                    THEN CURRENT_DATE - INTERVAL '1 day'
-                                    -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
-                                    ELSE start_date
-                                   END,  
-                         ---------------   set   end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current link
-	                                  is_updated = 1,
-	                                  last_user = P_USER,
-	                                  transaction_code = r_item_data.transaction_code
-	                            WHERE id = v_structure_item_id;
-							END IF;
-
-                            w_log_text := '2-INSERISCO tmd_structure_item_links_var LEGAME STRUTTURA ECR per item_id ' || W_ITEM_ID;
-                            IF w_f_scrivi_log = 1 THEN
-                                w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+    --                            w_log_text := '2-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
+    --                            IF w_f_scrivi_log = 1 THEN
+    --                                w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
+    --                            END IF;
+    --
+    --                            INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
+    --                            SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
+    --                                   structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
+    --                            FROM TMD_STRUCTURE_ITEM_LINKS_VAR
+    --                            WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
+    --                              AND ITEM_ID = W_ITEM_ID
+    --                              AND STRUCTURE_ID = r_item_data.structure_id;
                             END IF;
-
-                            INSERT INTO tmd_structure_item_links_var (
-                                structure_id,
-                                item_id,
-                                start_date,
-                                end_date,
-                                is_updated,
-                                last_user,
-                                transaction_code
-                            ) VALUES (
-                                r_item_data.structure_id,
-                                W_ITEM_ID,
-                                CURRENT_DATE,
-                                TO_DATE('31/12/2099', 'DD/MM/YYYY'),
-                                1,
-                                P_USER,
-                                r_item_data.transaction_code
-                            );
-
---                            w_log_text := '2-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
---                            IF w_f_scrivi_log = 1 THEN
---                                w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                            END IF;
---
---                            INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
---                            SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
---                                   structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
---                            FROM TMD_STRUCTURE_ITEM_LINKS_VAR
---                            WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
---                              AND ITEM_ID = W_ITEM_ID
---                              AND STRUCTURE_ID = r_item_data.structure_id;
-                        END IF;
+                        END IF; 
 
                         IF w_esito_processing_item <> 2 THEN
                             w_esito_processing_item = 1 ;
