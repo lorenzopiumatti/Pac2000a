@@ -601,7 +601,7 @@ INIZIO PROCEDURA : 2025-06-12 15:42:36.493961
 FINE PROCEDURA IMPIANTO: 2025-06-12 15:55:40.765405 10.000 articoli 32338 record in 14
 --- step 7 - lancio la prc di elaborazione per i record aggiornati 
 
-nohup wget http://boom-ws:8080/acquisizione_completa_as400 -O - > output.log 2>&1 &
+    nohup wget http://boom-ws:8080/acquisizione_completa_as400 -O - > output.log 2>&1 &
 
 
 ---- test1 = 4414 record e 1008 articoli - 234 kit 

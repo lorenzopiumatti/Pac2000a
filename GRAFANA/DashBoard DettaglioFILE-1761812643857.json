@@ -70,6 +70,20 @@
       "tooltip": "",
       "type": "dashboards",
       "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -622,8 +636,8 @@
     ]
   },
   "time": {
-    "from": "2025-09-15T00:00:00.000Z",
-    "to": "2025-09-15T23:59:59.999Z"
+    "from": "now-1w/w",
+    "to": "now-1w/w"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -633,6 +647,6 @@
   "timezone": "utc",
   "title": "DashBoard DettaglioFILE",
   "uid": "dcc76bf6-95c7-4e71-9a0c-b129b92c1a85",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }

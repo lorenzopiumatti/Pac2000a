@@ -9,14 +9,14 @@ DECLARE
     -- ERRORE_ELABORAZIONE EXCEPTION; -- Puoi decommentare se hai una definizione globale per questa eccezione
 
     -- Variabili per i parametri di input della funzione
-    p_transaction_code INTEGER;
-    p_user TEXT DEFAULT 'user_batch'; -- Utente di default, puoi cambiarlo
-    p_network_ids INTEGER[3]; -- Array di ID dei network per il loop
+    p_transaction_code  INTEGER;
+    p_user TEXT         DEFAULT 'user_batch'; -- Utente di default, puoi cambiarlo
+    p_network_ids       INTEGER[3]; -- Array di ID dei network per il loop
 
     -- Variabili per i dati estratti dal cursore
-    r_transaction_row RECORD; -- Variabile per il FETCH dal cur_transactions
-    r_item_data RECORD;       -- Variabile per il FETCH dal cur_items
-    r_temp_item RECORD;       -- Nuovo record per iterare sulla tabella temporanea
+    r_transaction_row   RECORD; -- Variabile per il FETCH dal cur_transactions
+    r_item_data         RECORD;       -- Variabile per il FETCH dal cur_items
+    r_temp_item         RECORD;       -- Nuovo record per iterare sulla tabella temporanea
 
     -- Variabili di default estratte all'inizio
     w_clocks TIMESTAMP;
@@ -561,37 +561,6 @@ BEGIN
                     w_log_text := null;
                     w_log_err := null;
 
-					-- Applica la logica condizionale a ciascuna variabile:
-					-- Se il valore originale è 1, assegna 2; altrimenti, mantiene il valore originale.
-					-- 1. Per w_esito_processing_item
-/* 					IF w_esito_processing_item = 1 THEN
-					    w_esito_processing_item := 2;
-					END IF;
-
-					-- 2. Per w_esito_processing_sales_code
-					IF w_esito_processing_sales_code = 1 THEN
-					    w_esito_processing_sales_code := 2;
-					END IF;
-
-					-- 3. Per w_esito_processing_assortment
-					IF w_esito_processing_assortment = 1 THEN
-					    w_esito_processing_assortment := 2;
-					END IF;
-
-					-- 4. Per w_esito_processing_puchase_price
-					IF w_esito_processing_puchase_price = 1 THEN
-					    w_esito_processing_puchase_price := 2;
-					END IF;
-
-					-- 5. Per w_esito_processing_sale_price
-					IF w_esito_processing_sale_price = 1 THEN
-					    w_esito_processing_sale_price := 2;
-					END IF;
-
-					-- 6. Per w_esito_processing_features
-					IF w_esito_processing_features = 1 THEN
-					    w_esito_processing_features := 2;
-					END IF; */
 
                     w_log_text := 'ESTRAGGO TMD_STRUCTURES';
 	        	    IF w_f_scrivi_log = 1 THEN
@@ -1154,15 +1123,6 @@ BEGIN
                                         w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                     END IF;
 
-    --                                UPDATE TMD_STRUCTURE_ITEM_LINKS
-    --                                SET END_DATE = CURRENT_DATE - INTERVAL '1 day',
-    --                                    UPDATE_DATE = CURRENT_TIMESTAMP,
-    --                                    LAST_USER = P_USER,
-    --                                    TRANSACTION_CODE = r_item_data.transaction_code
-    --                                WHERE ITEM_ID = W_ITEM_ID
-    --                                AND STRUCTURE_ID = r_item_data.structure_id
-    --                                AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
-
                                     w_log_text := '1-NON ESISTE E INSERIMENTO TMD_STRUCTURE_ITEM_LINKS_VAR PER CURRENT DATE E 311299 per item_id -  ' || W_ITEM_ID || '  ESISTENZA : '||v_structure_item_link_exists_1
                                                     || '  START_dATE : '||(CURRENT_DATE) || '  END_dATE : 31/12/2099' || '  STRUCTURE : '||r_item_data.structure_id;
                                     IF w_f_scrivi_log = 1 THEN
@@ -1187,18 +1147,6 @@ BEGIN
                                         r_item_data.transaction_code
                                     );
 
-    --                            w_log_text := '1-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
-    --                                IF w_f_scrivi_log = 1 THEN
-    --                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
-    --                                END IF;
-    --
-    --                                INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
-    --                                SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
-    --                                       structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
-    --                                FROM TMD_STRUCTURE_ITEM_LINKS_VAR
-    --                                WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
-    --                                  AND ITEM_ID = W_ITEM_ID
-    --                                  AND STRUCTURE_ID = r_item_data.structure_id;
                             ELSE
                                 w_log_text := '1-Verifico se esiste record per strutt merc principale  su  TMD_STRUCTURE_ITEM_LINKS_var per item_id ' || W_ITEM_ID;
 
@@ -1252,18 +1200,6 @@ BEGIN
                                     r_item_data.transaction_code
                                 );
 
-    --                            w_log_text := '2-INSERIMENTO TMD_STRUCTURE_ITEM_LINKS da TMD_STRUCTURE_ITEM_LINKS_VAR per item_id ' || W_ITEM_ID;
-    --                            IF w_f_scrivi_log = 1 THEN
-    --                                w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
-    --                            END IF;
-    --
-    --                            INSERT INTO TMD_STRUCTURE_ITEM_LINKS (ID, STRUCTURE_ID, ITEM_ID, START_DATE, END_DATE, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
-    --                            SELECT nextval('tmd_structure_item_links_id_seq'::regclass),
-    --                                   structure_id, item_id, start_date, end_date, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
-    --                            FROM TMD_STRUCTURE_ITEM_LINKS_VAR
-    --                            WHERE CURRENT_DATE BETWEEN START_DATE AND END_DATE
-    --                              AND ITEM_ID = W_ITEM_ID
-    --                              AND STRUCTURE_ID = r_item_data.structure_id;
                             END IF;
                         END IF; 
 
@@ -1375,24 +1311,6 @@ BEGIN
                                 current_network_value := NULL; 
                             END IF;
         
-                               -- CASE i
-                                    -- WHEN 1 THEN null
-                                    -- WHEN 2 THEN CASE WHEN r_item_data.network_id = -1 THEN NULL ELSE r_item_data.network_id END
-                                    -- WHEN 3 THEN CASE WHEN r_item_data.network_id = -1 THEN NULL ELSE r_item_data.network_id END
-                                    -- WHEN 4 THEN null
-                                    -- WHEN 5 THEN null
-                                    -- WHEN 6 THEN null
-                                    -- WHEN 7 THEN null
-                                    -- WHEN 8 THEN null
-                                    -- WHEN 9 THEN null
-                                    -- WHEN 10 THEN null
-                                    -- WHEN 11 THEN CASE WHEN r_item_data.network_id = -1 THEN NULL ELSE r_item_data.network_id END
-                                    -- WHEN 12 THEN null
-                                    -- WHEN 13 THEN null
-                                    -- WHEN 14 THEN null
-                                    -- WHEN 15 THEN null
-                                -- END;
-
                             -- Determina il feature_id e il valore dell'attributo in base all'indice del loop
                             w_log_text := 'Recupera la descrizione della feature se necessaria per str_val' ;
                             IF w_f_scrivi_log = 1 THEN
@@ -1507,13 +1425,6 @@ BEGIN
                                     w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                 END IF;
 
-        --        				 UPDATE tmd_sale_codes_var set
-        ---                            is_updated = 1,
-         --                           is_label = 0 ,
-         --                           last_user = p_user,
-         ---                           transaction_code = r_item_data.transaction_code
-         ----                       WHERE sale_code = r_item_data.sale_code and  item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) AND r_item_data.start_date_sale_code BETWEEN start_date AND end_date;
-
                                 w_log_text := '1- INSERISCO RIGA TMD_SALE_CODES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e code_type_pc ' || r_item_data.sale_code_type_pc;
                                 IF w_f_scrivi_log = 1 THEN
                                     w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
@@ -1624,90 +1535,6 @@ BEGIN
 
                             END IF;
 
---                            v_sale_code_exists := FALSE;
---
---                            SELECT EXISTS (SELECT 1 FROM tmd_sale_codes WHERE item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) FOR UPDATE) INTO v_sale_code_exists;
---
---                            IF v_sale_code_exists THEN
---                                w_log_text := '2-AGGIORNO RIGA TMD_SALE_CODES per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || COALESCE(r_item_data.network_id::TEXT, 'NULL');
---                                IF w_f_scrivi_log = 1 THEN
---                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                END IF;
---
---                                UPDATE tmd_sale_codes
---                                SET end_date = CURRENT_DATE - INTERVAL '1 day',
---                                    is_label = 0 ,
---                                    update_date = CURRENT_TIMESTAMP,
---                                    last_user = 'AGGIORNO',
---                                    transaction_code = r_item_data.transaction_code
---                                WHERE item_sale_id = W_ITEM_SALE_ID AND code_type_pc = r_item_data.sale_code_type_pc AND (network_id IS NULL OR network_id = r_item_data.network_id) AND CURRENT_DATE BETWEEN start_date AND end_date;
---
---                                w_log_text := '2-INSERISCO RIGA TMD_SALE_CODES per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || COALESCE(r_item_data.network_id::TEXT, 'NULL');
---                                IF w_f_scrivi_log = 1 THEN
---                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                END IF;
---
---                                INSERT INTO tmd_sale_codes (
---                                    id,
---                                    item_sale_id,
---                                    network_id,
---                                    code_type_pc,
---                                    sale_code,
---                                    start_date,
---                                    end_date,
---                                    is_label,
---                                    last_user,
---                                    transaction_code,
---                                    creation_date,
---                                    update_date
---                                ) VALUES (
---                                    nextval('tmd_sale_codes_id_seq'::regclass),
---                                    W_ITEM_SALE_ID,
---                                    r_item_data.network_id,
---                                    r_item_data.sale_code_type_pc,
---                                    r_item_data.sale_code,
---                                    r_item_data.start_date_sale_code,
---                                    r_item_data.end_date_sale_code,
---                                    coalesce(r_item_data.is_label_sale_code,0),
---                                    P_USER,
---                                    r_item_data.transaction_code,
---                                    CURRENT_TIMESTAMP,
---                                    CURRENT_TIMESTAMP
---                                );
---                            ELSE
---                                w_log_text := '2.2 - INSERISCO RIGA TMD_SALE_CODES per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || COALESCE(r_item_data.network_id::TEXT, 'NULL');
---                                IF w_f_scrivi_log = 1 THEN
---                                    w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                END IF;
---
---                                INSERT INTO tmd_sale_codes (
---                                    id,
---                                    item_sale_id,
---                                    network_id,
---                                    code_type_pc,
---                                    sale_code,
---                                    start_date,
---                                    end_date,
---                                    is_label,
---                                    last_user,
---                                    transaction_code,
---                                    creation_date,
---                                    update_date
---                                ) VALUES (
---                                    nextval('tmd_sale_codes_id_seq'::regclass),
---                                    W_ITEM_SALE_ID,
---                                    r_item_data.network_id,
---                                    r_item_data.sale_code_type_pc,
---                                    r_item_data.sale_code,
---                                    r_item_data.start_date_sale_code,
---                                    r_item_data.end_date_sale_code,
---                                    coalesce(r_item_data.is_label_sale_code,0),
---                                    P_USER,
---                                    r_item_data.transaction_code,
---                                    CURRENT_TIMESTAMP,
---                                    CURRENT_TIMESTAMP
---                                );
---                            END IF;
 
                            -- Inserimento del codice a barre '7999' se non esiste e Mag_Rif = 'R99'
                             INSERT INTO tmd_sale_codes_var (item_sale_id, code_type_pc, sale_code, start_date, end_date, is_label, is_updated, transaction_code)
@@ -1728,23 +1555,6 @@ BEGIN
                                 AND features_value = 'R99'
                             );
 
---                           INSERT INTO tmd_sale_codes (item_sale_id, code_type_pc, sale_code, start_date, end_date, is_label, transaction_code)
---                            SELECT tis.id, 12, '7999'||substr(lpad(replace(ti.item collate "C"/*case_like*/,'-',''),8,'0'),1,8)||fn_get_check_digit('7999'||lpad(replace(ti.item collate "C"/*case_like*/,'-',''),8,'0')),
---                                   CURRENT_DATE, TO_DATE('31122099','DDMMYYYY'), 0, ti.transaction_code
---                            FROM tmd_items ti
---                            INNER JOIN tmd_item_sales tis ON ti.id = tis.item_id
---                            WHERE ti.id = W_ITEM_ID
---                            AND regexp_match(ti.item collate "C"/*case_like*/,'[A-Za-z]') IS NULL
---                            AND NOT EXISTS (
---                                SELECT 1 FROM tmd_sale_codes tscv
---                                WHERE tscv.code_type_pc = 12 AND CURRENT_DATE BETWEEN tscv.start_date AND tscv.end_date AND tscv.item_sale_id = tis.id
---                            )
---                            AND EXISTS (
---                                SELECT 1 FROM tmd_feature_item_links tfil
---                                WHERE tfil.item_id = ti.id
---                                AND specific_feature_id = (SELECT id FROM tpa_specific_features tsf WHERE specific_feature = 'MAG_RIF')
---                                AND features_value = 'R99'
---                            );
                         END IF; -- Chiusura IF r_item_data.update_sale_code = 1
 
                         IF w_esito_processing_sales_code <> 2 THEN
@@ -1849,21 +1659,6 @@ BEGIN
                                           AND network_id = r_item_data.network_id
                                           AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
 
---                                        w_log_text := '1 - AGGIORNO TMD_ORDERABLE_ASSORTMENTS per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
---                                        IF w_f_scrivi_log = 1 THEN
---                                            w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                        END IF;
---
---                                        UPDATE TMD_ORDERABLE_ASSORTMENTS
---                                        SET END_DATE = CURRENT_DATE - INTERVAL '1 day',
---                                            UPDATE_DATE = CURRENT_TIMESTAMP,
---                                            LAST_USER = P_USER,
---                                            TRANSACTION_CODE = r_item_data.transaction_code
---                                        WHERE ITEM_ID = W_ITEM_ID AND ITEM_LOGISTIC_ID = W_ITEM_LOGISTIC_ID
---                                        AND LOGISTIC_UNIT_ID = W_LOGISTIC_UNIT_ID
---                                        AND OPERATIONAL_AGREEMENT_ID = r_item_data.OPERATIONAL_AGREEMENT_ID
---                                        AND NETWORK_ID = r_item_data.network_id AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
-
                                         w_log_text := '1 - INSERISCO  ASSORTIMENTO FORNITORE CENTRALE VAR 1 per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
                                         IF w_f_scrivi_log = 1 THEN
                                             w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
@@ -1884,17 +1679,6 @@ BEGIN
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
 
---                                        w_log_text := 'INSERISCO TMD_ORDERABLE_ASSORTMENTS da TMD_ORDERABLE_ASSORTMENTS_VAR 1 per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
---                                        IF w_f_scrivi_log = 1 THEN
---                                            w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                        END IF;
---
---                                        INSERT INTO TMD_ORDERABLE_ASSORTMENTS (ID, ITEM_ID, ITEM_LOGISTIC_ID, LOGISTIC_UNIT_ID, OPERATIONAL_AGREEMENT_ID, NETWORK_ID, START_DATE, END_DATE, MAIN_SUPPLIER, MIN_ORDER, MAX_ORDER, MULTIPLE_REORDER, ASSORTMENT_STATUS_PH, ASSORTMENT_STATUS_PC, DELIVERY_STATUS_PH, DELIVERY_STATUS_PC, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
---                                        SELECT W_ORDERABLE_ASSORTMENTS_ID, ITEM_ID, ITEM_LOGISTIC_ID, LOGISTIC_UNIT_ID, OPERATIONAL_AGREEMENT_ID, NETWORK_ID, START_DATE, END_DATE, MAIN_SUPPLIER, MIN_ORDER, MAX_ORDER, MULTIPLE_REORDER, ASSORTMENT_STATUS_PH, assortment_status_pc, ASSORTMENT_STATUS_PC, delivery_status_pc, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, LAST_USER, TRANSACTION_CODE
---                                        FROM TMD_ORDERABLE_ASSORTMENTS_VAR
---                                        WHERE ITEM_ID = W_ITEM_ID
---                                          AND ID = W_ORDERABLE_ASSORTMENTS_ID
---                                          AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
 
                                     ELSE
 
@@ -1903,26 +1687,6 @@ BEGIN
                                             w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
                                         END IF;
 
-    							-- 		 UPDATE tmd_orderable_assortments_var
-                                --      ----end_date = CURRENT_DATE - INTERVAL '1 day', -- Close current record
-                                --                 SET end_date = CASE
-                                --                     -- Se la data di 'oggi meno 1 giorno' è >= della data di inizio (start_date)
-                                --                     WHEN CURRENT_DATE - INTERVAL '1 day' >= start_date 
-                                --                     -- Allora usa 'oggi meno 1 giorno' (il troncamento standard)
-                                --                     THEN CURRENT_DATE - INTERVAL '1 day'
-                                --                     -- Altrimenti (se 'oggi meno 1 giorno' è precedente a start_date)
-                                --                     ELSE start_date
-                                --                 END,
-                                --              is_updated = 1,
-								-- 			main_supplier = 0,
-                                --             last_user = P_USER,
-                                --             transaction_code = r_item_data.transaction_code
-                                --         WHERE item_id = W_ITEM_ID
-                                --           AND item_logistic_id = W_ITEM_LOGISTIC_ID
-                                --           AND logistic_unit_id = W_LOGISTIC_UNIT_ID
-                                --    ----       AND operational_agreement_id = r_item_data.OPERATIONAL_AGREEMENT_ID
-                                --           AND network_id = r_item_data.network_id
-                                --           AND r_item_data.start_date_assortment BETWEEN start_date AND end_date;
 
                                         SELECT nextval('tmd_orderable_assortments_id_seq'::regclass) INTO W_ORDERABLE_ASSORTMENTS_ID;
 
@@ -1940,17 +1704,6 @@ BEGIN
                                             r_item_data.assortment_status_pc, r_item_data.delivery_status_pc, 1, P_USER, r_item_data.transaction_code
                                         );
 
---                                        w_log_text := 'INSERISCO TMD_ORDERABLE_ASSORTMENTS da TMD_ORDERABLE_ASSORTMENTS_VAR 2 per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
---                                        IF w_f_scrivi_log = 1 THEN
---                                            w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                        END IF;
---
---                                        INSERT INTO TMD_ORDERABLE_ASSORTMENTS (ID, ITEM_ID, ITEM_LOGISTIC_ID, LOGISTIC_UNIT_ID, OPERATIONAL_AGREEMENT_ID, NETWORK_ID, START_DATE, END_DATE, MAIN_SUPPLIER, MIN_ORDER, MAX_ORDER, MULTIPLE_REORDER, ASSORTMENT_STATUS_PH, ASSORTMENT_STATUS_PC, DELIVERY_STATUS_PH, DELIVERY_STATUS_PC, CREATION_DATE, UPDATE_DATE, LAST_USER, TRANSACTION_CODE)
---                                        SELECT W_ORDERABLE_ASSORTMENTS_ID, ITEM_ID, ITEM_LOGISTIC_ID, LOGISTIC_UNIT_ID, OPERATIONAL_AGREEMENT_ID, NETWORK_ID, START_DATE, END_DATE, MAIN_SUPPLIER, MIN_ORDER, MAX_ORDER, MULTIPLE_REORDER, ASSORTMENT_STATUS_PH, assortment_status_pc, DELIVERY_STATUS_PH, delivery_status_pc, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, LAST_USER, TRANSACTION_CODE
---                                        FROM TMD_ORDERABLE_ASSORTMENTS_VAR
---                                        WHERE ITEM_ID = W_ITEM_ID
---                                          AND ID = W_ORDERABLE_ASSORTMENTS_ID
---                                          AND CURRENT_DATE BETWEEN START_DATE AND END_DATE;
 
                                     END IF;
                                 END IF;
@@ -1992,56 +1745,6 @@ BEGIN
 	                                END IF;
 
 
---	                                w_log_text := 'AGGIORNO RIGA TMD_SUPPLIER_ITEM_CODES per item_id ' || W_ITEM_ID || ' e fornitore ' || r_item_data.third_party_id;
---	                                    IF w_f_scrivi_log = 1 THEN
---	                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---	                                    END IF;
---
---	                                    UPDATE tmd_supplier_item_codes
---	                                    SET
---	                                        is_active = 0,
---	                                        is_updated = 1,
---	                                        update_date = CURRENT_TIMESTAMP,
---	                                        last_user = P_USER,
---	                                        transaction_code = r_item_data.transaction_code
---	                                    WHERE id = w_existing_supplier_item_code_id;
---
---	                                    w_log_text := '2 - INSERISCO NUOVA RIGA TMD_SUPPLIER_ITEM_CODES (aggiornamento) per item_id ' || W_ITEM_ID || ' e fornitore ' || r_item_data.third_party_id;
---	                                    IF w_f_scrivi_log = 1 THEN
---	                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---	                                    END IF;
---
---	                                    INSERT INTO tmd_supplier_item_codes (
---	                                        id,
---	                                        item_id,
---	                                        item_logistic_id,
---	                                        third_party_id,
---	                                        code_type_ph,
---	                                        code_type_pc,
---	                                        supplier_item_code,
---	                                        description_item,
---	                                        is_active,
---	                                        is_updated,
---	                                        creation_date,
---	                                        update_date,
---	                                        last_user,
---	                                        transaction_code
---	                                    ) VALUES (
---	                                        nextval('tmd_supplier_item_codes_id_seq'::regclass),
---	                                        W_ITEM_ID,
---	                                        W_ITEM_LOGISTIC_ID,
---	                                        r_item_data.third_party_id,
---	                                        16,
---	                                        r_item_data.supplier_code_type_1,
---	                                        r_item_data.supplier_item_code_1,
---	                                        r_item_data.description_item,
---	                                        r_item_data.supplier_is_active_1,
---	                                        1,
---	                                        CURRENT_TIMESTAMP,
---	                                        CURRENT_TIMESTAMP,
---	                                        P_USER,
---	                                        r_item_data.transaction_code
---	                                    );
 	                                ELSE -- Se w_existing_supplier_item_code_id IS NULL (non trovato)
 	                               		 w_log_text := 'INSERISCO RIGA  TMD_SUPPLIER_ITEM_CODES per item_id - logistic_id ' || W_ITEM_ID ||' - '||W_ITEM_LOGISTIC_ID||
 											 ' e fornitore ' || r_item_data.third_party_id || ' e SUPPL ITEM CODE : '||r_item_data.supplier_item_code_1;
@@ -2123,56 +1826,6 @@ BEGIN
 	                                	w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
 	                                END IF;
 
---	                                w_log_text := 'AGGIORNO RIGA TMD_SUPPLIER_ITEM_CODES per item_id ' || W_ITEM_ID || ' e fornitore ' || r_item_data.third_party_id;
---	                                    IF w_f_scrivi_log = 1 THEN
---	                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---	                                    END IF;
---
---	                                    UPDATE tmd_supplier_item_codes
---	                                    SET
---	                                        is_active = 0,
---	                                        is_updated = 1,
---	                                        update_date = CURRENT_TIMESTAMP,
---	                                        last_user = P_USER,
---	                                        transaction_code = r_item_data.transaction_code
---	                                    WHERE id = w_existing_supplier_item_code_id;
---
---	                                w_log_text := '1- INSERISCO NUOVA RIGA TMD_SUPPLIER_ITEM_CODES (aggiornamento) per item_id ' || W_ITEM_ID || ' e fornitore ' || r_item_data.third_party_id;
---	                                    IF w_f_scrivi_log = 1 THEN
---	                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---	                                    END IF;
---
---	                                    INSERT INTO tmd_supplier_item_codes (
---	                                        id,
---	                                        item_id,
---	                                        item_logistic_id,
---	                                        third_party_id,
---	                                        code_type_ph,
---	                                        code_type_pc,
---	                                        supplier_item_code,
---	                                        description_item,
---	                                        is_active,
---	                                        is_updated,
---	                                        creation_date,
---	                                        update_date,
---	                                        last_user,
---	                                        transaction_code
---	                                    ) VALUES (
---	                                        nextval('tmd_supplier_item_codes_id_seq'::regclass),
---	                                        W_ITEM_ID,
---	                                        W_ITEM_LOGISTIC_ID,
---	                                        r_item_data.third_party_id,
---	                                        16,
---	                                        r_item_data.supplier_code_type_2,
---	                                        r_item_data.supplier_item_code_2,
---	                                        r_item_data.description_item,
---	                                        r_item_data.supplier_is_active_2,
---	                                        1,
---	                                        CURRENT_TIMESTAMP,
---	                                        CURRENT_TIMESTAMP,
---	                                        P_USER,
---	                                        r_item_data.transaction_code
---	                                    );
 	                                ELSE
 	                                	w_log_text := 'INSERISCO RIGA TMD_SUPPLIER_ITEM_CODES (nuova) per item_id ' || W_ITEM_ID || ' e fornitore ' || r_item_data.third_party_id;
 	                                    IF w_f_scrivi_log = 1 THEN
@@ -2292,22 +1945,6 @@ BEGIN
                                       AND network_id = r_item_data.network_id
                                       AND cost_type_pc = 1
                                       AND  r_item_data.start_date_purchase BETWEEN start_date AND end_date;
-
---                                    w_log_text := 'AGGIORNO PREZZO DI ACQUISTO tmd_purchase_prices per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
---                                    IF w_f_scrivi_log = 1 THEN
---                                        w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                                    END IF;
---
---                                    UPDATE tmd_purchase_prices
---                                    SET
---                                        end_date = CURRENT_DATE - INTERVAL '1 day',
---                                        last_user = P_USER,
---                                        transaction_code = r_item_data.transaction_code
---                                    WHERE item_id = W_ITEM_ID
---                                      AND operational_agreement_id =  r_item_data.OPERATIONAL_AGREEMENT_ID
---                                      AND network_id = r_item_data.network_id
---                                      AND cost_type_pc = 1
---                                      AND CURRENT_DATE BETWEEN start_date AND end_date;
 
                                     w_log_text := 'INSERIMENTO PREZZO DI ACQUISTO VAR per item_id ' || W_ITEM_ID || ' e network ' || r_item_data.network_id;
                                     IF w_f_scrivi_log = 1 THEN
@@ -2458,30 +2095,6 @@ BEGIN
                                    P_USER,
                                    r_item_data.transaction_code;
                         END IF;
-
---                         Also update tmd_sale_prices
---                        w_log_text := 'AGGIORNO TMD_SALE_PRICES da TMD_SALE_PRICES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || r_item_data.network_id;
---                        IF w_f_scrivi_log = 1 THEN
---                            w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                        END IF;
---
---                        UPDATE tmd_sale_prices
---                        SET end_date = CURRENT_DATE - INTERVAL '1 day',
---                            update_date = CURRENT_TIMESTAMP,
---                            last_user = p_user,
---                            transaction_code = r_item_data.transaction_code
---                        WHERE item_sale_id = W_ITEM_SALE_ID AND network_id = r_item_data.network_id AND sale_price_type_pc = 1 AND CURRENT_DATE BETWEEN start_date AND end_date;
---
---                        w_log_text := 'INSERISCO TMD_SALE_PRICES da TMD_SALE_PRICES_VAR per item_sale_id ' || W_ITEM_SALE_ID || ' e network ' || r_item_data.network_id;
---                        IF w_f_scrivi_log = 1 THEN
---                            w_log_return := fn_log('INFO', 'FN_INITIAL_LOAD', w_log_text, 0);
---                        END IF;
---                        INSERT INTO tmd_sale_prices (id, item_sale_id, network_id, price, base_price, unit_price_ph, unit_price_pc, sale_price_type_ph, sale_price_type_pc, promo_code, vat_id, start_date, end_date, is_sent, insert_type_ph, insert_type_pc, creation_date, update_date, last_user, transaction_code)
---                        SELECT W_SALE_PRICES_VAR_ID, item_sale_id, network_id, price, base_price, unit_price_ph, unit_price_pc, sale_price_type_ph, sale_price_type_pc, promo_code, vat_id, start_date, end_date, is_sent, insert_type_ph, insert_type_pc, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, last_user, transaction_code
---                        FROM tmd_sale_prices_var
---                        WHERE item_sale_id = W_ITEM_SALE_ID
---                          AND CURRENT_DATE BETWEEN start_date AND end_date
---                          AND ID = W_SALE_PRICES_VAR_ID;
 
                         w_log_text := 'GESTIONE ASSORTIMENTO VENDIBILE';
                         IF w_f_scrivi_log = 1 THEN
