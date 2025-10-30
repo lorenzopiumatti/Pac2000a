@@ -459,7 +459,7 @@ java -jar caricamento_boom/caricamento_boom.jar caricamento_boom/config *
 
 
 --- step 2 - carica le *in solo con il tracciato file  (pochi minuti) 
-nohup java -jar acquisizione_file/acquisizione_file.jar acquisizione_file/config > output.log 2>&1 &;
+nohup java -jar acquisizione_file/acquisizione_file.jar acquisizione_file/config > output.log 2>&1 &
 
 
 -- step 2.1 - spaccare a gruppi il blocco per i ph per evitare che vada in mem esaurita e lanciare lo step 3  quanto basta 
@@ -510,7 +510,7 @@ and processing_step1 = 1 and  processing_step2 = 1 and item in
 													and item between  '104000-01' and '105100-01'
 													)
 
-nohup java -Xms512m -Xmx4g -jar ./caricamento_boom/caricamento_boom.jar ./caricamento_boom/config "*" >  output.log 2>&1 &
+----nohup java -Xms512m -Xmx4g -jar ./caricamento_boom/caricamento_boom.jar ./caricamento_boom/config "*" >  output.log 2>&1 &
 
 --- step 7 - lancio lo STEP 3.5 per gli articoli  ( dalla in con stpe4 = 0 alla out ) 
 
@@ -601,7 +601,7 @@ INIZIO PROCEDURA : 2025-06-12 15:42:36.493961
 FINE PROCEDURA IMPIANTO: 2025-06-12 15:55:40.765405 10.000 articoli 32338 record in 14
 --- step 7 - lancio la prc di elaborazione per i record aggiornati 
 
-    nohup wget http://boom-ws:8080/acquisizione_completa_as400 -O - > output.log 2>&1 &
+nohup wget http://boom-ws:8080/acquisizione_completa_as400 -O - > output.log 2>&1 &
 
 
 ---- test1 = 4414 record e 1008 articoli - 234 kit 
@@ -703,3 +703,12 @@ nohup ./pr_lancio_procedura_impianto.sh > pr_lancio.log 2>&1 &
 
 
 docker cp ./pr_lancio_procedura_impianto.sh e0dc76ccee20:/usr/src/app/shell
+
+
+------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+docker ps -a | grep init
+
+docker run -it --rm --name ispezione_temporanea storemanagement-registry.tesisquare.com/utilities/initial-load:LAB_BO /bin/sh
+
