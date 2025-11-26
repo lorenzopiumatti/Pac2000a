@@ -1,3 +1,13 @@
+select creation_Date,update_date, item, error_message , sale_price , start_date_sale, end_date_sale
+from tin_data_item_in where item = '206337-01' and file_name like '%PH%' collate case_like order by 1 
+
+select price,promo_code,start_date , end_date, last_user
+from tmd_sale_prices_var tspv where tspv.item_sale_id in
+(select item_sale_id from vmd_item_anag via where item = '206337-01')
+
+select * from tin_data_promotion_in tdpi where item = '206337-01' order by 1 desc
+
+
 
    SELECT  item ,count( *) ----transaction_code, processing_item, item, id -- Aggiunto id per l'update finale
         FROM tin_data_item_in td
