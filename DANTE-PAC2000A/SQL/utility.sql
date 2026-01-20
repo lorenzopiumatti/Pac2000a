@@ -712,3 +712,11 @@ docker ps -a | grep init
 
 docker run -it --rm --name ispezione_temporanea storemanagement-registry.tesisquare.com/utilities/initial-load:LAB_BO /bin/sh
 
+SELECT ti.item, ti2.description ,  quantity_pieces ,sale_cost---tsm_movements.*
+FROM boom.tsm_movements , tmd_items ti ,ttr_items ti2  
+where movement_date >= current_date-3 
+and movement_date < current_date-2
+and movement_type_pc in ( 10,12 ) and sale_cost = 0
+and ti.id = tsm_movements.item_id
+and ti2.language_id = 1 
+and ti2.item_id = tsm_movements.item_id

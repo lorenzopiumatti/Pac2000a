@@ -117,3 +117,109 @@ where item_id = :par
                                     and lnk.last_user = 'user_batch' 
                                     and current_date between lnk.start_date and lnk.end_date 
   ))::varchar[] )
+
+
+---------------------------------------------------------------------
+--------------------------------------------------------------
+  vin_populate_item_out
+----------------------------------------------------------------
+------------------------------------------------------------------
+-- boom.vin_populate_item_out source
+
+CREATE OR REPLACE VIEW boom.vin_populate_item_out
+AS SELECT DISTINCT ti.is_multi_vat AS item_type,
+    ti.item_category_pc AS reparto,
+    ti.item AS cod_art,
+    ti.id AS item_id,
+    tis2.description AS descr_var_sale_long,
+    tspv.price AS sale_price,
+    tspv.start_date AS price_val_date_begin,
+    tspv.end_date AS price_val_date_end,
+    tsc.sale_code AS art_barcode,
+    tsc.is_label,
+    tv.vat AS code_sale_vat,
+    tis2.description AS descr_cash,
+    tn.network_cash AS shop_code,
+    ti.stock_unit_pc AS stock_unit,
+    til.unit_measure_pc AS measure_unit,
+    tlu.pieces AS pieces_pack,
+    '0'::text AS flag_treat,
+    NULL::text AS date_treat,
+    ti.transaction_code AS trans_num,
+    now() AS date_ins,
+    now() AS date_mod,
+    'tsitemout'::text AS prog_last_mod,
+    'file'::text || to_char(now(), 'yyyymmddhh24miss'::text) AS file_name,
+        CASE
+            WHEN tsc.is_updated = 1::numeric THEN 'I'::text
+            WHEN tsc.end_date < CURRENT_DATE THEN 'D'::text
+            ELSE 'U'::text
+        END AS type_op,
+    ((((( SELECT vfr.attributo
+           FROM vmd_feature_replicator vfr
+          WHERE vfr.item_id = ti.id AND vfr.network_id = tn.id)) || ';TSACSATTR18='::text) || COALESCE((( SELECT
+                CASE tfil.features_value
+                    WHEN 'S'::text THEN 1
+                    WHEN 'N'::text THEN 0
+                    ELSE NULL::integer
+                END AS "case"
+           FROM tmd_feature_item_links tfil
+             JOIN tpa_specific_features tsf ON tsf.id = tfil.specific_feature_id AND tsf.specific_feature::text = 'F_V_PESO_C'::text
+          WHERE tfil.item_id = ti.id))::bigint, ( SELECT count(DISTINCT 1) AS count
+           FROM tmd_sale_codes_var tscv2
+          WHERE tscv2.item_sale_id = tis.id AND CURRENT_DATE >= tscv2.start_date AND CURRENT_DATE <= tscv2.end_date AND tscv2.code_type_pc = 10 AND (tscv2.bilance_department_pc::numeric = ANY (((( SELECT ARRAY( SELECT vp.parameter_code
+                           FROM vpa_parameters vp
+                          WHERE vp.parameter_header = 85 AND vp.is_default = 1::numeric AND vp.num_val_3 = 1::numeric) AS "array"))::numeric[])))))) || ';TSACSATTR26='::text) || (( SELECT count(DISTINCT 1) AS count
+           FROM tmd_sale_codes_var tscv2
+          WHERE tscv2.item_sale_id = tis.id AND CURRENT_DATE >= tscv2.start_date AND CURRENT_DATE <= tscv2.end_date AND tscv2.code_type_pc = 10)) AS features,
+    "substring"(ts.structure_code::text, 1, 2) AS struct_lv1,
+    "substring"(ts.structure_code::text, 3, 2) AS struct_lv2,
+    "substring"(ts.structure_code::text, 5, 2) AS struct_lv3,
+    "substring"(ts.structure_code::text, 7, 2) AS struct_lv4,
+    "substring"(ts.structure_code::text, 9, 2) AS struct_lv5,
+    "substring"(ts.structure_code::text, 11, 2) AS struct_lv6,
+    "substring"(ts.structure_code::text, 13, 2) AS struct_lv7,
+    "substring"(ts.structure_code::text, 15, 2) AS struct_lv8,
+    "substring"(ts.structure_code::text, 17, 2) AS struct_lv9,
+    tsc.id AS "tmd_sale_codes_var.id",
+    tlu.id AS "tmd_logistic_units.id",
+    til.id AS "tmd_item_logistics.id",
+    tis.id AS "tmd_item_sales.id",
+    tspv.id AS id_sale_price,
+    tsilv.id AS structure_id,
+    ( SELECT string_agg(tkc.id::character varying::text, ','::text) AS string_agg
+           FROM tmd_kit_components tkc
+          WHERE ti.id = tkc.item_id) AS comp_id,
+        CASE
+            WHEN tsc.code_type_pc <> 10 THEN ''::text
+            ELSE ( SELECT
+                    CASE
+                        WHEN ti_old_plu_item.item::text = ti.item::text THEN ''::text
+                        ELSE ((((ti_old_plu_item.item::text || '§'::text) || tsc.bilance_department_pc::text) || tsc.plu_code::text) || '§'::text) || ti_old_plu_item.description::text
+                    END AS "case"
+               FROM tmd_sale_codes_var tscv3
+                 JOIN tmd_item_sales tis3 ON tis3.id = tscv3.item_sale_id
+                 JOIN vmd_items ti_old_plu_item ON ti_old_plu_item.id = tis3.item_id
+              WHERE tscv3.sale_code::text = tsc.sale_code::text AND tscv3.network_id = tsc.network_id AND tscv3.code_type_pc = 10 AND (tsc.start_date - 1) >= tscv3.start_date AND (tsc.start_date - 1) <= tscv3.end_date AND (CURRENT_DATE - 1) >= tscv3.start_date AND (CURRENT_DATE - 1) <= tscv3.end_date AND tscv3.is_updated = 1::numeric)
+        END AS old_plu_data
+   FROM tmd_items ti
+     JOIN tmd_item_sales tis ON tis.item_id = ti.id
+     JOIN ttr_item_sales tis2 ON tis2.item_sale_id = tis.id AND tis2.language_id = (( SELECT tpa_languages.id
+           FROM tpa_languages
+          WHERE tpa_languages.is_default = 1::numeric))
+     JOIN tmd_structure_item_links_var tsilv ON tsilv.item_id = tis.item_id AND CURRENT_DATE >= tsilv.start_date AND CURRENT_DATE <= tsilv.end_date
+     JOIN tmd_structures ts ON ts.id = tsilv.structure_id
+     JOIN tmd_merchandise_structures tms ON tms.id = ts.merchandise_structure_id AND tms.is_default = 1::numeric
+     JOIN tmd_sale_prices_var tspv ON tspv.item_sale_id = tis.id AND CURRENT_DATE >= tspv.start_date AND CURRENT_DATE <= tspv.end_date AND (tspv.sale_price_type_pc::numeric = ANY (((( SELECT ARRAY( SELECT 1
+                   FROM vpa_parameters vp
+                  WHERE vp.parameter_header = tspv.sale_price_type_ph AND vp.is_default = 1::numeric AND vp.parameter_code = tspv.sale_price_type_pc AND vp.num_val_1 = 1::numeric) AS "array"))::numeric[])))
+     JOIN vpa_networks_desc vnd ON vnd.network_id = tspv.network_id AND vnd.is_stock_management = 1::numeric
+     JOIN tmd_networks tn ON tn.id = vnd.child_network_id
+     JOIN tmd_sale_codes_var tsc ON tsc.item_sale_id = tis.id AND CURRENT_DATE >= tsc.start_date AND CURRENT_DATE <= tsc.end_date AND (tsc.code_type_pc::numeric = ANY (((( SELECT ARRAY( SELECT tp.parameter_code
+                   FROM tpa_parameters tp,
+                    tpa_parameter_headers tph
+                  WHERE tph.id = tp.parameter_header_id AND tph.parameter_header = tsc.code_type_ph AND tp.num_val_5 = 1::numeric) AS "array"))::numeric[])))
+     LEFT JOIN tmd_item_logistics til ON til.item_id = ti.id
+     LEFT JOIN tmd_logistic_units tlu ON tlu.item_logistic_id = til.id AND tlu.logistic_unit_pc = '41'::bigint
+     JOIN tmd_vat tv ON tv.id = tspv.vat_id
+     JOIN tmd_saleable_assortments tsa ON tsa.item_sale_id = tis.id AND tsa.network_id = tn.id AND tsa.status_pc = 1;

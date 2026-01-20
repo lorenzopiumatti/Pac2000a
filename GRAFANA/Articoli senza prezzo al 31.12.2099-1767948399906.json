@@ -51,22 +51,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "links": [
-    {
-      "asDropdown": false,
-      "icon": "external link",
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "DASHHOME"
-      ],
-      "targetBlank": false,
-      "title": "New link",
-      "tooltip": "",
-      "type": "dashboards",
-      "url": ""
-    }
-  ],
+  "links": [],
   "panels": [
     {
       "datasource": {
@@ -185,20 +170,18 @@
     }
   ],
   "schemaVersion": 41,
-  "tags": [
-    "DASHNOPRZTAPPO"
-  ],
+  "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "now-6h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Articoli senza prezzo al 31.12.2099",
   "uid": "a3a72274-1504-42c9-81cc-cd295506986d",
-  "version": 4,
+  "version": 6,
   "weekStart": ""
 }
