@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_POSTGRESQL_BO",
-      "label": "PostgreSQL BO",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-postgresql-datasource",
-      "pluginName": "PostgreSQL"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-postgresql-datasource",
-      "name": "PostgreSQL",
-      "version": "12.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -55,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 105,
   "links": [
     {
       "asDropdown": false,
@@ -90,7 +59,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -241,14 +210,14 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT  transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND source_type_pc = 20\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '2')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 \r\n                  when processing_step2 > 1 then 1 \r\n                  when processing_step1 > 1 then 1 \r\n                  when processing_item = 2 then 1 \r\n                  when processing_sale_code = 2 then 1 \r\n                  when processing_assortment = 2 then 1  \r\n                  when processing_puchase_price = 2 then 1\r\n                  when processing_sale_price = 2 then 1\r\n                  when processing_feature = 2 then 1\r\n                  else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_item = 2 or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2 then 1\r\n                            when processing_step3<=1 then 0 \r\n                            else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '1')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step2<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_promotion_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '3')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_kit_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '4')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_reception_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '5')\r\nGROUP BY transaction_code,file_name\r\norder by 1",
+          "rawSql": "SELECT  transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nAND source_type_pc = 20\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '2')\r\nAND (network_code IS NULL OR network_code IN ($vg_store_code))\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 then 1 \r\n                  when processing_step2 > 1 then 1 \r\n                  when processing_step1 > 1 then 1 \r\n                  when processing_item = 2 then 1 \r\n                  when processing_sale_code = 2 then 1 \r\n                  when processing_assortment = 2 then 1  \r\n                  when processing_puchase_price = 2 then 1\r\n                  when processing_sale_price = 2 then 1\r\n                  when processing_feature = 2 then 1\r\n                  else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_item = 2 or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2 then 1\r\n                            when processing_step3<=1 then 0 \r\n                            else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\n--AND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '1')\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step2<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_promotion_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\n--AND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '3')\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_kit_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '4')\r\nGROUP BY transaction_code,file_name\r\nUNION \r\nSELECT transaction_code as \"ID Tracciamento File\",file_name as \"Nome del File\", MAX(creation_date) as \"Data Creazione File\", count(*) as \"Numero righe file\"\r\n        ,sum(case when processing_step3 > 1 AND processing_step3 != 9 then 1 when processing_step2 > 1 then 1 when processing_step1 > 1 then 1 else 0 end) as \"Record Errore\"\r\n        ,case when sum(case when processing_step3<=1 then 0 else 1 end) = 0 then '[ ]' else '[X]' end as \"Rielabora errori file\"\r\nFROM tin_data_reception_in tdii\r\n  --WHERE creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\n  WHERE creation_date between $__timeFrom() AND $__timeTo()\r\n--AND NETWORK='$network'\r\nand ('${TipoFile}'= '0' or '${TipoFile}'= '5')\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\nGROUP BY transaction_code,file_name\r\norder by 1",
           "refId": "A",
           "select": [
             [
@@ -293,7 +262,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -473,14 +442,14 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT format('Fornitore \"%s\" : \"%s\"',third_party, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nUNION \r\n--\r\nSELECT format('Articolo \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 or processing_item = 2  or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\nUNION \r\n--\r\nSELECT format('KIT \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_kit_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nUNION \r\n--\r\nSELECT format('Promo-Articolo \"%s\" : \"%s\"',trim(promo_code||'-'||item), error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_promotion_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 )\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\nUNION\r\n--\r\nSELECT error_message as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_reception_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 )\r\nAND processing_step3 != 9\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND NETWORK='$network'\r\norder by 2",
+          "rawSql": "SELECT format('Fornitore \"%s\" : \"%s\"',third_party, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_THIRD_PARTY_IN tdtpi\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nAND (network_code IS NULL OR network_code IN ($vg_store_code))\r\nUNION \r\n--\r\nSELECT format('Articolo \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM TIN_DATA_ITEM_IN tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 or processing_item = 2  or processing_sale_code = 2 or processing_assortment = 2 or processing_puchase_price = 2 or processing_sale_price = 2 or processing_feature = 2)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\n--AND NETWORK='$network'\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\nUNION \r\n--\r\nSELECT format('KIT \"%s\" : \"%s\"',item, error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 1 and processing_step3 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_kit_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1)\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\nUNION \r\n--\r\nSELECT format('Promo-Articolo \"%s\" : \"%s\"',trim(promo_code||'-'||item), error_message) as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_promotion_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 )\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\n--AND NETWORK='$network'\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\nUNION\r\n--\r\nSELECT error_message as \"Errori\", file_name as \"Nome del File\", number_line as \"Riga File\", update_date as \"Data Ultima Elaborazione\", creation_date as \"Data Creazione File\"\r\n        ,case when processing_step1 = 0 then '[ ]' when processing_step1 = 1 and processing_step2 = 0 then '[ ]' else '[X]' end as \"Rielabora record\"\r\nFROM tin_data_reception_in tdii\r\nWHERE (processing_step1 > 1 or processing_step2 > 1 or processing_step3 > 1 )\r\nAND processing_step3 != 9\r\n--AND creation_date between '${__from:date::timestamp without time zone}' and '${__to:date::timestamp without time zone}'\r\nAND creation_date between $__timeFrom() AND $__timeTo()\r\nand file_name = '${selection}'\r\n--AND NETWORK='$network'\r\nAND (network IS NULL OR network IN ($vg_store_code))\r\norder by 2",
           "refId": "A",
           "select": [
             [
@@ -523,6 +492,7 @@
       "type": "table"
     }
   ],
+  "preload": false,
   "refresh": false,
   "schemaVersion": 41,
   "tags": [
@@ -567,43 +537,13 @@
         "type": "textbox"
       },
       {
-        "current": {},
-        "datasource": {
-          "type": "grafana-postgresql-datasource",
-          "uid": "${DS_POSTGRESQL_BO}"
+        "current": {
+          "text": "http://34.90.65.80:8082/refresh_viste_materializzate/QUADRATURE",
+          "value": "http://34.90.65.80:8082/refresh_viste_materializzate/QUADRATURE"
         },
-        "definition": "SELECT NETWORK_CODE||' ;'||NETWORK_CODE||' - '||DESCRIPTION FROM TMD_NETWORKS WHERE network_node_type_pc = 4",
-        "description": "Sito/Rete",
-        "includeAll": false,
-        "label": "sito/rete",
-        "name": "network",
-        "options": [],
-        "query": "SELECT NETWORK_CODE||' ;'||NETWORK_CODE||' - '||DESCRIPTION FROM TMD_NETWORKS WHERE network_node_type_pc = 4",
-        "refresh": 1,
-        "regex": "/(\\d+)/",
-        "type": "query"
-      },
-      {
-        "current": {},
         "datasource": {
           "type": "grafana-postgresql-datasource",
-          "uid": "${DS_POSTGRESQL_BO}"
-        },
-        "definition": "select id from tmd_networks where network_code='${network}'",
-        "hide": 2,
-        "includeAll": false,
-        "name": "network_id",
-        "options": [],
-        "query": "select id from tmd_networks where network_code='${network}'",
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "grafana-postgresql-datasource",
-          "uid": "${DS_POSTGRESQL_BO}"
+          "uid": "V8j9KIzVk"
         },
         "definition": "SELECT str_val_3 from vpa_parameters where parameter_header=93 and str_val_1='QUADRATURE'",
         "hide": 2,
@@ -632,6 +572,27 @@
         ],
         "query": "0",
         "type": "textbox"
+      },
+      {
+        "current": {
+          "text": [
+            "300009 - PDV ALBA"
+          ],
+          "value": [
+            "300009"
+          ]
+        },
+        "definition": "select network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "description": "",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "vg_store_code",
+        "options": [],
+        "query": "select network_code AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       }
     ]
   },
@@ -647,6 +608,5 @@
   "timezone": "utc",
   "title": "DashBoard DettaglioFILE",
   "uid": "dcc76bf6-95c7-4e71-9a0c-b129b92c1a85",
-  "version": 1,
-  "weekStart": ""
+  "version": 6
 }

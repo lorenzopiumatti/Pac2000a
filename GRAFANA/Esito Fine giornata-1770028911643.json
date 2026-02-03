@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_POSTGRESQL-_BOSS",
-      "label": "PostgreSQL- BOSS",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-postgresql-datasource",
-      "pluginName": "PostgreSQL"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-postgresql-datasource",
-      "name": "PostgreSQL",
-      "version": "12.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -50,13 +19,28 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
-  "links": [],
+  "id": 116,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "panels": [
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL-_BOSS}"
+        "uid": "YNYXMR8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -177,12 +161,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL-_BOSS}"
+            "uid": "YNYXMR8Vz"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT eod_timestamp as \"DATA EOD\" , step_id as \"STEP EOD\" , description as \"DESCIZIONE STEP\", messages as \"MESSAGGIO\" ,    CASE \r\n        WHEN step_id <> 18 THEN 1 \r\n        ELSE 0 \r\n    END AS ALERT_FLAG\r\nFROM (\r\n    SELECT \r\n        eo.eod_timestamp, \r\n        eo.step_id, \r\n        op.description, \r\n        eo.messages,\r\n        ROW_NUMBER() OVER (PARTITION BY eo.eod_timestamp ORDER BY eo.step_id DESC) as rn\r\n    FROM tesi_eod.eod_process eo\r\n    JOIN tesi_eod.eod_operations op ON eo.step_id = op.id\r\n) as subquery\r\nWHERE rn = 1\r\nand eod_timestamp  BETWEEN $__timeFrom() AND $__timeTo()\r\nORDER BY eod_timestamp DESC;",
+          "rawSql": "SELECT eod_timestamp as \"DATA EOD\" , step_id as \"STEP EOD\" , description as \"DESCIZIONE STEP\", messages as \"MESSAGGIO\" ,    CASE \r\n        WHEN step_id <> 18 THEN 1 \r\n        ELSE 0 \r\n    END AS ALERT_FLAG\r\nFROM (\r\n    SELECT \r\n        eo.eod_timestamp, \r\n        eo.step_id, \r\n        op.description, \r\n        eo.messages,\r\n        ea.store,\r\n        ROW_NUMBER() OVER (PARTITION BY eo.eod_timestamp ORDER BY eo.step_id DESC) as rn\r\n    FROM tesi_eod.eod_process eo\r\n    JOIN tesi_eod.eod_operations op ON eo.step_id = op.id\r\n    JOIN tesi_eod.eod_assign ea on op.id = ea.step_id\r\n) as subquery\r\nWHERE rn = 1\r\nAND eod_timestamp  BETWEEN $__timeFrom() AND $__timeTo()\r\nAND store IN ($vg_store_cash)\r\nORDER BY eod_timestamp DESC;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -207,19 +191,42 @@
       "type": "table"
     }
   ],
+  "preload": false,
   "schemaVersion": 41,
-  "tags": [],
+  "tags": [
+    "DASHESITOFINEG"
+  ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": [
+            "300009 - PDV ALBA"
+          ],
+          "value": [
+            "7328"
+          ]
+        },
+        "definition": "select network_cash AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "vg_store_cash",
+        "options": [],
+        "query": "select network_cash AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
   },
   "time": {
-    "from": "now-30d",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Esito Fine giornata",
   "uid": "ff47a6da-7464-4d9a-b4f5-02912d2c769c",
-  "version": 2,
-  "weekStart": ""
+  "version": 9
 }

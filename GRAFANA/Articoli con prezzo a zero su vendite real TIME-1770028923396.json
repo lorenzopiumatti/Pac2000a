@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_POSTGRESQL_BO",
-      "label": "PostgreSQL BO",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-postgresql-datasource",
-      "pluginName": "PostgreSQL"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-postgresql-datasource",
-      "name": "PostgreSQL",
-      "version": "12.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -50,13 +19,28 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
-  "links": [],
+  "id": 117,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "DASHHOME"
+      ],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "panels": [
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -299,12 +283,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    tt.\"COD_PUNTO_VENDITA\" AS NEGOZIO,\r\n    tt.\"NUM_CASSA\" AS NUM_CASSA,\r\n    tt.\"NUM_SCONTRINO\" AS NUM_SCONTRINO,\r\n    TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') AS DATA_SCONTRINO,\r\n    TO_TIMESTAMP(tt.\"ORA_SCONTRINO\", 'HH24MISS')::TIME AS ORA_SCONTRINO,\r\n    tt.\"COD_FIDELITY\" AS COD_FIDELITY,\r\n    td.\"COD_EAN\" AS COD_EAN,\r\n    ti.item AS COD_ART, \r\n    ti.item_type_pc AS TIPO_ART,\r\n    td.\"DESC_ARTICOLO\" AS DESC_ARTICOLO,\r\n    td.\"FLG_OFFERTA\" AS FLG_OFFERTA,\r\n    -- Quantità convertita da millesimi (es. 1000 -> 1.000)\r\n    COALESCE(ROUND((td.\"QUANTITA\"::NUMERIC / 1000.000), 3), 0) AS QUANTITA,\r\n    ROUND(CAST(td.\"price\" AS NUMERIC), 2) AS PREZZO,\r\n    ROUND(CAST(td.\"cost\" AS NUMERIC), 2) AS COSTO,\r\n    ROUND(CAST(td.\"margin\" AS NUMERIC), 2) AS MARGINE,\r\n    CASE \r\n        WHEN td.price = 0 AND ti.item_type_pc = '2' THEN 1 \r\n        ELSE 0 \r\n    END AS alert_flag\r\nFROM TS.ts_000_testata tt\r\nJOIN TS.ts_001_dettaglio td ON tt.master_sequence_rdb_log = td.master_sequence_rdb_log\r\n-- Uso di una sottoquery con LIMIT 1 per ogni riga di td\r\nLEFT JOIN LATERAL (\r\n    SELECT tscv.item_sale_id\r\n    FROM tmd_sale_codes_var tscv\r\n    WHERE tscv.sale_code = td.\"COD_EAN\"\r\n    and  TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') between start_date and end_date\r\n    LIMIT 1\r\n) tscv_limited ON TRUE\r\nJOIN tmd_item_sales tis ON tis.id = tscv_limited.item_sale_id \r\nJOIN tmd_items ti ON ti.id = tis.item_id \r\nWHERE TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND td.price = 0\r\nORDER BY tt.master_sequence_rdb_log, td.\"COD_ARTICOLO\";",
+          "rawSql": "SELECT \r\n    tt.\"COD_PUNTO_VENDITA\" AS NEGOZIO,\r\n    tt.\"NUM_CASSA\" AS NUM_CASSA,\r\n    tt.\"NUM_SCONTRINO\" AS NUM_SCONTRINO,\r\n    TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') AS DATA_SCONTRINO,\r\n    TO_TIMESTAMP(tt.\"ORA_SCONTRINO\", 'HH24MISS')::TIME AS ORA_SCONTRINO,\r\n    tt.\"COD_FIDELITY\" AS COD_FIDELITY,\r\n    td.\"COD_EAN\" AS COD_EAN,\r\n    ti.item AS COD_ART, \r\n    ti.item_type_pc AS TIPO_ART,\r\n    td.\"DESC_ARTICOLO\" AS DESC_ARTICOLO,\r\n    td.\"FLG_OFFERTA\" AS FLG_OFFERTA,\r\n    -- Quantità convertita da millesimi (es. 1000 -> 1.000)\r\n    COALESCE(ROUND((td.\"QUANTITA\"::NUMERIC / 1000.000), 3), 0) AS QUANTITA,\r\n    ROUND(CAST(td.\"price\" AS NUMERIC), 2) AS PREZZO,\r\n    ROUND(CAST(td.\"cost\" AS NUMERIC), 2) AS COSTO,\r\n    ROUND(CAST(td.\"margin\" AS NUMERIC), 2) AS MARGINE,\r\n    CASE \r\n        WHEN td.price = 0 AND ti.item_type_pc = '2' THEN 1 \r\n        ELSE 0 \r\n    END AS alert_flag\r\nFROM TS.ts_000_testata tt\r\nJOIN TS.ts_001_dettaglio td ON tt.master_sequence_rdb_log = td.master_sequence_rdb_log\r\n-- Uso di una sottoquery con LIMIT 1 per ogni riga di td\r\nLEFT JOIN LATERAL (\r\n    SELECT tscv.item_sale_id\r\n    FROM tmd_sale_codes_var tscv\r\n    WHERE tscv.sale_code = td.\"COD_EAN\"\r\n    and  TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') between start_date and end_date\r\n    LIMIT 1\r\n) tscv_limited ON TRUE\r\nJOIN tmd_item_sales tis ON tis.id = tscv_limited.item_sale_id \r\nJOIN tmd_items ti ON ti.id = tis.item_id \r\nWHERE TO_DATE(tt.\"DATA_SCONTRINO\", 'YYYYMMDD') BETWEEN $__timeFrom() AND $__timeTo()\r\n  AND td.price = 0\r\n  AND tt.\"COD_PUNTO_VENDITA\" IN ($vg_store_cash)\r\nORDER BY tt.master_sequence_rdb_log, td.\"COD_ARTICOLO\";",
           "refId": "A",
           "sql": {
             "columns": [
@@ -329,10 +313,32 @@
       "type": "table"
     }
   ],
+  "preload": false,
   "schemaVersion": 41,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": [
+            "300009 - PDV ALBA"
+          ],
+          "value": [
+            "7328"
+          ]
+        },
+        "definition": "select network_cash AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "vg_store_cash",
+        "options": [],
+        "query": "select network_cash AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -342,6 +348,5 @@
   "timezone": "utc",
   "title": "Articoli con prezzo a zero su vendite real TIME",
   "uid": "ba2419e1-6b13-4a18-b8e3-0e70bb62b023",
-  "version": 2,
-  "weekStart": ""
+  "version": 7
 }

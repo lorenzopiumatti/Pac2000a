@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_POSTGRESQL_BO",
-      "label": "PostgreSQL BO",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-postgresql-datasource",
-      "pluginName": "PostgreSQL"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-postgresql-datasource",
-      "name": "PostgreSQL",
-      "version": "12.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -49,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 93,
   "links": [
     {
       "asDropdown": false,
@@ -70,7 +39,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -860,7 +829,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
@@ -892,7 +861,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1658,12 +1627,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT 'tmd_sale_codes_var' tab, tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes_var tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date and sale_Code not like '799%' collate case_like \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1\r\nunion\r\nSELECT 'tmd_sale_codes' tab,tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date  and sale_Code not like '799%'  collate case_like \r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1",
+          "rawSql": "SELECT 'tmd_sale_codes_var' tab, tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes_var tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date and sale_Code not like '799%' collate case_like \r\nAND (tsc2.network_id IS NULL OR tsc2.network_id IN ($vg_store))\r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1\r\nunion\r\nSELECT 'tmd_sale_codes' tab,tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc, count(*)\r\nFROM tmd_sale_codes tsc2\r\nWHERE current_date  between tsc2.start_date  and tsc2.end_date  and sale_Code not like '799%'  collate case_like \r\nAND (tsc2.network_id IS NULL OR tsc2.network_id IN ($vg_store))\r\ngroup by  tsc2.network_id, tsc2.sale_code, tsc2.code_type_pc\r\nhaving count(*) > 1",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1690,7 +1659,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -2456,12 +2425,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT  'tmd_sale_codes_var'tab, min(id) idmin ,max(id) idmax ,item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code,count(*)\r\n    FROM tmd_sale_codes_var tsc2\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    group by  item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code\r\n   having count(*) > 1\r\n   union\r\n   SELECT 'tmd_sale_codes'tab,  min(id) idmin ,max(id) idmax ,item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code,count(*)\r\n    FROM tmd_sale_codes tsc2\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    group by  item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code\r\n   having count(*) > 1\r\n",
+          "rawSql": "SELECT  'tmd_sale_codes_var'tab, min(id) idmin ,max(id) idmax ,item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code,count(*)\r\n    FROM tmd_sale_codes_var tsc2\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    AND (tsc2.network_id IS NULL OR tsc2.network_id IN ($vg_store))\r\n    group by  item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code\r\n   having count(*) > 1\r\n   union\r\n   SELECT 'tmd_sale_codes'tab,  min(id) idmin ,max(id) idmax ,item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code,count(*)\r\n    FROM tmd_sale_codes tsc2\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    AND (tsc2.network_id IS NULL OR tsc2.network_id IN ($vg_store))\r\n    group by  item_sale_id,network_id , code_type_pc, plu_code, tsc2.sale_code\r\n   having count(*) > 1\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -2488,7 +2457,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -3314,12 +3283,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "select item,network_code,description,sale_code, to_char(start_date,'dd-mm-yyyy') start_Date,to_char(end_date,'dd-mm-yyyy') end_Date  \r\nfrom boom.tin_trace_sale_code_boss\r\nwhere end_date < current_Date \r\nand processing_status <> 1",
+          "rawSql": "select item,network_code,description,sale_code, to_char(start_date,'dd-mm-yyyy') start_Date,to_char(end_date,'dd-mm-yyyy') end_Date  \r\nfrom boom.tin_trace_sale_code_boss\r\nwhere end_date < current_Date \r\nand processing_status <> 1\r\nAND (network_code IS NULL OR network_code IN ($vg_store_cash))",
           "refId": "A",
           "sql": {
             "columns": [
@@ -3346,7 +3315,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -4112,12 +4081,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT 'tmd_sale_prices_var' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item, item_sale_id ,vat_id, network_id ,\r\n sale_price_type_pc,promo_code, count(*)\r\n    FROM tmd_sale_prices_var tsc2,\r\n        tmd_item_sales tis ,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    and    tis.id = tsc2.item_sale_id\r\n     and ti.id = tis.item_id\r\n    group by  ti.item, item_sale_id ,vat_id, network_id,sale_price_type_pc,promo_code\r\n   having count(*) > 1    \r\n   union\r\n   SELECT 'tmd_sale_prices' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item, item_sale_id ,vat_id, network_id ,\r\n sale_price_type_pc,promo_code, count(*)\r\n    FROM tmd_sale_prices tsc2,\r\n        tmd_item_sales tis ,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    and    tis.id = tsc2.item_sale_id\r\n     and ti.id = tis.item_id\r\n    group by  ti.item, item_sale_id ,vat_id, network_id,sale_price_type_pc,promo_code\r\n   having count(*) > 1    ",
+          "rawSql": "SELECT 'tmd_sale_prices_var' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item, item_sale_id ,vat_id, network_id ,\r\n sale_price_type_pc,promo_code, count(*)\r\n    FROM tmd_sale_prices_var tsc2,\r\n        tmd_item_sales tis ,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    and    tis.id = tsc2.item_sale_id\r\n     and ti.id = tis.item_id\r\n     AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    group by  ti.item, item_sale_id ,vat_id, network_id,sale_price_type_pc,promo_code\r\n   having count(*) > 1    \r\n   union\r\n   SELECT 'tmd_sale_prices' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item, item_sale_id ,vat_id, network_id ,\r\n sale_price_type_pc,promo_code, count(*)\r\n    FROM tmd_sale_prices tsc2,\r\n        tmd_item_sales tis ,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n    and    tis.id = tsc2.item_sale_id\r\n     and ti.id = tis.item_id\r\n     AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    group by  ti.item, item_sale_id ,vat_id, network_id,sale_price_type_pc,promo_code\r\n   having count(*) > 1    ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -4144,7 +4113,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -4970,12 +4939,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "   SELECT 'tmd_purchase_prices' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code, count(*)\r\n    FROM tmd_purchase_prices tsc2,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n     and ti.id = tsc2.item_id\r\n    group by  ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code\r\n   having count(*) > 1    \r\n   union \r\n SELECT 'tmd_purchase_prices_var' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code, count(*)\r\n    FROM tmd_purchase_prices_var tsc2,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n     and ti.id = tsc2.item_id\r\n    group by  ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code\r\n   having count(*) > 1     ",
+          "rawSql": "   SELECT 'tmd_purchase_prices' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code, count(*)\r\n    FROM tmd_purchase_prices tsc2,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n     and ti.id = tsc2.item_id\r\n     AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    group by  ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code\r\n   having count(*) > 1    \r\n   union \r\n SELECT 'tmd_purchase_prices_var' tab, min(tsc2.id) idmin ,max(tsc2.id) idmax ,ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code, count(*)\r\n    FROM tmd_purchase_prices_var tsc2,\r\n        tmd_items ti\r\n    WHERE current_date  between tsc2.start_date  and tsc2.end_date \r\n     and ti.id = tsc2.item_id\r\n     AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    group by  ti.item,item_logistic_id, operational_agreement_id ,network_id , promo_Code\r\n   having count(*) > 1     ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -5002,7 +4971,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -5768,12 +5737,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "select 'tmd_orderable_assortments_var' tab, item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id ,count(*)\r\nfrom tmd_orderable_assortments_var toav where 1=1 \r\nand current_date between start_date and  end_date\r\ngroup  by item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id \r\nhaving count(*)>1\r\n   union\r\nselect 'tmd_orderable_assortments' tab, item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id ,count(*)\r\nfrom tmd_orderable_assortments toav where 1=1 \r\nand current_date between start_date and  end_date\r\ngroup  by item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id \r\nhaving count(*)>1\r\n\r\n   ",
+          "rawSql": "select 'tmd_orderable_assortments_var' tab, item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id ,count(*)\r\nfrom tmd_orderable_assortments_var toav where 1=1 \r\nand current_date between start_date and  end_date\r\nAND (network_id IS NULL OR network_id IN ($vg_store))\r\ngroup  by item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id \r\nhaving count(*)>1\r\n   union\r\nselect 'tmd_orderable_assortments' tab, item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id ,count(*)\r\nfrom tmd_orderable_assortments toav where 1=1 \r\nand current_date between start_date and  end_date\r\nAND (network_id IS NULL OR network_id IN ($vg_store))\r\ngroup  by item_id,item_logistic_id,logistic_unit_id,operational_agreement_id, network_id \r\nhaving count(*)>1\r\n\r\n   ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -5800,7 +5769,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -6566,12 +6535,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n    t.tab,\r\n    t.conta\r\nFROM\r\n(\r\n    -- Query principale che unisce tutti i conteggi\r\n    SELECT 'boom.tmd_orderable_assortments_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_orderable_assortments_var tppv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_orderable_assortments' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_orderable_assortments tppv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_purchase_prices_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_purchase_prices_var tppv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_purchase_prices' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_purchase_prices tspv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_prices_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_prices_var tspv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_prices' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_prices tspv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_codes_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_codes_var tspv \r\n    WHERE end_date < start_date \r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_codes' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_codes tspv \r\n    WHERE end_date < start_date \r\n) AS t\r\nWHERE\r\n    t.conta > 0;",
+          "rawSql": "SELECT\r\n    t.tab,\r\n    t.conta\r\nFROM\r\n(\r\n    -- Query principale che unisce tutti i conteggi\r\n    SELECT 'boom.tmd_orderable_assortments_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_orderable_assortments_var tppv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_orderable_assortments' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_orderable_assortments tppv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_purchase_prices_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_purchase_prices_var tppv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_purchase_prices' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_purchase_prices tspv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_prices_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_prices_var tspv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_prices' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_prices tspv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_codes_var' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_codes_var tspv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n    UNION ALL\r\n    \r\n    SELECT 'boom.tmd_sale_codes' AS tab, COUNT(*) AS conta\r\n    FROM boom.tmd_sale_codes tspv \r\n    WHERE end_date < start_date \r\n    AND (network_id IS NULL OR network_id IN ($vg_store))\r\n    \r\n) AS t\r\nWHERE\r\n    t.conta > 0;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -6598,7 +6567,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -7364,12 +7333,12 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "select tab.item as articolo, tab.description as descrizione , tab.purchprice as prz_acq ,tab.saleprice as prz_vend \r\nfrom (\r\nselect ti.item , ttr.description , tp.price purchprice, tsp.price saleprice \r\nfrom tmd_items ti,\r\n   ttr_items ttr,\r\n   tmd_purchase_prices tp,\r\n   tmd_item_Sales tis, \r\n   tmd_sale_prices tsp \r\nwhere tp.item_id = ti.id and tp.cost_type_pc =1\r\nand current_date between tp.start_date and tp.end_date \r\nand ttr.item_id = ti.id \r\nand ttr.language_id = 1\r\nand tis.item_id = ti.id \r\nand tsp.item_sale_id = tis.id  and tsp.sale_price_type_pc =1 and current_date between tsp.start_date and tsp.end_date \r\nand tsp.network_id =  ( select min(id) from tmd_networks where  is_stock_active = 1) \r\n) tab \r\nwhere tab.saleprice < tab.purchprice\r\n   ",
+          "rawSql": "select tab.item as articolo, tab.description as descrizione , tab.purchprice as prz_acq ,tab.saleprice as prz_vend \r\nfrom (\r\nselect ti.item , ttr.description , tp.price purchprice, tsp.price saleprice \r\nfrom tmd_items ti,\r\n   ttr_items ttr,\r\n   tmd_purchase_prices tp,\r\n   tmd_item_Sales tis, \r\n   tmd_sale_prices tsp \r\nwhere tp.item_id = ti.id and tp.cost_type_pc =1\r\nand current_date between tp.start_date and tp.end_date \r\nand ttr.item_id = ti.id \r\nand ttr.language_id = 1\r\nand tis.item_id = ti.id \r\nand tsp.item_sale_id = tis.id  and tsp.sale_price_type_pc =1 and current_date between tsp.start_date and tsp.end_date \r\n--and tsp.network_id =  ( select min(id) from tmd_networks where  is_stock_active = 1) \r\nAND (tsp.network_id IS NULL OR tsp.network_id IN ($vg_store))\r\nAND (tp.network_id IS NULL OR tp.network_id IN ($vg_store))\r\n) tab \r\nwhere tab.saleprice < tab.purchprice\r\n   ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -7396,7 +7365,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${DS_POSTGRESQL_BO}"
+        "uid": "V8j9KIzVk"
       },
       "fieldConfig": {
         "defaults": {
@@ -8222,7 +8191,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${DS_POSTGRESQL_BO}"
+            "uid": "V8j9KIzVk"
           },
           "editorMode": "code",
           "format": "table",
@@ -8252,22 +8221,59 @@
       "type": "table"
     }
   ],
+  "preload": false,
   "refresh": "15m",
   "schemaVersion": 41,
   "tags": [
     "DASHCONTROLLIANAGRAFICI"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": [
+            "300009 - PDV ALBA"
+          ],
+          "value": [
+            "5"
+          ]
+        },
+        "definition": "select id AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "vg_store",
+        "options": [],
+        "query": "select id AS __value, \n       concat(tn.network_code,' - ',tn.description)  AS __text\nfrom   tmd_networks tn\nwhere  network_node_type_pc = 4\nand    network_cash is not null\n--- Controllo utente\nand   ('${__user.login}' = 'admin'\n\t\tor\n\t\t((tn.id in (select network_id from vpr_auth_user_networks vaun where lower(user_code) = '${__user.login}')\n\t\t or\n\t\t (select is_superuser from TPR_USERS where  lower(user_code) = '${__user.login}') = 1))\n\t)\t\norder by tn.network_code",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "7328",
+          "value": "7328"
+        },
+        "definition": "SELECT network_cash\nFROM tmd_networks\nWHERE id IN ($vg_store)",
+        "hide": 2,
+        "includeAll": true,
+        "name": "vg_store_cash",
+        "options": [],
+        "query": "SELECT network_cash\nFROM tmd_networks\nWHERE id IN ($vg_store)",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "2025-10-22T00:00:00.000Z",
+    "to": "2025-10-22T23:59:59.999Z"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "DashBoard Controlli Anagrafici",
   "uid": "5bc2b956-3345-4be6-a96d-8ec06fc72234",
-  "version": 1,
-  "weekStart": ""
+  "version": 18
 }
