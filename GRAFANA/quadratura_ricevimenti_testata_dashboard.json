@@ -1,0 +1,2300 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_POSTGRESQL_BO",
+      "label": "PostgreSQL BO",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-postgresql-datasource",
+      "pluginName": "PostgreSQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "12.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-postgresql-datasource",
+      "name": "PostgreSQL",
+      "version": "12.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "Dettaglio bolle",
+      "tooltip": "Quadratura ricevimenti - dettaglio bolle",
+      "type": "link",
+      "url": "/d/42b5eed6-2dfe-4a2c-8a1f-3f3ae2bfeed3/quadratura-ricevimenti-dettaglio-bolle"
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL_BO}"
+      },
+      "description": "Il calendario in alto filtra per data di creazione TIN (fuso Europe/Rome). Elenco basato su TIN: verifica se ogni bolla/riga esiste su Boom. Le bolle presenti solo su Boom non compaiono. Data bolla dal/al filtra opzionalmente per data documento. Ogni blocco colorato (Righe, Pezzi, Kg, …) ha tre colonne: TIN, Boom e Diff. Legenda blocchi: stesso colore di sfondo per le 3 colonne di un blocco; TIN = tono azzurro, Boom = tono verde, Diff verde = ok, Diff rosata = differenza. Colonna grigia = separatore tra blocchi.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "wrapText": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Esito"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "OK": {
+                        "color": "#DDF5E3",
+                        "index": 0
+                      },
+                      "OK QTY / PREZZO TIN ASSENTE": {
+                        "color": "#FFF6DD",
+                        "index": 1
+                      },
+                      "SCONGRUENTE TIPO": {
+                        "color": "#FBEAEA",
+                        "index": 2
+                      },
+                      "SCONGRUENTE RIGHE": {
+                        "color": "#FBEAEA",
+                        "index": 3
+                      },
+                      "SCONGRUENTE RIGHE PEZZI": {
+                        "color": "#FBEAEA",
+                        "index": 4
+                      },
+                      "SCONGRUENTE RIGHE KG": {
+                        "color": "#FBEAEA",
+                        "index": 5
+                      },
+                      "SCONGRUENTE QUANTITA": {
+                        "color": "#FBEAEA",
+                        "index": 6
+                      },
+                      "SCONGRUENTE QUANTITA PEZZI": {
+                        "color": "#FBEAEA",
+                        "index": 7
+                      },
+                      "SCONGRUENTE QUANTITA KG": {
+                        "color": "#FBEAEA",
+                        "index": 8
+                      },
+                      "SCONGRUENTE VALORE": {
+                        "color": "#FBEAEA",
+                        "index": 9
+                      },
+                      "SCONGRUENTE VALORE PEZZI": {
+                        "color": "#FBEAEA",
+                        "index": 10
+                      },
+                      "SCONGRUENTE VALORE KG": {
+                        "color": "#FBEAEA",
+                        "index": 11
+                      },
+                      "SOLO SU TIN": {
+                        "color": "#FFF1E0",
+                        "index": 12
+                      },
+                      "SOLO SU TSM": {
+                        "color": "#FFF1E0",
+                        "index": 13
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Allineamento multiplo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "OK": {
+                        "color": "#DDF5E3",
+                        "index": 0
+                      },
+                      "SOLO ANAG": {
+                        "color": "#FFF6DD",
+                        "index": 1
+                      },
+                      "SOLO CH": {
+                        "color": "#FFF6DD",
+                        "index": 2
+                      },
+                      "TIPO DIVERSO": {
+                        "color": "#FBEAEA",
+                        "index": 3
+                      },
+                      "RAPPORTO DIVERSO": {
+                        "color": "#FBEAEA",
+                        "index": 4
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Spiegazione problema TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 340
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              },
+              {
+                "id": "description",
+                "value": "Motivo segnalato da TIN/Boom tradotto in linguaggio operativo (accordo, articolo, negozio, ecc.)."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Spiegazione esito"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              },
+              {
+                "id": "description",
+                "value": "Descrizione in linguaggio semplice del risultato."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Negozio"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "N. negozio"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Data bolla"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              },
+              {
+                "id": "description",
+                "value": "Data del documento di trasporto."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "File TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              },
+              {
+                "id": "description",
+                "value": "Nome file interfaccia TIN: discrimina i caricamenti della stessa bolla."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Transaction code"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 125
+              },
+              {
+                "id": "description",
+                "value": "Transaction code TIN: identifica ogni singolo caricamento del file."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Articolo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Descrizione articolo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 260
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH tipo (M/S/U)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH rapporto"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH UXI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH UM prezzo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Anag tipo (S/M)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Anag codice"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Anag valore"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH pezzi (buffer)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CH colli (buffer)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Kg calcolato da multiplo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 145
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Spiegazione calcolo kg"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 340
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nota colli"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Info logistica"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 250
+              },
+              {
+                "id": "custom.wrapText",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tipo gestione"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "N. riga"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "creation_date"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Data creazione"
+              },
+              {
+                "id": "custom.width",
+                "value": 155
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_pezzi__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_colli__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_val_pezzi__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_kg__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_val_kg__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_valore__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_lordo__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_netto__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__sep_netnet__"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": " "
+              },
+              {
+                "id": "custom.width",
+                "value": 12
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECEFF3",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Righe TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Righe · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F5F9FF",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Righe TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Righe · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F4FBF7",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff righe"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Righe · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pezzi TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Pezzi · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#EFF6FF",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pezzi TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Pezzi · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECFDF5",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff pezzi"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Pezzi · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Colli TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Colli · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F8FAFC",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Colli TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Colli · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F0FDFA",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff colli"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Colli · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore pezzi TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore pezzi · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F5F3FF",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore pezzi TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore pezzi · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F7FEE7",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff valore pezzi"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore pezzi · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 140
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Kg TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Kg · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F5F9FF",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Kg TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Kg · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#F4FBF7",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff kg"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Kg · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore kg TIN"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore kg · TIN"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#EFF6FF",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore kg TSM"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore kg · Boom"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#ECFDF5",
+                      "value": 0
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff valore kg"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Valore kg · Diff"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": -999999999
+                    },
+                    {
+                      "color": "#EEFBF1",
+                      "value": -0.001
+                    },
+                    {
+                      "color": "#FDEEEE",
+                      "value": 0.001
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "decimals",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "N. bolla"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 125
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "auto"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": false,
+                    "title": "Apri dettaglio bolle",
+                    "url": "/d/42b5eed6-2dfe-4a2c-8a1f-3f3ae2bfeed3/quadratura-ricevimenti-dettaglio-bolle?${__url_time_range}&var-numero_bolla=${__value.text:percentencode}&var-negozio=${__data.fields[\"N. negozio\"]:percentencode}&var-numero_ricevimento=${__data.fields[\"N. ricevimento\"]:percentencode}&var-file_tin=${__data.fields[\"File TIN\"]:percentencode}&var-transaction_code=${__data.fields[\"Transaction code\"]:percentencode}&var-articolo=GRAFANA_ALL&var-data_bolla_dal=${data_bolla_dal}&var-data_bolla_al=${data_bolla_al}&var-visualizza=tutto",
+                    "oneClick": true
+                  }
+                ]
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "N. ricevimento"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 125
+              },
+              {
+                "id": "description",
+                "value": "Codice ricevimento Boom (se disponibile)."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Valore TSM"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff valore"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo lordo TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo lordo TSM"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff prezzo lordo"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo netto TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo netto TSM"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff prezzo netto"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo net-net TIN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Prezzo net-net TSM"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Diff prezzo net-net"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 26,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": true,
+          "fields": [],
+          "reducer": [
+            "count"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "N. bolla"
+          }
+        ]
+      },
+      "pluginVersion": "12.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL_BO}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "-- Quadratura totali bolla: tipo gestione da anagrafica Boom (unità di giacenza)\r\n-- PEZZI (UM PZ): totali e confronto solo su pezzi/colli/valore pezzi\r\n-- PESO  (UM KG): totali e confronto solo su kg/valore kg\r\n-- Calendario Grafana = creation_date su TIN. Elenco bolle = solo interfaccia TIN; confronto LEFT JOIN su Boom (TSM).\r\n\r\nWITH scope AS (\r\n    SELECT DISTINCT TRIM(tin.document_number) AS documento, tin.document_date AS data_documento, tin.network AS negozio, tin.file_name AS file_tin, tin.transaction_code AS transaction_code\r\n    FROM boom.tin_data_reception_in tin\r\nWHERE tin.source_type_pc = 30\r\n      AND (tin.creation_date)::date >= (((timestamptz 'epoch' + (CASE WHEN ${__from} > 1000000000000 THEN (${__from} * interval '1 millisecond') ELSE (${__from} * interval '1 second') END))) AT TIME ZONE 'Europe/Rome')::date AND (tin.creation_date)::date <= (((timestamptz 'epoch' + (CASE WHEN GREATEST(${__to}, ${__from}) > 1000000000000 THEN (GREATEST(${__to}, ${__from}) * interval '1 millisecond') ELSE (GREATEST(${__to}, ${__from}) * interval '1 second') END))) AT TIME ZONE 'Europe/Rome')::date\r\n      AND (NULLIF('${data_bolla_dal}', '') IS NULL OR tin.document_date >= NULLIF('${data_bolla_dal}', '')::date)\r\n      AND (NULLIF('${data_bolla_al}', '') IS NULL OR tin.document_date <= NULLIF('${data_bolla_al}', '')::date)\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${negozio:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR tin.network = ANY(string_to_array('${negozio:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${numero_bolla:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR TRIM(tin.document_number) = ANY(string_to_array('${numero_bolla:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${articolo:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR tin.item = ANY(string_to_array('${articolo:csv}', ',')::varchar[])\r\n      )\r\n),\r\ntin AS (\r\n    SELECT\r\n        TRIM(tin.document_number) AS documento,\r\n        tin.document_date AS data_documento,\r\n        MAX(net.description) AS negozio,\r\n        MAX(tin.network) AS numero_negozio,\r\n        MAX(tin.file_name) AS file_tin,\r\n        MAX(tin.transaction_code) AS transaction_code,\r\n        STRING_AGG(\r\n            DISTINCT NULLIF(TRIM(tin.error_message), ''),\r\n            ' | ' ORDER BY NULLIF(TRIM(tin.error_message), '')\r\n        ) AS motivo_squadratura,\r\n        COUNT(*) AS righe_tin,\r\n        COUNT(*) FILTER (WHERE UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ') AS righe_pezzi_tin,\r\n        COUNT(*) FILTER (WHERE UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ') AS righe_kg_tin,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tin.quantity_pieces, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS pezzi_tin,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tin.quantity_packs, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS colli_tin,\r\n        ROUND(SUM(CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tin.quantity_pieces, 0) * COALESCE(tin.net_net_price, tin.net_price, tin.gross_price, 0)\r\n                ELSE 0\r\n            END), 3) AS val_pezzi_tin,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ'\r\n                THEN COALESCE(tin.quantity_weight, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS kg_tin,\r\n        ROUND(SUM(CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ'\r\n                THEN COALESCE(tin.quantity_weight, 0) * COALESCE(tin.net_net_price, tin.net_price, tin.gross_price, 0)\r\n                ELSE 0\r\n            END), 3) AS val_kg_tin,\r\n        MAX(tin.creation_date) AS data_creazione,\r\n        BOOL_OR(COALESCE(tin.net_net_price, tin.net_price, tin.gross_price) IS NOT NULL) AS ha_prezzo_tin\r\n    FROM boom.tin_data_reception_in tin\r\nINNER JOIN scope s\r\n      ON TRIM(tin.document_number) = s.documento\r\n     AND tin.document_date = s.data_documento\r\n     AND tin.network = s.negozio\r\n     AND tin.file_name IS NOT DISTINCT FROM s.file_tin\r\n     AND tin.transaction_code IS NOT DISTINCT FROM s.transaction_code\r\n    LEFT JOIN boom.tmd_networks net ON net.network_code = tin.network\r\n    LEFT JOIN boom.vmd_items vi ON vi.item = tin.item\r\n    LEFT JOIN boom.vpa_parameters vp_su\r\n      ON vp_su.parameter_header = vi.stock_unit_ph\r\n     AND vp_su.parameter_code = vi.stock_unit_pc\r\n     AND vp_su.is_default = 1\r\n    WHERE tin.source_type_pc = 30\r\n      AND (NULLIF('${data_bolla_dal}', '') IS NULL OR tin.document_date >= NULLIF('${data_bolla_dal}', '')::date)\r\n      AND (NULLIF('${data_bolla_al}', '') IS NULL OR tin.document_date <= NULLIF('${data_bolla_al}', '')::date)\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${negozio:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR tin.network = ANY(string_to_array('${negozio:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${numero_bolla:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR TRIM(tin.document_number) = ANY(string_to_array('${numero_bolla:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${articolo:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR tin.item = ANY(string_to_array('${articolo:csv}', ',')::varchar[])\r\n      )\r\n    GROUP BY TRIM(tin.document_number), tin.document_date, tin.network, tin.file_name, tin.transaction_code\r\n),\r\ntsm AS (\r\n    SELECT\r\n        TRIM(tsm.document_number) AS documento,\r\n        tsm.document_date AS data_documento,\r\n        MAX(net.description) AS negozio,\r\n        MAX(net.network_code) AS numero_negozio,\r\n        MAX(tsm.reception_code) AS codice_ricevimento,\r\n        COUNT(*) AS righe_tsm,\r\n        COUNT(*) FILTER (WHERE UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ') AS righe_pezzi_tsm,\r\n        COUNT(*) FILTER (WHERE UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ') AS righe_kg_tsm,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tsm_d.quantity_pieces, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS pezzi_tsm,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tsm_d.quantity_packs, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS colli_tsm,\r\n        ROUND(SUM(CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) = 'PZ'\r\n                THEN COALESCE(tsm_d.quantity_pieces, 0) * COALESCE(tsm_d.net_net_price, 0)\r\n                ELSE 0\r\n            END), 3) AS val_pezzi_tsm,\r\n        SUM(\r\n            CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ'\r\n                THEN COALESCE(tsm_d.quantity_weight, 0)\r\n                ELSE 0\r\n            END\r\n        ) AS kg_tsm,\r\n        ROUND(SUM(CASE\r\n                WHEN UPPER(COALESCE(vp_su.description, 'PZ')) <> 'PZ'\r\n                THEN COALESCE(tsm_d.quantity_weight, 0) * COALESCE(tsm_d.net_net_price, 0)\r\n                ELSE 0\r\n            END), 3) AS val_kg_tsm,\r\n        MAX(tsm.creation_date) AS data_creazione\r\n    FROM boom.tsm_receptions tsm\r\n    INNER JOIN (\r\n        SELECT DISTINCT documento, data_documento, negozio\r\n        FROM scope\r\n    ) s\r\n      ON TRIM(tsm.document_number) = s.documento\r\n     AND tsm.document_date = s.data_documento\r\n    JOIN boom.tsm_receptions_detail tsm_d ON tsm_d.reception_id = tsm.id\r\n    JOIN boom.tmd_networks net ON net.id = tsm.network_id\r\n     AND net.network_code = s.negozio\r\n    JOIN boom.tmd_items it ON it.id = tsm_d.item_id\r\n    LEFT JOIN boom.vpa_parameters vp_su\r\n      ON vp_su.parameter_header = it.stock_unit_ph\r\n     AND vp_su.parameter_code = it.stock_unit_pc\r\n     AND vp_su.is_default = 1\r\n    WHERE COALESCE(tsm.status_pc, 0) <> 6\r\n      AND RIGHT(TRIM(COALESCE(tsm.reception_code, '')), 4) <> '_ANN'\r\n      AND RIGHT(TRIM(COALESCE(tsm.document_number, '')), 4) <> '_ANN'\r\n      AND (NULLIF('${data_bolla_dal}', '') IS NULL OR tsm.document_date >= NULLIF('${data_bolla_dal}', '')::date)\r\n      AND (NULLIF('${data_bolla_al}', '') IS NULL OR tsm.document_date <= NULLIF('${data_bolla_al}', '')::date)\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${negozio:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR net.network_code = ANY(string_to_array('${negozio:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${numero_bolla:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR TRIM(tsm.document_number) = ANY(string_to_array('${numero_bolla:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${numero_ricevimento:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR TRIM(tsm.reception_code) = ANY(string_to_array('${numero_ricevimento:csv}', ',')::varchar[])\r\n      )\r\n      AND (\r\n            COALESCE(NULLIF(TRIM('${articolo:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n         OR it.item = ANY(string_to_array('${articolo:csv}', ',')::varchar[])\r\n      )\r\n    GROUP BY TRIM(tsm.document_number), tsm.document_date, net.network_code\r\n),\r\nbase AS (\r\n    SELECT\r\n        COALESCE(tin.negozio, tsm.negozio) AS negozio,\r\n        COALESCE(tin.numero_negozio, tsm.numero_negozio) AS numero_negozio,\r\n        COALESCE(tin.documento, tsm.documento) AS numero_bolla,\r\n        COALESCE(tin.data_documento, tsm.data_documento) AS data_bolla,\r\n        tin.file_tin,\r\n        tin.transaction_code,\r\n        tsm.codice_ricevimento,\r\n        tin.motivo_squadratura,\r\n        COALESCE(tin.righe_tin, 0) AS righe_tin,\r\n        COALESCE(tsm.righe_tsm, 0) AS righe_tsm,\r\n        COALESCE(tin.righe_pezzi_tin, 0) AS righe_pezzi_tin,\r\n        COALESCE(tsm.righe_pezzi_tsm, 0) AS righe_pezzi_tsm,\r\n        COALESCE(tin.righe_kg_tin, 0) AS righe_kg_tin,\r\n        COALESCE(tsm.righe_kg_tsm, 0) AS righe_kg_tsm,\r\n        COALESCE(tin.pezzi_tin, 0) AS pezzi_tin_raw,\r\n        COALESCE(tsm.pezzi_tsm, 0) AS pezzi_tsm_raw,\r\n        COALESCE(tin.colli_tin, 0) AS colli_tin_raw,\r\n        COALESCE(tsm.colli_tsm, 0) AS colli_tsm_raw,\r\n        COALESCE(tin.kg_tin, 0) AS kg_tin_raw,\r\n        COALESCE(tsm.kg_tsm, 0) AS kg_tsm_raw,\r\n        COALESCE(tin.val_pezzi_tin, 0) AS val_pezzi_tin_raw,\r\n        COALESCE(tsm.val_pezzi_tsm, 0) AS val_pezzi_tsm_raw,\r\n        COALESCE(tin.val_kg_tin, 0) AS val_kg_tin_raw,\r\n        COALESCE(tsm.val_kg_tsm, 0) AS val_kg_tsm_raw,\r\n        COALESCE(tin.ha_prezzo_tin, FALSE) AS ha_prezzo_tin,\r\n        tsm.documento IS NULL AS solo_tin,\r\n        COALESCE(tin.righe_pezzi_tin, 0) > 0 AS confronta_pezzi,\r\n        COALESCE(tin.righe_kg_tin, 0) > 0 AS confronta_kg,\r\n        COALESCE(tsm.righe_pezzi_tsm, 0) > 0 AS tsm_ha_pezzi,\r\n        COALESCE(tsm.righe_kg_tsm, 0) > 0 AS tsm_ha_kg,\r\n        COALESCE(tin.data_creazione, tsm.data_creazione) AS data_creazione\r\n    FROM tin\r\n    LEFT JOIN tsm\r\n      ON tin.documento = tsm.documento\r\n     AND tin.data_documento = tsm.data_documento\r\n     AND tin.numero_negozio = tsm.numero_negozio\r\n),\r\nquadratura AS (\r\n    SELECT\r\n        b.*,\r\n        CASE\r\n            WHEN b.solo_tin THEN 'SOLO SU TIN'\r\n            WHEN b.righe_tin <> b.righe_tsm THEN 'SCONGRUENTE RIGHE'\r\n            WHEN b.confronta_pezzi AND NOT b.confronta_kg AND b.tsm_ha_kg AND NOT b.tsm_ha_pezzi THEN 'SCONGRUENTE TIPO'\r\n            WHEN b.confronta_kg AND NOT b.confronta_pezzi AND b.tsm_ha_pezzi AND NOT b.tsm_ha_kg THEN 'SCONGRUENTE TIPO'\r\n            WHEN b.confronta_pezzi AND b.righe_pezzi_tin <> b.righe_pezzi_tsm THEN 'SCONGRUENTE RIGHE PEZZI'\r\n            WHEN b.confronta_kg AND b.righe_kg_tin <> b.righe_kg_tsm THEN 'SCONGRUENTE RIGHE KG'\r\n            WHEN b.confronta_pezzi AND (\r\n                ABS(b.pezzi_tin_raw - b.pezzi_tsm_raw) > 0.001\r\n            ) THEN 'SCONGRUENTE QUANTITA PEZZI'\r\n            WHEN b.confronta_kg AND ABS(b.kg_tin_raw - b.kg_tsm_raw) > 0.001 THEN 'SCONGRUENTE QUANTITA KG'\r\n            WHEN NOT b.ha_prezzo_tin THEN 'OK QTY / PREZZO TIN ASSENTE'\r\n            WHEN b.confronta_pezzi AND ABS(b.val_pezzi_tin_raw - b.val_pezzi_tsm_raw) > 0.01 THEN 'SCONGRUENTE VALORE PEZZI'\r\n            WHEN b.confronta_kg AND ABS(b.val_kg_tin_raw - b.val_kg_tsm_raw) > 0.01 THEN 'SCONGRUENTE VALORE KG'\r\n            ELSE 'OK'\r\n        END AS esito\r\n    FROM base b\r\n)\r\nSELECT\r\n    q.negozio AS \"Negozio\",\r\n    q.numero_negozio AS \"N. negozio\",\r\n    q.numero_bolla AS \"N. bolla\",\r\n    q.codice_ricevimento AS \"N. ricevimento\",\r\n    q.data_bolla AS \"Data bolla\",\r\n    q.file_tin AS \"File TIN\",\r\n    q.transaction_code AS \"Transaction code\",\r\n    TO_CHAR(q.data_creazione, 'DD/MM/YYYY HH24:MI:SS') AS creation_date,\r\n    CASE\r\n    WHEN ((q.motivo_squadratura) COLLATE \"C\") IS NULL OR BTRIM(((q.motivo_squadratura) COLLATE \"C\")) = '' THEN NULL\r\n    ELSE BTRIM(\r\n        regexp_replace(\r\n            regexp_replace(\r\n                regexp_replace(\r\n                    regexp_replace(\r\n                        regexp_replace(\r\n                            regexp_replace(\r\n                                regexp_replace(\r\n                                    regexp_replace(\r\n                                        regexp_replace(\r\n                                            regexp_replace(\r\n                                                ((q.motivo_squadratura) COLLATE \"C\"),\r\n                                                'Elemento non trovato: Id Accordo, id:-1',\r\n                                                'Accordo commerciale non trovato in Boom: manca il collegamento fornitore/contratto per questo negozio o documento.',\r\n                                                'gi'\r\n                                            ),\r\n                                            'Elemento non trovato: Id Rete/Sito, id:-1',\r\n                                            'Negozio non riconosciuto in Boom: codice rete o punto vendita assente o errato.',\r\n                                            'gi'\r\n                                        ),\r\n                                        'Elemento non trovato: Id Articolo, id:-1',\r\n                                        'Articolo non presente in anagrafica Boom: va creato oppure il codice inviato da TIN non è corretto.',\r\n                                        'gi'\r\n                                    ),\r\n                                    'Elemento non trovato: ([^,]+), id:-1',\r\n                                    'Dato anagrafico mancante in Boom (\\1): verificare configurazione in anagrafica.',\r\n                                    'gi'\r\n                                ),\r\n                                'Articolo ripetuto e riga accorpata',\r\n                                'Lo stesso articolo compare più volte sulla bolla: Boom ha unificato le righe duplicate.',\r\n                                'gi'\r\n                            ),\r\n                            'Non è possibile salvare il Dettaglio Ricevimento, ne esiste già uno',\r\n                            'Riga già presente nel ricevimento Boom: stesso articolo, unità logistica e collo già registrati.',\r\n                            'gi'\r\n                        ),\r\n                        'Errore testata ricevimento [^|]+ null',\r\n                        'Errore in elaborazione dell''intestazione bolla: Boom non ha completato il salvataggio.',\r\n                        'gi'\r\n                    ),\r\n                    'Documento [^|]+ articolo [^|]+ - null',\r\n                    'Errore in elaborazione della riga articolo: Boom non ha restituito un dettaglio (verificare anagrafica e dati inviati).',\r\n                    'gi'\r\n                ),\r\n                'Documento [A-Z]{2,4}\\s+[^ ]+\\s+articolo\\s+([^ ]+)\\s+-\\s+',\r\n                'Sull''articolo \\1: ',\r\n                'gi'\r\n            ),\r\n            'Errore testata ricevimento\\s+[A-Z]{2,4}\\s+[^ ]+\\s+',\r\n            '',\r\n            'gi'\r\n        )\r\n    )\r\nEND\r\n AS \"Spiegazione problema TIN\",\r\n    q.esito AS \"Esito\",\r\n    CASE q.esito\r\n        WHEN 'OK' THEN 'TIN e Boom quadrati su questa bolla.'\r\n        WHEN 'OK QTY / PREZZO TIN ASSENTE' THEN 'Quantità allineate; prezzo TIN non disponibile per il confronto valore.'\r\n        WHEN 'SOLO SU TIN' THEN 'Bolla presente in TIN, ricevimento Boom non trovato per stessa bolla/negozio/data.'\r\n        WHEN 'SCONGRUENTE RIGHE' THEN 'Numero righe diverso tra TIN e Boom.'\r\n        WHEN 'SCONGRUENTE TIPO' THEN 'Tipo gestione diverso (pezzi vs peso) tra TIN e Boom.'\r\n        WHEN 'SCONGRUENTE RIGHE PEZZI' THEN 'Numero righe a pezzi diverso.'\r\n        WHEN 'SCONGRUENTE RIGHE KG' THEN 'Numero righe a peso diverso.'\r\n        WHEN 'SCONGRUENTE QUANTITA PEZZI' THEN 'Pezzi totali diversi.'\r\n        WHEN 'SCONGRUENTE QUANTITA KG' THEN 'Kg totali diversi.'\r\n        WHEN 'SCONGRUENTE VALORE PEZZI' THEN 'Valore pezzi diverso.'\r\n        WHEN 'SCONGRUENTE VALORE KG' THEN 'Valore kg diverso.'\r\n        ELSE 'Verificare i dettagli nelle colonne TIN / Boom.'\r\n    END AS \"Spiegazione esito\",\r\n    q.righe_tin AS \"Righe TIN\",\r\n    q.righe_tsm AS \"Righe TSM\",\r\n    q.righe_tin - q.righe_tsm AS \"Diff righe\",\r\n    '' AS \"__sep_pezzi__\",\r\n    CASE WHEN q.confronta_pezzi THEN q.pezzi_tin_raw END AS \"Pezzi TIN\",\r\n    CASE WHEN q.confronta_pezzi THEN q.pezzi_tsm_raw END AS \"Pezzi TSM\",\r\n    CASE WHEN q.confronta_pezzi THEN ROUND(q.pezzi_tin_raw - q.pezzi_tsm_raw, 3) END AS \"Diff pezzi\",\r\n    '' AS \"__sep_colli__\",\r\n    CASE WHEN q.confronta_pezzi THEN q.colli_tin_raw END AS \"Colli TIN\",\r\n    CASE WHEN q.confronta_pezzi THEN q.colli_tsm_raw END AS \"Colli TSM\",\r\n    CASE WHEN q.confronta_pezzi THEN ROUND(q.colli_tin_raw - q.colli_tsm_raw, 3) END AS \"Diff colli\",\r\n    '' AS \"__sep_val_pezzi__\",\r\n    CASE WHEN q.confronta_pezzi THEN q.val_pezzi_tin_raw END AS \"Valore pezzi TIN\",\r\n    CASE WHEN q.confronta_pezzi THEN q.val_pezzi_tsm_raw END AS \"Valore pezzi TSM\",\r\n    CASE WHEN q.confronta_pezzi THEN ROUND(q.val_pezzi_tin_raw - q.val_pezzi_tsm_raw, 3) END AS \"Diff valore pezzi\",\r\n    '' AS \"__sep_kg__\",\r\n    CASE WHEN q.confronta_kg THEN q.kg_tin_raw END AS \"Kg TIN\",\r\n    CASE WHEN q.confronta_kg THEN q.kg_tsm_raw END AS \"Kg TSM\",\r\n    CASE WHEN q.confronta_kg THEN ROUND(q.kg_tin_raw - q.kg_tsm_raw, 3) END AS \"Diff kg\",\r\n    '' AS \"__sep_val_kg__\",\r\n    CASE WHEN q.confronta_kg THEN q.val_kg_tin_raw END AS \"Valore kg TIN\",\r\n    CASE WHEN q.confronta_kg THEN q.val_kg_tsm_raw END AS \"Valore kg TSM\",\r\n    CASE WHEN q.confronta_kg THEN ROUND(q.val_kg_tin_raw - q.val_kg_tsm_raw, 3) END AS \"Diff valore kg\"\r\nFROM quadratura q\r\nWHERE ('${visualizza}' = 'tutto' OR q.esito <> 'OK')\r\n  AND (\r\n        COALESCE(NULLIF(TRIM('${numero_ricevimento:raw}'), ''), 'GRAFANA_ALL') = 'GRAFANA_ALL'\r\n     OR TRIM(q.codice_ricevimento) = ANY(string_to_array('${numero_ricevimento:csv}', ',')::varchar[])\r\n  )\r\nORDER BY q.numero_bolla, q.data_bolla;\r\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Quadratura ricevimenti - testata bolle",
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 41,
+  "tags": [
+    "ricevimenti",
+    "quadratura",
+    "testata bolle"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "hide": 0,
+        "label": "Data bolla dal",
+        "name": "data_bolla_dal",
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "hide": 0,
+        "label": "Data bolla al",
+        "name": "data_bolla_al",
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "GRAFANA_ALL"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT network_code AS __value, description || ' (' || network_code || ')' AS __text FROM boom.tmd_networks WHERE RIGHT(network_code, 1) <> 'V' ORDER BY description",
+        "includeAll": true,
+        "label": "Negozio",
+        "multi": true,
+        "name": "negozio",
+        "options": [],
+        "query": "SELECT network_code AS __value, description || ' (' || network_code || ')' AS __text FROM boom.tmd_networks WHERE RIGHT(network_code, 1) <> 'V' ORDER BY description",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query",
+        "allValue": "GRAFANA_ALL"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "GRAFANA_ALL"
+        },
+        "allValue": "GRAFANA_ALL",
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT DISTINCT reception_code AS __value, reception_code AS __text FROM (SELECT TRIM(reception_code) AS reception_code FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND reception_code IS NOT NULL AND TRIM(reception_code) <> '' AND creation_date >= CURRENT_DATE - INTERVAL '180 days' UNION SELECT TRIM(tsm.reception_code) AS reception_code FROM boom.tsm_receptions tsm WHERE COALESCE(tsm.status_pc, 0) <> 6 AND RIGHT(TRIM(COALESCE(tsm.reception_code, '')), 4) <> '_ANN' AND tsm.reception_code IS NOT NULL AND TRIM(tsm.reception_code) <> '' AND tsm.creation_date >= CURRENT_DATE - INTERVAL '180 days' ) r ORDER BY 1",
+        "includeAll": true,
+        "label": "Numero ricevimento",
+        "multi": true,
+        "name": "numero_ricevimento",
+        "options": [],
+        "query": "SELECT DISTINCT reception_code AS __value, reception_code AS __text FROM (SELECT TRIM(reception_code) AS reception_code FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND reception_code IS NOT NULL AND TRIM(reception_code) <> '' AND creation_date >= CURRENT_DATE - INTERVAL '180 days' UNION SELECT TRIM(tsm.reception_code) AS reception_code FROM boom.tsm_receptions tsm WHERE COALESCE(tsm.status_pc, 0) <> 6 AND RIGHT(TRIM(COALESCE(tsm.reception_code, '')), 4) <> '_ANN' AND tsm.reception_code IS NOT NULL AND TRIM(tsm.reception_code) <> '' AND tsm.creation_date >= CURRENT_DATE - INTERVAL '180 days' ) r ORDER BY 1",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "GRAFANA_ALL"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT DISTINCT TRIM(document_number) AS __value, TRIM(document_number) AS __text FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND TRIM(document_number) <> '' AND creation_date >= CURRENT_DATE - INTERVAL '180 days' ORDER BY 1",
+        "includeAll": true,
+        "label": "Numero bolla",
+        "multi": true,
+        "name": "numero_bolla",
+        "options": [],
+        "query": "SELECT DISTINCT TRIM(document_number) AS __value, TRIM(document_number) AS __text FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND TRIM(document_number) <> '' AND creation_date >= CURRENT_DATE - INTERVAL '180 days' ORDER BY 1",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query",
+        "allValue": "GRAFANA_ALL"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "GRAFANA_ALL"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL_BO}"
+        },
+        "definition": "SELECT DISTINCT item AS __value, item AS __text FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND item IS NOT NULL AND creation_date >= CURRENT_DATE - INTERVAL '180 days' ORDER BY 1",
+        "includeAll": true,
+        "label": "Articolo",
+        "multi": true,
+        "name": "articolo",
+        "options": [],
+        "query": "SELECT DISTINCT item AS __value, item AS __text FROM boom.tin_data_reception_in WHERE source_type_pc = 30 AND item IS NOT NULL AND creation_date >= CURRENT_DATE - INTERVAL '180 days' ORDER BY 1",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query",
+        "allValue": "GRAFANA_ALL"
+      },
+      {
+        "current": {
+          "text": "tutto",
+          "value": "tutto"
+        },
+        "includeAll": false,
+        "label": "Visualizza",
+        "name": "visualizza",
+        "options": [
+          {
+            "selected": true,
+            "text": "Visualizza tutto",
+            "value": "tutto"
+          },
+          {
+            "selected": false,
+            "text": "Solo differenze",
+            "value": "differenze"
+          }
+        ],
+        "query": "Visualizza tutto : tutto, Solo differenze : differenze",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h"
+    ]
+  },
+  "timezone": "Europe/Rome",
+  "title": "Quadratura ricevimenti - testata bolle",
+  "uid": "7c8f2a1b-9d4e-4f6a-b2c1-0e5d9a8f3b2c",
+  "version": 46,
+  "weekStart": ""
+}
